@@ -27,7 +27,7 @@ class CollectionsTests: XCTestCase {
     func testExample() throws {
 
         self.measure {
-            sut.array(number: 10_000_000)
+//            sut.array(number: 10_000_000)
         }
 
     }
