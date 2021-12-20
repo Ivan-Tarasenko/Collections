@@ -8,15 +8,29 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
 
-    private let myArray: NSArray = ["Array", "Set", "Dictionary"]
     private var tableView: UITableView!
+    private var textTitle: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         cteateTableView()
+        createTextTitle()
+    }
+
+    func createTextTitle() {
+        textTitle = UILabel()
+        textTitle.text = "Collections"
+        textTitle.font = UIFont.boldSystemFont(ofSize: 37)
+        self.view.addSubview(textTitle)
+
+        textTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(70)
+            make.leading.equalToSuperview().inset(15)
+            make.trailing.equalToSuperview().inset(15)
+        }
     }
 
     func cteateTableView() {
@@ -27,17 +41,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.addSubview(tableView)
 
         tableView.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview().inset(0)
+            make.top.equalToSuperview().inset(130)
+            make.leading.trailing.bottom.equalToSuperview().inset(0)
         }
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(myArray[indexPath.row])"
-        return cell
     }
 }
