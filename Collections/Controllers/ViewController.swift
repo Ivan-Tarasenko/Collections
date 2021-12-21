@@ -11,26 +11,12 @@ import SnapKit
 class ViewController: UIViewController {
 
     private var tableView: UITableView!
-    private var textTitle: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         cteateTableView()
-        createTextTitle()
-    }
 
-    func createTextTitle() {
-        textTitle = UILabel()
-        textTitle.text = "Collections"
-        textTitle.font = UIFont.boldSystemFont(ofSize: 37)
-        self.view.addSubview(textTitle)
-
-        textTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(70)
-            make.leading.equalToSuperview().inset(15)
-            make.trailing.equalToSuperview().inset(15)
-        }
     }
 
     func cteateTableView() {
@@ -41,7 +27,7 @@ class ViewController: UIViewController {
         self.view.addSubview(tableView)
 
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(130)
+            make.top.equalToSuperview().inset(10)
             make.leading.trailing.bottom.equalToSuperview().inset(0)
         }
     }

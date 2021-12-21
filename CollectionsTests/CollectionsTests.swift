@@ -27,7 +27,7 @@ class CollectionsTests: XCTestCase {
     func testExample() throws {
 
     }
-
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

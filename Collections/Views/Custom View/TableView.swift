@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-private let myArray: NSArray = ["Array", "Set", "Dictionary"]
+private var myArray: NSArray = ["Collections", "Array", "Set", "Dictionary"]
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -18,7 +18,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(myArray[indexPath.row])"
+        switch indexPath.row {
+        case 0:
+            cell.textLabel!.text = "\(myArray[0])"
+            cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 37)
+        case 1, 2, 3:
+            cell.textLabel!.text = "\(myArray[indexPath.row])"
+        default:
+            break
+        }
+
         return cell
     }
     
