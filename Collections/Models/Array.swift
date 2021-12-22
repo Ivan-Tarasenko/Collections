@@ -7,10 +7,28 @@
 
 import Foundation
 
-class Array {
+class ArrayCreate {
 
-    func array( number: Int) -> [Int] {
-    let arr = (0...number).map({_ in Int.random(in: 1...1000)})
-        return arr
+    var myArray = [Int]()
+    var addArray = [Int]()
+
+    func timeElapsed (string: String, operation: ()->()) {
+        let startTime = CFAbsoluteTimeGetCurrent()
+        operation()
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        let ms = Double(timeElapsed)
+        let answer = (round(1000 * ms) / 1000)
+        return print("Time \(string): \(answer) ms.")
+    }
+
+    
+}
+
+public extension Array where Element == Int {
+    static func generateRandom(size: Int) -> [Int] {
+        guard size > 0 else {
+            return [Int]()
+        }
+        return Array(0..<size).shuffled()
     }
 }
