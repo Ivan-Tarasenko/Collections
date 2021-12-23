@@ -10,25 +10,25 @@ import XCTest
 
 class CollectionsTests: XCTestCase {
 
-    var sut: Array!
-
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-        sut = Array()
-
-    }
-
-    override func tearDownWithError() throws {
-        sut = Array()
-
-        try super.tearDownWithError()
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+//    var sut: Array!
+//
+//    override func setUpWithError() throws {
+//        try super.setUpWithError()
+//        sut = Array()
+//
+//    }
+//
+//    override func tearDownWithError() throws {
+//        sut = Array()
+//
+//        try super.tearDownWithError()
+//    }
+//
+//    func testPerformanceExample() throws {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
 
 }

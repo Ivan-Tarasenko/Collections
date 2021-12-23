@@ -12,11 +12,13 @@ class ViewController: UIViewController {
 
     private var tableView: UITableView!
 
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         cteateTableView()
-        
 
     }
 
