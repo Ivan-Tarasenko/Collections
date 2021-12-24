@@ -12,9 +12,14 @@ class SetVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
+        setNavigationBar()
         // Do any additional setup after loading the view.
     }
-    
+
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.backgroundColor = .white
+    }
     /*
     // MARK: - Navigation
 

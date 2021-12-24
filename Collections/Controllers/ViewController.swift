@@ -17,7 +17,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isHidden = true
+        self.navigationItem.title = "Collectctions"
         cteateTableView()
+
     }
 
     func cteateTableView() {
@@ -41,14 +43,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "\(myArray[0])"
+            cell.textLabel?.text = "\(myArray[indexPath.row])"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 37)
+            cell.selectionStyle = .none
         case 1, 2, 3:
             cell.textLabel?.text = "\(myArray[indexPath.row])"
+            cell.accessoryType = .disclosureIndicator
         default:
             break
         }
 
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 1:
+            let arrayVC = ArrayVC()
+            let randomValue = Array.generateRandom(size: 999)
+            arrayVC.navigationItem.title = "\(myArray[indexPath.row]): \(randomValue.randomIndex())"
+             self.navigationController?.pushViewController(arrayVC, animated: true)
+        case 2:
+            let setVC = SetVC()
+            setVC.navigationItem.title = "\(myArray[indexPath.row])"
+            self.navigationController?.pushViewController(setVC, animated: true)
+        case 3:
+            let dictionaryVC = DictionaryVC()
+            dictionaryVC.navigationItem.title = "\(myArray[indexPath.row])"
+            self.navigationController?.pushViewController(dictionaryVC, animated: true)
+        default:
+            break
+        }
+
+        }
 }

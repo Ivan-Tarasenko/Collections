@@ -12,8 +12,12 @@ class ArrayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
-        storyboard?.instantiateViewController(withIdentifier: "ArrayVC")
-        // Do any additional setup after loading the view.
+        setNavigationBar()
+    }
+
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.backgroundColor = .white
     }
 
     // MARK: - Navigation

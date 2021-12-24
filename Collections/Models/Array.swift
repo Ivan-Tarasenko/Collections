@@ -20,5 +20,4 @@ class ArrayCreate {
         let answer = (round(1000 * mls) / 1000)
         return print("Time \(string): \(answer) ms.")
     }
-
 }
