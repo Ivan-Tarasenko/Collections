@@ -11,13 +11,14 @@ import SnapKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var tableView: UITableView!
-    private var myArray: NSArray = ["Collections", "Array", "Set", "Dictionary"]
+    private var myArray = ["Collections", "Array", "Set", "Dictionary"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isHidden = true
-        self.navigationItem.title = "Collectctions"
+        self.navigationItem.backButtonTitle = "Collections"
+//        self.navigationItem.title = "Collectctions"
         cteateTableView()
 
     }
@@ -30,8 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tableView)
 
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(0)
-            make.leading.trailing.bottom.equalToSuperview().inset(0)
+            make.top.leading.trailing.bottom.equalToSuperview().inset(0)
         }
     }
 // MARK: - Setting sell

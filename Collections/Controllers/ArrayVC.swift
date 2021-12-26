@@ -6,18 +6,47 @@
 //
 
 import UIKit
+import SnapKit
 
-class ArrayVC: UIViewController {
+class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    let model = ArrayCreate()
+
+    private var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
         setNavigationBar()
+        setCollectionView()
     }
 
     func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.backgroundColor = .white
+    }
+
+    func setCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 16, bottom: 20, right: 16)
+        layout.itemSize = CGSize(width: 60, height: 60)
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionCell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        view.addSubview(collectionView)
+
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return model.operationOptions.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath)
+        cell.backgroundColor = .systemGray4
+        return cell
     }
 
     // MARK: - Navigation
