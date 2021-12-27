@@ -14,11 +14,21 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
     private var collectionView: UICollectionView!
 
+    weak var delegate: MainVCDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGreen
         setNavigationBar()
         setCollectionView()
+
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.navigationController?.topViewController != self {
+            delegate?.updateVanContr(bool: "true")
+            print("back button tapped")
+        }
     }
 
     func setNavigationBar() {
@@ -35,7 +45,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-
 
     }
 

@@ -8,7 +8,11 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol MainVCDelegate: AnyObject {
+    func updateVanContr(bool: String)
+}
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MainVCDelegate {
 
     private var tableView: UITableView!
     private var myArray = ["Collections", "Array", "Set", "Dictionary"]
@@ -18,9 +22,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         self.navigationController?.navigationBar.isHidden = true
         self.navigationItem.backButtonTitle = "Collections"
-//        self.navigationItem.title = "Collectctions"
         cteateTableView()
 
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? ArrayVC else { return }
+        destination.delegate = self
+        print("back")
+    }
+
+    func updateVanContr(bool: String) {
+//        self.navigationController?.navigationBar.isHidden = bool
+        print(bool)
     }
 
     func cteateTableView() {
