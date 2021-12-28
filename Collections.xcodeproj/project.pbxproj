@@ -20,6 +20,7 @@
 		1A3F56E42774495F00E33982 /* ArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3F56E32774495F00E33982 /* ArrayVC.swift */; };
 		1A3F56E62774497400E33982 /* SetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3F56E52774497400E33982 /* SetVC.swift */; };
 		1A3F56E8277449AD00E33982 /* DictionaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3F56E7277449AD00E33982 /* DictionaryVC.swift */; };
+		1A8A5710277AC1B1005E0D1F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */; };
 		1A9723122775FE67005ED19D /* Arrya+RandomIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */; };
 		1AB9D2C927734DE400ECA401 /* Array+GenerateRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */; };
 		F0973311CF23C5E9ED30BA65 /* Pods_Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81845FC9B023F44B06FD9341 /* Pods_Collections.framework */; };
@@ -60,6 +61,7 @@
 		1A3F56E32774495F00E33982 /* ArrayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayVC.swift; sourceTree = "<group>"; };
 		1A3F56E52774497400E33982 /* SetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetVC.swift; sourceTree = "<group>"; };
 		1A3F56E7277449AD00E33982 /* DictionaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVC.swift; sourceTree = "<group>"; };
+		1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrya+RandomIndex.swift"; sourceTree = "<group>"; };
 		1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+GenerateRandom.swift"; sourceTree = "<group>"; };
 		391D5DBD24AC73DCDA7B2062 /* Pods-Collections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.release.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +157,14 @@
 			path = CollectionsUITests;
 			sourceTree = "<group>";
 		};
+		1A8A570E277AC179005E0D1F /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */,
+			);
+			path = "Custom View";
+			sourceTree = "<group>";
+		};
 		1AB9D2C727734D8D00ECA401 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 		1AECF53B276CB83200DFCF8E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1A8A570E277AC179005E0D1F /* Custom View */,
 				1A2EB2AA276CAB5000B7E5DC /* Main.storyboard */,
 				1A2EB2AF276CAB5100B7E5DC /* LaunchScreen.storyboard */,
 			);
@@ -403,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8A5710277AC1B1005E0D1F /* CustomCollectionViewCell.swift in Sources */,
 				1A2EB2A9276CAB5000B7E5DC /* ViewController.swift in Sources */,
 				1A3F56E42774495F00E33982 /* ArrayVC.swift in Sources */,
 				1A3F56E62774497400E33982 /* SetVC.swift in Sources */,

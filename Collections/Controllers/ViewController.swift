@@ -8,11 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol MainVCDelegate: AnyObject {
-    func updateVanContr(bool: String)
-}
-
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MainVCDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var tableView: UITableView!
     private var myArray = ["Collections", "Array", "Set", "Dictionary"]
@@ -26,17 +22,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? ArrayVC else { return }
-        destination.delegate = self
-        print("back")
-    }
-
-    func updateVanContr(bool: String) {
-//        self.navigationController?.navigationBar.isHidden = bool
-        print(bool)
-    }
-
     func cteateTableView() {
         tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
@@ -48,7 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             make.top.leading.trailing.bottom.equalToSuperview().inset(0)
         }
     }
-// MARK: - Setting sell
+// MARK: - Setting cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myArray.count
     }
@@ -69,25 +54,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         return cell
     }
-
+// MARK: - Transition on other view.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var viewController = UIViewController()
+        let randomValue = Array.generateRandom(size: 9999)
+        let title = "\(myArray[indexPath.row]): \(randomValue.randomIndex())"
         switch indexPath.row {
         case 1:
-            let arrayVC = ArrayVC()
-            let randomValue = Array.generateRandom(size: 999)
-            arrayVC.navigationItem.title = "\(myArray[indexPath.row]): \(randomValue.randomIndex())"
-             self.navigationController?.pushViewController(arrayVC, animated: true)
+            viewController = ArrayVC()
+            viewController.navigationItem.title = title
         case 2:
-            let setVC = SetVC()
-            setVC.navigationItem.title = "\(myArray[indexPath.row])"
-            self.navigationController?.pushViewController(setVC, animated: true)
+            viewController = SetVC()
+            viewController.navigationItem.title = title
         case 3:
-            let dictionaryVC = DictionaryVC()
-            dictionaryVC.navigationItem.title = "\(myArray[indexPath.row])"
-            self.navigationController?.pushViewController(dictionaryVC, animated: true)
+            viewController = DictionaryVC()
+            viewController.navigationItem.title = title
         default:
             break
         }
-
+        self.navigationController?.pushViewController(viewController, animated: true)
         }
 }

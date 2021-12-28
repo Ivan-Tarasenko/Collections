@@ -9,7 +9,8 @@ import Foundation
 
 class ArrayCreate {
 
-    let operationOptions = ["Inserting 1000 elements at the beginning of the array at once",
+    var operationOptions = [ "Big Array fron 10 000 000 elements",
+                            "Inserting 1000 elements at the beginning of the array at once",
                             "Inserting 1000 elements at the beginning of the array one at a time",
                             "Inserting 1000 elements into the middle of the array at once",
                             "Inserting 1000 elements into the middle of the array one at a time",
