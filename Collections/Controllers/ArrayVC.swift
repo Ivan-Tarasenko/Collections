@@ -45,7 +45,7 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
         }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -57,13 +57,14 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         var size = CGSize()
         switch indexPath.row {
-        case 1:
+        case 0:
         size = CGSize(width: self.view.frame.size.width, height: (self.view.frame.size.height / 3) - 4)
-        case 2:
-            size = CGSize(width: 100, height: 100)
-//            size = CGSize(width: (self.view.frame.size.width / 3) - 4, height: (self.view.frame.size.height / 3) - 4)
+        case 1, 2, 3, 4, 5, 6, 7, 8, 9:
+//            size = CGSize(width: 100, height: 100)
+            size = CGSize(width: (self.view.frame.size.width / 3) - 4, height: (self.view.frame.size.height / 3) - 4)
         default:
             break
         }
@@ -78,10 +79,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         cell.titleLabel.text = "\(model.operationOptions[indexPath.row])"
         cell.layer.borderWidth = 1
 
-        if numberOfSections(in: collectionView) == 1 {
-            cell.contentView.backgroundColor = .systemBlue
-
-        }
         return cell
     }
 
