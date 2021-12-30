@@ -15,20 +15,21 @@ class CustomCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "test"
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .systemBlue
         label.minimumScaleFactor = 0.4
         label.numberOfLines = 0
-        label.textAlignment = .center
+        label.textAlignment = .left
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        contentView.backgroundColor = .systemGreen
+        contentView.backgroundColor = .systemGray5
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalTo(contentView).inset(5)
+            make.top.leading.trailing.bottom.equalTo(contentView).inset(10)
         }
     }
 

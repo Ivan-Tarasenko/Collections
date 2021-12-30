@@ -1,6 +1,7 @@
 disabled_rules:
 - trailing_whitespace
 - unused_optional_binding
+- type_name
 opt_in_rules:
 - empty_count
 - empty_string
