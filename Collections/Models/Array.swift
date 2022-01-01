@@ -23,15 +23,16 @@ class ArrayCreate {
                             "Removing 1000 elements from the end of the array at once",
                             "Removing 1000 elements from the end of the array one at a time"]
 
-    var myArray = [Int]()
+    var bigArray = [Int]()
     var addArray = [Int]()
 
-    func timeElapsed (string: String, operation: () -> Void ) {
+
+    func timeOperation (string: String, operation: () -> Void ) -> String {
         let startTime = CFAbsoluteTimeGetCurrent()
         operation()
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         let mls = Double(timeElapsed)
         let answer = (round(1000 * mls) / 1000)
-        return print("Time \(string): \(answer) ms.")
+        return "Time \(string): \(answer) ms."
     }
 }

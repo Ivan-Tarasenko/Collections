@@ -26,7 +26,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        contentView.backgroundColor = .systemGray5
+//        contentView.backgroundColor = .systemGray5
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalTo(contentView).inset(10)
@@ -37,4 +37,24 @@ class CustomCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+
+//    override var isSelected: Bool {
+//        didSet {
+//            if isSelected {
+//                backgroundColor = .systemBlue
+//            }
+//        }
+//    }
+
+//    override var isHighlighted: Bool {
+//           didSet {
+//               if self.isHighlighted {
+//                   backgroundColor = .green
+//               } else {
+//                   backgroundColor = .red
+//               }
+//           }
+//       }
+
 }
+
