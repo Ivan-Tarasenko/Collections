@@ -40,18 +40,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        switch indexPath.row {
-        case 0:
+        if indexPath.row == 0 {
             cell.textLabel?.text = "\(myArray[indexPath.row])"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 37)
             cell.selectionStyle = .none
-        case 1, 2, 3:
+        } else {
             cell.textLabel?.text = "\(myArray[indexPath.row])"
             cell.accessoryType = .disclosureIndicator
-        default:
-            break
         }
-
         return cell
     }
 // MARK: - Transition on other view.

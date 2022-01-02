@@ -79,15 +79,36 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         cell.layer.borderWidth = 0.4
         cell.layer.borderColor = CGColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1)
         cell.titleLabel.text = "\(model.operationOptions[indexPath.row])"
+        cell.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 
-                if indexPath.row == 0 {
-                    cell.titleLabel.textAlignment = .center
-                } else {
-//                    cell.isHidden = true
-                }
+        switch indexPath.row {
+        case 0:
+            cell.titleLabel.textAlignment = .center
+            cell.backgroundColor = .black
+        case 1, 2, 3, 4, 5, 6, 7:
+            cell.isHidden = true
+        default:
+            break
+        }
+
+
+//                if indexPath.row == 0 {
+//
+//                    cell.titleLabel.textAlignment = .center
+//                }
+//
+//        if indexPath.row != 0 {
+//            cell.isHidden = true
+//        }
 
         if currentSelected != nil && currentSelected == indexPath.row {
-            cell.backgroundColor = .white
+//            if indexPath.row == 0 {
+//                cell.backgroundColor = .white
+//                cell.isHidden = false
+//            } else {
+//            }
+//            cell.isHidden = false
+//            cell.backgroundColor = .white
 //            cell.titleLabel.text = model.timeOperation(string: "create Big Array", operation: {
 //                model.bigArray = Array(0...9_999_999)
 //            })
@@ -98,7 +119,45 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    @objc func buttonAction(sender: UIButton!) {
+
+        let convertedPoint: CGPoint = sender.convert(CGPoint.zero, to: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: convertedPoint)
+        guard let cell = self.collectionView.cellForItem(at: indexPath!) as? CustomCollectionViewCell else {fatalError()}
+
+        switch indexPath?.row {
+        case 0:
+            cell.titleLabel.textAlignment = .center
+            cell.backgroundColor = .white
+        case 1, 2, 3, 4, 5, 6, 7:
+            cell.isHidden = false
+        default:
+            break
+        }
+
+
+
+//        if indexPath?.row == 0 {
+//            cell.backgroundColor = .white
+//            cell.titleLabel.text = model.timeOperation(string: "create Big Array", operation: {
+//                            model.bigArray = Array(0...9_999_999)
+//            })
+//
+//        }
+        print("click button")
+//           if sender.isSelected {
+//               sender.isSelected = false
+//               // To change the UIView border color
+//               cell.backgroundColor = .systemBlue
+//           } else {
+//              sender.isSelected = true
+//              // To change the UIView border color
+//               cell.backgroundColor = .red
+//           }
+
+    }
+
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //        guard let cell = collectionView.dequeueReusableCell(
         //            withReuseIdentifier: CustomCollectionViewCell.identifier,
         //            for: indexPath
@@ -106,15 +165,15 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
 //        if previousSelected != nil {
 //            if let cell = collectionView.cellForItem(at: previousSelected!) {
-////                cell.isHidden = false
+//                cell.isHidden = false
 //            }
 //        }
-        currentSelected = indexPath.row
-        previousSelected = indexPath
-
-        // For reload the selected cell
-        self.collectionView.reloadItems(at: [indexPath])
-    }
+//        currentSelected = indexPath.row
+//        previousSelected = indexPath
+//
+//        // For reload the selected cell
+//        self.collectionView.reloadItems(at: [indexPath])
+//    }
 
     //        switch indexPath.row {
     //        case 0:
