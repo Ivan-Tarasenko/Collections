@@ -28,6 +28,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
         return button
     }()
 
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        return indicator
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -41,13 +46,17 @@ class CustomCollectionViewCell: UICollectionViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalTo(contentView).inset(10)
         }
+
+        contentView.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalTo(contentView)
+        }
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-
+//
 //    override var isSelected: Bool {
 //        didSet {
 //            if isSelected {
@@ -55,7 +64,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 //            }
 //        }
 //    }
-
+//
 //    override var isHighlighted: Bool {
 //           didSet {
 //               if self.isHighlighted {
