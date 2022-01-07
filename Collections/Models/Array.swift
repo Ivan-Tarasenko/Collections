@@ -7,7 +7,9 @@
 
 import Foundation
 
-class ArrayCreate {
+class Model {
+
+    var myArray = ["Collections", "Array", "Set", "Dictionary"]
 
     var operationOptions = [ "Big Array of 10 000 000 elements",
                             "Inserting 1000 elements at the beginning of the array at once",

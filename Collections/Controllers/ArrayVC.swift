@@ -10,7 +10,7 @@ import SnapKit
 
 class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    let model = ArrayCreate()
+    let model = Model()
     //    let cell = CustomCollectionViewCell()
 
     var previousSelected : IndexPath?
