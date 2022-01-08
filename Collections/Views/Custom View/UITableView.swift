@@ -16,16 +16,35 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-            if indexPath.row == 0 {
-                cell.textLabel?.text = "\(model.myArray[indexPath.row])"
-                cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 37)
-                cell.selectionStyle = .none
-            } else {
-                cell.textLabel?.text = "\(model.myArray[indexPath.row])"
-                cell.accessoryType = .disclosureIndicator
-            }
+            cell.textLabel?.text = "\(model.myArray[indexPath.row])"
+//            if indexPath.row == 0 {
+//                cell.textLabel?.text = "\(model.myArray[indexPath.row])"
+//                cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 37)
+//                cell.selectionStyle = .none
+//            } else {
+//                cell.textLabel?.text = "\(model.myArray[indexPath.row])"
+//                cell.accessoryType = .disclosureIndicator
+//            }
             return cell
         }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+
+            let label = UILabel()
+            label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+            label.text = model.title
+            label.font = UIFont.boldSystemFont(ofSize: 37)
+
+            headerView.addSubview(label)
+
+            return headerView
+        }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 55
+        }
+
     // MARK: - Transition on other view.
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             var viewController = UIViewController()

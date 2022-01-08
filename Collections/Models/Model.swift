@@ -9,7 +9,11 @@ import Foundation
 
 class Model {
 
-    var myArray = ["Collections", "Array", "Set", "Dictionary"]
+    let title = "Collections"
+    
+    var bigArray = [Int]()
+    var addArray = [Int]()
+    var myArray = ["Array", "Set", "Dictionary"]
 
     var operationOptions = [ "Big Array of 10 000 000 elements",
                             "Inserting 1000 elements at the beginning of the array at once",
@@ -25,8 +29,6 @@ class Model {
                             "Removing 1000 elements from the end of the array at once",
                             "Removing 1000 elements from the end of the array one at a time"]
 
-    var bigArray = [Int]()
-    var addArray = [Int]()
 
 
     func timeOperation (string: String, operation: () -> Void ) -> String {

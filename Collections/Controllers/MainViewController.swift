@@ -11,16 +11,26 @@ import SnapKit
 class MainViewController: UIViewController {
 
     let model = Model()
+    private var titleLabet: UILabel!
     private var tableView: UITableView!
-//    private var myArray = ["Collections", "Array", "Set", "Dictionary"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationItem.backButtonTitle = "Collections"
+        setNavigationBar()
         cteateTableView()
 
+    }
+
+    func createTitle() {
+        titleLabet = UILabel()
+        titleLabet.font = UIFont.boldSystemFont(ofSize: 37)
+        titleLabet.text = model.title
+        tableView.addSubview(titleLabet)
+
+//        titleLabet.snp.makeConstraints { make in
+//            make.top.equalTo
+//        }
     }
 
     func cteateTableView() {
@@ -34,41 +44,9 @@ class MainViewController: UIViewController {
             make.top.leading.trailing.bottom.equalToSuperview().inset(0)
         }
     }
-//// MARK: - Setting cell
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return myArray.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-//        if indexPath.row == 0 {
-//            cell.textLabel?.text = "\(myArray[indexPath.row])"
-//            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 37)
-//            cell.selectionStyle = .none
-//        } else {
-//            cell.textLabel?.text = "\(myArray[indexPath.row])"
-//            cell.accessoryType = .disclosureIndicator
-//        }
-//        return cell
-//    }
-//// MARK: - Transition on other view.
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        var viewController = UIViewController()
-//        let randomValue = Array.generateRandom(size: 9999)
-//        let title = "\(myArray[indexPath.row]): \(randomValue.randomIndex())"
-//        switch indexPath.row {
-//        case 1:
-//            viewController = ArrayVC()
-//            viewController.navigationItem.title = title
-//        case 2:
-//            viewController = SetVC()
-//            viewController.navigationItem.title = title
-//        case 3:
-//            viewController = DictionaryVC()
-//            viewController.navigationItem.title = title
-//        default:
-//            break
-//        }
-//        self.navigationController?.pushViewController(viewController, animated: true)
-//        }
+
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationItem.backButtonTitle = model.title
+    }
 }
