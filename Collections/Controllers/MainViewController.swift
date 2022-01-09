@@ -11,7 +11,6 @@ import SnapKit
 class MainViewController: UIViewController {
 
     let model = Model()
-    private var titleLabet: UILabel!
     private var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -20,17 +19,6 @@ class MainViewController: UIViewController {
         setNavigationBar()
         cteateTableView()
 
-    }
-
-    func createTitle() {
-        titleLabet = UILabel()
-        titleLabet.font = UIFont.boldSystemFont(ofSize: 37)
-        titleLabet.text = model.title
-        tableView.addSubview(titleLabet)
-
-//        titleLabet.snp.makeConstraints { make in
-//            make.top.equalTo
-//        }
     }
 
     func cteateTableView() {

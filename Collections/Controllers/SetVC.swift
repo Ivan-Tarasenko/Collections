@@ -6,15 +6,30 @@
 //
 
 import UIKit
+import SnapKit
 
 class SetVC: UIViewController {
+
+   private var customView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         setNavigationBar()
-        // Do any additional setup after loading the view.
+        createCustomView()
     }
+
+    func createCustomView() {
+        customView = UIView()
+        customView.backgroundColor = .red
+        view.addSubview(customView)
+        customView.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: view.frame.width, height: 66))
+            make.center.equalTo(view)
+        }
+    }
+
+
 
     func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = false

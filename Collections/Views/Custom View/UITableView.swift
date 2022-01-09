@@ -9,7 +9,7 @@ import UIKit
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // MARK: - Setting cell
+    // MARK: - Setting cell.
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return model.myArray.count
         }
@@ -17,22 +17,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
             cell.textLabel?.text = "\(model.myArray[indexPath.row])"
-//            if indexPath.row == 0 {
-//                cell.textLabel?.text = "\(model.myArray[indexPath.row])"
-//                cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 37)
-//                cell.selectionStyle = .none
-//            } else {
-//                cell.textLabel?.text = "\(model.myArray[indexPath.row])"
-//                cell.accessoryType = .disclosureIndicator
-//            }
             return cell
         }
 
+    // MARK: - Setting title.
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
 
             let label = UILabel()
-            label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+            label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width, height: headerView.frame.height-10)
             label.text = model.title
             label.font = UIFont.boldSystemFont(ofSize: 37)
 
@@ -51,13 +44,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             let randomValue = Array.generateRandom(size: 9999)
             let title = "\(model.myArray[indexPath.row]): \(randomValue.randomIndex())"
             switch indexPath.row {
-            case 1:
+            case 0:
                 viewController = ArrayVC()
                 viewController.navigationItem.title = title
-            case 2:
+            case 1:
                 viewController = SetVC()
                 viewController.navigationItem.title = title
-            case 3:
+            case 2:
                 viewController = DictionaryVC()
                 viewController.navigationItem.title = title
             default:
