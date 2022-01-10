@@ -10,18 +10,19 @@ import SnapKit
 
 class SetVC: UIViewController {
 
-   private var customView: UIView!
+   private var customView: CustomTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         setNavigationBar()
-        createCustomView()
+        view.addSubview(customView)
+//        createCustomView()
     }
 
     func createCustomView() {
-        customView = UIView()
-        customView.backgroundColor = .red
+//        customView = UIView()
+//        customView.backgroundColor = .red
         view.addSubview(customView)
         customView.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: view.frame.width, height: 66))

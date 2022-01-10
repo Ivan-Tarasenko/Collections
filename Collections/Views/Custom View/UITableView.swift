@@ -8,7 +8,7 @@
 import UIKit
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     // MARK: - Setting cell.
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return model.myArray.count
@@ -28,6 +28,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width, height: headerView.frame.height-10)
             label.text = model.title
             label.font = UIFont.boldSystemFont(ofSize: 37)
+
 
             headerView.addSubview(label)
 
@@ -58,5 +59,5 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             }
             self.navigationController?.pushViewController(viewController, animated: true)
             }
-    
+
 }
