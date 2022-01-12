@@ -16,7 +16,6 @@ class SetVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         setNavigationBar()
-        view.addSubview(customView)
 //        createCustomView()
     }
 
@@ -29,8 +28,6 @@ class SetVC: UIViewController {
             make.center.equalTo(view)
         }
     }
-
-
 
     func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = false

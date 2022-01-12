@@ -10,13 +10,13 @@ import Foundation
 class Model {
 
     let title = "Collections"
+    let titleBigArray = "Big Array of 10 000 000 elements"
     
     var bigArray = [Int]()
     var addArray = [Int]()
-    var myArray = ["Array", "Set", "Dictionary"]
+    let myArray = ["Array", "Set", "Dictionary"]
 
-    var operationOptions = [ "Big Array of 10 000 000 elements",
-                            "Inserting 1000 elements at the beginning of the array at once",
+    let operationOptions = ["Inserting 1000 elements at the beginning of the array at once",
                             "Inserting 1000 elements at the beginning of the array one at a time",
                             "Inserting 1000 elements into the middle of the array at once",
                             "Inserting 1000 elements into the middle of the array one at a time",
@@ -28,8 +28,6 @@ class Model {
                             "Removing 1000 elements from the middle of the array one at a time",
                             "Removing 1000 elements from the end of the array at once",
                             "Removing 1000 elements from the end of the array one at a time"]
-
-
 
     func timeOperation (string: String, operation: () -> Void ) -> String {
         let startTime = CFAbsoluteTimeGetCurrent()
