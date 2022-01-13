@@ -92,14 +92,11 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         } else {
             cell.titleLabel.text = "\(model.operationOptions[indexPath.row])"
         }
-        if indexPath.row == 4 {
-            cell.backgroundColor = .blue
-        } else if indexPath.row == 7 {
-            cell.backgroundColor = .red
-        }
-
-
-
+//        if indexPath.row == 4 {
+//            cell.backgroundColor = .blue
+//        } else if indexPath.row == 7 {
+//            cell.backgroundColor = .red
+//        }
 
         return cell
     }
@@ -110,7 +107,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         let indexPath = self.collectionView.indexPathForItem(at: convertedPoint)
         guard let cell = self.collectionView.cellForItem(at: indexPath!) as? CustomCollectionViewCell else {fatalError()}
 
-
         if indexPath?.section == 0 {
 //            cell.backgroundColor = .white
 //            cell.activityIndicator.hidesWhenStopped = true
@@ -120,33 +116,35 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             })
         }
         print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
-        
-        collectionView.reloadData()
+
+        if !model.bigArray.isEmpty {
+//            let indexSet = IndexSet(integer: indexPath!.section)
+//             collectionView.reloadSections(indexSet)
+
 
     }
+    }
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//
+//                guard let cell = cell as? CustomCollectionViewCell else {return}
+//
+//                switch indexPath.section {
+//                case 1:
+//                    cell.backgroundColor = .red
+//                default:
+//                    cell.backgroundColor = .blue
+//                }
+//            }
 
-                guard let cell = cell as? CustomCollectionViewCell else {return}
-
-                switch indexPath.section {
-                case 1: // in assumption number of sections = 7
-                    cell.backgroundColor = .red
-                default:
-                    cell.backgroundColor = .blue
-                }
-            }
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //                guard let cell = collectionView.dequeueReusableCell(
 //                    withReuseIdentifier: CustomCollectionViewCell.identifier,
 //                    for: indexPath
 //                ) as? CustomCollectionViewCell else {fatalError()}
+////        guard (self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell) != nil else {fatalError()}
 //
-//        if previousSelected != nil {
-//            if let cell = collectionView.cellForItem(at: previousSelected!) {
-//                cell.isHidden = false
-//            }
-//        }
+//print("click to cell")
 //        currentSelected = indexPath.row
 //        previousSelected = indexPath
 //
