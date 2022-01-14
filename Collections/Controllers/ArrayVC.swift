@@ -52,16 +52,10 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return model.operationOptions.count
-        }
-//        return model.bigArray.isEmpty ? 1 : model.operationOptions.count
+       return section == 0 ? 1 : model.operationOptions.count
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         let sizeBigArrayCell = CGSize(
             width: self.view.frame.size.width,
             height: self.view.frame.size.height / 7
@@ -70,7 +64,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             width: (self.view.frame.size.width / 2) - 0.1,
             height: (self.view.frame.size.height / 7)
         )
-
         return indexPath.section == 0 && indexPath.row == 0 ? sizeBigArrayCell : sizeCell
     }
 
@@ -83,7 +76,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
         cell.layer.borderWidth = 0.4
         cell.layer.borderColor = CGColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1)
-//        cell.titleLabel.text = "\(model.operationOptions[indexPath.row])"
         cell.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 
         if indexPath.section == 0 {
@@ -117,12 +109,14 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         }
         print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
 
-        if !model.bigArray.isEmpty {
-//            let indexSet = IndexSet(integer: indexPath!.section)
-//             collectionView.reloadSections(indexSet)
+        if indexPath?.section == 1 && ((indexPath?.isEmpty) != nil) {
+print("section nil")
+        }
 
-
-    }
+//        if !model.bigArray.isEmpty {
+//            let index = IndexSet.init(integer: 1)
+//            collectionView.reloadSections(index)
+//    }
     }
 
 //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

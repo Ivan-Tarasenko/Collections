@@ -9,6 +9,9 @@ import UIKit
 
 class CustomTextField: UIView {
 
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var textField: UITextField!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
