@@ -10,27 +10,26 @@ import SnapKit
 
 class SetVC: UIViewController {
 
-    @IBOutlet weak var customView: CustomTextField!
+  private var myView = CustomTextField()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         setNavigationBar()
-        let myView = CustomTextField(frame: CGRect(x: 20, y: 100, width: 343, height: 66))
-        self.view.addSubview(myView)
-        
-//        createCustomView()
+        createCustomView()
+
     }
 
-//    func createCustomView() {
-//        customView = CustomTextField()
-////        customView.backgroundColor = .red
-//        view.addSubview(customView)
-//        customView.snp.makeConstraints { make in
-//            make.size.equalTo(CGSize(width: 343, height: 66))
-//            make.center.equalTo(view)
-//        }
-//    }
+    func createCustomView() {
+
+        myView.backgroundColor = .red
+        view.addSubview(myView)
+        myView.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 343, height: 66))
+            make.leading.trailing.equalTo(view).inset(20)
+            make.top.equalTo(view).inset(150)
+        }
+    }
 
     func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = false

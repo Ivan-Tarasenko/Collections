@@ -2,31 +2,30 @@
 //  CustomTextField.swift
 //  Collections
 //
-//  Created by Иван Тарасенко on 10.01.2022.
+//  Created by Иван Тарасенко on 15.01.2022.
 //
 
 import UIKit
 
 class CustomTextField: UIView {
 
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet var view: CustomTextField!
+    @IBOutlet weak var label: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureView()
+        initXib()
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        configureView()
+        fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Configure CustomView
-    func configureView() {
-        guard let view = loadViewFromNib(nibName: "CustomTextField") else { return }
-        view.frame = bounds
-        addSubview(view)
+    func initXib() {
+        Bundle.main.loadNibNamed("CustomTextField", owner: self, options: nil)
+        self.addSubview(view)
+        view.frame = self.frame
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 
 }
