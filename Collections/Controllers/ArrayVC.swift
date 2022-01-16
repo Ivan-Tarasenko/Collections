@@ -16,7 +16,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     var previousSelected : IndexPath?
     var currentSelected : Int?
 
-
     private var collectionView: UICollectionView!
 
     override func viewDidLoad() {

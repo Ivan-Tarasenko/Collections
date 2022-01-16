@@ -76,4 +76,3 @@ class CustomCollectionViewCell: UICollectionViewCell {
 //       }
 
 }
-

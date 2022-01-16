@@ -29,7 +29,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             label.text = model.title
             label.font = UIFont.boldSystemFont(ofSize: 37)
 
-
             headerView.addSubview(label)
 
             return headerView

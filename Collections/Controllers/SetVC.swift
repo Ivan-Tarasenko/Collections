@@ -10,24 +10,33 @@ import SnapKit
 
 class SetVC: UIViewController {
 
-  private var myView = CustomTextField()
+  private var myView = CustomView()
+    private var twoView = CustomView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         setNavigationBar()
         createCustomView()
-
+        createTwoView()
     }
 
     func createCustomView() {
-
-        myView.backgroundColor = .red
+        myView.settingView(type: .noDigits)
         view.addSubview(myView)
         myView.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 343, height: 66))
             make.leading.trailing.equalTo(view).inset(20)
             make.top.equalTo(view).inset(150)
+        }
+    }
+
+    func createTwoView() {
+        view.addSubview(twoView)
+        twoView.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 343, height: 66))
+            make.leading.trailing.equalTo(view).inset(20)
+            make.top.equalTo(myView).inset(100)
         }
     }
 
