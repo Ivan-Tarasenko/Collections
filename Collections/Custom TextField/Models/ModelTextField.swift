@@ -16,11 +16,35 @@ enum TextFields {
     case validationRules
 }
 
-class TextFieldModel {
+class ModelTextField {
+
+    // Text Fields.
+    let noDigit = "NO Digits field"
+    let noDigitPlaceholder = "Type here"
+
+    let limitCharTitle = "Input limit"
+    let limitCharPlaceholder = "Type here"
+
+    let onlyChar = "Only characters"
+    let onlyCharPlaceholder = "wwwww-ddddd"
+
+    let link = "Link"
+    let linkPlaceholder = "www.example.com"
+
+    let password = "Validation rules"
+    let passwordPlaceholder = "Password"
+
+    // Title label password validation.
+    let minChar = "- Min length 8 characters."
+    let minOneDigit = "- Min 1 digit."
+    let minOneLowercase = "- Min 1 lowercase."
+    let minOneCapitalRequired = "- Min 1 capital required."
+    let notSpecialChar = "✘ Special characters are not allowed"
+    let onlyEnglishChar = "✘ Only English characters"
 
     // MARK: - No digits character
     func noDigit(string: String) -> Bool {
-        let forbiddenCharacters = CharacterSet.decimalDigits.inverted
+        let forbiddenCharacters = CharacterSet.letters    //decimalDigits.inverted
         let characterSet = CharacterSet(charactersIn: string)
         return forbiddenCharacters.isSuperset(of: characterSet)
     }
@@ -85,7 +109,7 @@ class TextFieldModel {
     }
 
     func detectedLink (string: String) -> String {
-        let checkDomenName = "https://"
+        let domenName = "https://"
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         let matches = detector.matches(in: string, options: [], range: NSRange(location: 0, length: string.utf16.count))
         var urlLink = String()
@@ -95,8 +119,8 @@ class TextFieldModel {
             urlLink = String(url)
             print(url)
         }
-        if !(urlLink ~= checkDomenName) {
-            urlLink.insert(contentsOf: "https://", at: urlLink.startIndex)
+        if !(urlLink ~= domenName) {
+            urlLink.insert(contentsOf: domenName, at: urlLink.startIndex)
         }
         return urlLink
     }

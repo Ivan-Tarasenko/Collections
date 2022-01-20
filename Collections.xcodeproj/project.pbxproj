@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A16F10C27928D9700842354 /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A16F10B27928D9700842354 /* CustomTextField.xib */; };
-		1A16F10E27928DE400842354 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16F10D27928DE400842354 /* CustomTextField.swift */; };
-		1A16F1112792B01E00842354 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16F1102792B01E00842354 /* CustomView.swift */; };
-		1A16F1132792B02E00842354 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A16F1122792B02E00842354 /* CustomView.xib */; };
-		1A16F1152792B04300842354 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16F1142792B04300842354 /* Models.swift */; };
-		1A16F1172792B14300842354 /* UITextField+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16F1162792B14300842354 /* UITextField+Border.swift */; };
-		1A16F1192792B18800842354 /* UIView+NibLoading+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16F1182792B18800842354 /* UIView+NibLoading+Border.swift */; };
-		1A16F11B2792B1EB00842354 /* UILabel+SafeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16F11A2792B1EB00842354 /* UILabel+SafeText.swift */; };
 		1A2EB2A5276CAB5000B7E5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2EB2A4276CAB5000B7E5DC /* AppDelegate.swift */; };
 		1A2EB2A7276CAB5000B7E5DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2EB2A6276CAB5000B7E5DC /* SceneDelegate.swift */; };
 		1A2EB2A9276CAB5000B7E5DC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2EB2A8276CAB5000B7E5DC /* MainViewController.swift */; };
@@ -29,6 +21,17 @@
 		1A3F56E42774495F00E33982 /* ArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3F56E32774495F00E33982 /* ArrayVC.swift */; };
 		1A3F56E62774497400E33982 /* SetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3F56E52774497400E33982 /* SetVC.swift */; };
 		1A3F56E8277449AD00E33982 /* DictionaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3F56E7277449AD00E33982 /* DictionaryVC.swift */; };
+		1A5F820A27988C53003032A4 /* String+StringComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F81FE27988C53003032A4 /* String+StringComparison.swift */; };
+		1A5F820B27988C53003032A4 /* String+NSDataDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F81FF27988C53003032A4 /* String+NSDataDetector.swift */; };
+		1A5F820C27988C53003032A4 /* UITextField+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820027988C53003032A4 /* UITextField+Border.swift */; };
+		1A5F820D27988C53003032A4 /* UIView+NibLoading+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820127988C53003032A4 /* UIView+NibLoading+Border.swift */; };
+		1A5F820E27988C53003032A4 /* RegularExpression+Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820227988C53003032A4 /* RegularExpression+Matches.swift */; };
+		1A5F820F27988C53003032A4 /* UILabel+SafeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820327988C53003032A4 /* UILabel+SafeText.swift */; };
+		1A5F821027988C53003032A4 /* CustomPasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820527988C53003032A4 /* CustomPasswordValidation.swift */; };
+		1A5F821127988C53003032A4 /* ModelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820627988C53003032A4 /* ModelTextField.swift */; };
+		1A5F821227988C53003032A4 /* SetTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820827988C53003032A4 /* SetTextFields.swift */; };
+		1A5F821327988C53003032A4 /* TextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5F820927988C53003032A4 /* TextField.xib */; };
+		1A5F821627994889003032A4 /* RulesLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F821527994889003032A4 /* RulesLabel.swift */; };
 		1A8A5710277AC1B1005E0D1F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */; };
 		1A9723122775FE67005ED19D /* Arrya+RandomIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */; };
 		1AB9D2C927734DE400ECA401 /* Array+GenerateRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */; };
@@ -53,14 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A16F10B27928D9700842354 /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
-		1A16F10D27928DE400842354 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		1A16F1102792B01E00842354 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		1A16F1122792B02E00842354 /* CustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
-		1A16F1142792B04300842354 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		1A16F1162792B14300842354 /* UITextField+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Border.swift"; sourceTree = "<group>"; };
-		1A16F1182792B18800842354 /* UIView+NibLoading+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoading+Border.swift"; sourceTree = "<group>"; };
-		1A16F11A2792B1EB00842354 /* UILabel+SafeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+SafeText.swift"; sourceTree = "<group>"; };
 		1A2EB2A1276CAB4F00B7E5DC /* Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2EB2A4276CAB5000B7E5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A2EB2A6276CAB5000B7E5DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +74,17 @@
 		1A3F56E32774495F00E33982 /* ArrayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayVC.swift; sourceTree = "<group>"; };
 		1A3F56E52774497400E33982 /* SetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetVC.swift; sourceTree = "<group>"; };
 		1A3F56E7277449AD00E33982 /* DictionaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVC.swift; sourceTree = "<group>"; };
+		1A5F81FE27988C53003032A4 /* String+StringComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+StringComparison.swift"; sourceTree = "<group>"; };
+		1A5F81FF27988C53003032A4 /* String+NSDataDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSDataDetector.swift"; sourceTree = "<group>"; };
+		1A5F820027988C53003032A4 /* UITextField+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Border.swift"; sourceTree = "<group>"; };
+		1A5F820127988C53003032A4 /* UIView+NibLoading+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoading+Border.swift"; sourceTree = "<group>"; };
+		1A5F820227988C53003032A4 /* RegularExpression+Matches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegularExpression+Matches.swift"; sourceTree = "<group>"; };
+		1A5F820327988C53003032A4 /* UILabel+SafeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+SafeText.swift"; sourceTree = "<group>"; };
+		1A5F820527988C53003032A4 /* CustomPasswordValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasswordValidation.swift; sourceTree = "<group>"; };
+		1A5F820627988C53003032A4 /* ModelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTextField.swift; sourceTree = "<group>"; };
+		1A5F820827988C53003032A4 /* SetTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTextFields.swift; sourceTree = "<group>"; };
+		1A5F820927988C53003032A4 /* TextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextField.xib; sourceTree = "<group>"; };
+		1A5F821527994889003032A4 /* RulesLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesLabel.swift; sourceTree = "<group>"; };
 		1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrya+RandomIndex.swift"; sourceTree = "<group>"; };
 		1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+GenerateRandom.swift"; sourceTree = "<group>"; };
@@ -124,19 +130,6 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		1A16F10F2792B00000842354 /* TextField */ = {
-			isa = PBXGroup;
-			children = (
-				1A16F1102792B01E00842354 /* CustomView.swift */,
-				1A16F1122792B02E00842354 /* CustomView.xib */,
-				1A16F1142792B04300842354 /* Models.swift */,
-				1A16F1162792B14300842354 /* UITextField+Border.swift */,
-				1A16F1182792B18800842354 /* UIView+NibLoading+Border.swift */,
-				1A16F11A2792B1EB00842354 /* UILabel+SafeText.swift */,
-			);
-			path = TextField;
-			sourceTree = "<group>";
-		};
 		1A2EB298276CAB4F00B7E5DC = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +156,7 @@
 		1A2EB2A3276CAB4F00B7E5DC /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				1A16F10F2792B00000842354 /* TextField */,
+				1A5F81FC27988C53003032A4 /* Custom TextField */,
 				1A35774B278BE2F200CE0DD0 /* New Group */,
 				1AECF53D276CB85400DFCF8E /* Models */,
 				1AECF53B276CB83200DFCF8E /* Views */,
@@ -197,12 +190,62 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		1A5F81FC27988C53003032A4 /* Custom TextField */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F81FD27988C53003032A4 /* Extension */,
+				1A5F820427988C53003032A4 /* Models */,
+				1A5F820727988C53003032A4 /* Custom View */,
+			);
+			path = "Custom TextField";
+			sourceTree = "<group>";
+		};
+		1A5F81FD27988C53003032A4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F81FE27988C53003032A4 /* String+StringComparison.swift */,
+				1A5F81FF27988C53003032A4 /* String+NSDataDetector.swift */,
+				1A5F820027988C53003032A4 /* UITextField+Border.swift */,
+				1A5F820127988C53003032A4 /* UIView+NibLoading+Border.swift */,
+				1A5F820227988C53003032A4 /* RegularExpression+Matches.swift */,
+				1A5F820327988C53003032A4 /* UILabel+SafeText.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1A5F820427988C53003032A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F820527988C53003032A4 /* CustomPasswordValidation.swift */,
+				1A5F820627988C53003032A4 /* ModelTextField.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A5F820727988C53003032A4 /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F820827988C53003032A4 /* SetTextFields.swift */,
+				1A5F820927988C53003032A4 /* TextField.xib */,
+			);
+			path = "Custom View";
+			sourceTree = "<group>";
+		};
+		1A5F8214279946BB003032A4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1A2EB2AA276CAB5000B7E5DC /* Main.storyboard */,
+				1A2EB2AF276CAB5100B7E5DC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		1A8A570E277AC179005E0D1F /* Custom View */ = {
 			isa = PBXGroup;
 			children = (
 				1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */,
 				1A3577452787F28A00CE0DD0 /* UITableView.swift */,
-				1A16F10D27928DE400842354 /* CustomTextField.swift */,
+				1A5F821527994889003032A4 /* RulesLabel.swift */,
 			);
 			path = "Custom View";
 			sourceTree = "<group>";
@@ -220,9 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				1A8A570E277AC179005E0D1F /* Custom View */,
-				1A2EB2AA276CAB5000B7E5DC /* Main.storyboard */,
-				1A16F10B27928D9700842354 /* CustomTextField.xib */,
-				1A2EB2AF276CAB5100B7E5DC /* LaunchScreen.storyboard */,
+				1A5F8214279946BB003032A4 /* Storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,8 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A16F10C27928D9700842354 /* CustomTextField.xib in Resources */,
-				1A16F1132792B02E00842354 /* CustomView.xib in Resources */,
+				1A5F821327988C53003032A4 /* TextField.xib in Resources */,
 				1A2EB2B1276CAB5100B7E5DC /* LaunchScreen.storyboard in Resources */,
 				1A2EB2AE276CAB5100B7E5DC /* Assets.xcassets in Resources */,
 				1A2EB2AC276CAB5000B7E5DC /* Main.storyboard in Resources */,
@@ -459,23 +499,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A16F10E27928DE400842354 /* CustomTextField.swift in Sources */,
 				1A8A5710277AC1B1005E0D1F /* CustomCollectionViewCell.swift in Sources */,
 				1A2EB2A9276CAB5000B7E5DC /* MainViewController.swift in Sources */,
-				1A16F1172792B14300842354 /* UITextField+Border.swift in Sources */,
-				1A16F1112792B01E00842354 /* CustomView.swift in Sources */,
 				1A3F56E42774495F00E33982 /* ArrayVC.swift in Sources */,
 				1A3F56E62774497400E33982 /* SetVC.swift in Sources */,
+				1A5F821627994889003032A4 /* RulesLabel.swift in Sources */,
 				1A3F56E8277449AD00E33982 /* DictionaryVC.swift in Sources */,
+				1A5F820C27988C53003032A4 /* UITextField+Border.swift in Sources */,
+				1A5F820A27988C53003032A4 /* String+StringComparison.swift in Sources */,
 				1A2EB2A5276CAB5000B7E5DC /* AppDelegate.swift in Sources */,
-				1A16F11B2792B1EB00842354 /* UILabel+SafeText.swift in Sources */,
-				1A16F1192792B18800842354 /* UIView+NibLoading+Border.swift in Sources */,
-				1A16F1152792B04300842354 /* Models.swift in Sources */,
 				1A9723122775FE67005ED19D /* Arrya+RandomIndex.swift in Sources */,
+				1A5F821227988C53003032A4 /* SetTextFields.swift in Sources */,
+				1A5F820B27988C53003032A4 /* String+NSDataDetector.swift in Sources */,
 				1A3577462787F28A00CE0DD0 /* UITableView.swift in Sources */,
 				1AB9D2C927734DE400ECA401 /* Array+GenerateRandom.swift in Sources */,
+				1A5F820D27988C53003032A4 /* UIView+NibLoading+Border.swift in Sources */,
+				1A5F821027988C53003032A4 /* CustomPasswordValidation.swift in Sources */,
 				1A2EB2A7276CAB5000B7E5DC /* SceneDelegate.swift in Sources */,
 				1A2F77C7276CBD480072193D /* Model.swift in Sources */,
+				1A5F820F27988C53003032A4 /* UILabel+SafeText.swift in Sources */,
+				1A5F820E27988C53003032A4 /* RegularExpression+Matches.swift in Sources */,
+				1A5F821127988C53003032A4 /* ModelTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
