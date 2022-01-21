@@ -10,21 +10,39 @@ import SnapKit
 
 class SetVC: UIViewController {
 
+    let model = Model()
+
     private var firstTextField = CustomView()
     private var secondTextField = CustomView()
-    private var ruleAllMatchingLetters = RulesLabel()
-    private var ruleAllCharacterDoNotMatch = RulesLabel()
-    private var ruleUniqueSymbols = RulesLabel()
+
+    private var ruleAllMatchingLetters = RulesButton()
+    private var ruleAllCharacterDoNotMatch = RulesButton()
+    private var ruleUniqueSymbols = RulesButton()
+
+    private var answerAllMatchingLetters = AnswerLabel()
+    private var answerAllCharacterDoNotMatch = AnswerLabel()
+    private var answerUniqueSymbols = AnswerLabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setNavigationBar()
         createFirstTextField()
-        createSecondTextField()
-        createLabelRuleAllMatchingLetter()
-        createLabelRuleAllCharacterDoNotMatch()
-        createLabelRuleUniqueSymbols()
+        createAllButtonAnswer()
+        createAllAnswerLabel()
+    }
+
+    @objc func buttonPress(sender: UIButton!) {
+        switch sender.tag {
+        case 1:
+            answerAllMatchingLetters.textTitle = "\(firstTextField.textField.string)"
+        case 2:
+            answerAllCharacterDoNotMatch.textTitle = "work 2"
+        case 3:
+            answerUniqueSymbols.textTitle = "work 3"
+        default:
+            break
+        }
     }
 
     func setNavigationBar() {
@@ -32,55 +50,86 @@ class SetVC: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = .white
     }
 
+    // MARK: - Add text field.
     func createFirstTextField() {
+        let widthUIElements: CGFloat = view.frame.size.width - 20
+        let heightUIElements: CGFloat = 66
         firstTextField.settingView(type: .noDigits)
         firstTextField.title.textTitle.removeAll()
         view.addSubview(firstTextField)
         firstTextField.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: view.frame.size.width - 20, height: 66))
+            make.size.equalTo(CGSize(width: widthUIElements, height: heightUIElements))
             make.leading.trailing.equalTo(view).inset(20)
             make.top.equalTo(view).inset(120)
         }
-    }
 
-    func createSecondTextField() {
         secondTextField.settingView(type: .noDigits)
         secondTextField.title.textTitle.removeAll()
         view.addSubview(secondTextField)
         secondTextField.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: view.frame.size.width - 20, height: 66))
+            make.size.equalTo(CGSize(width: widthUIElements, height: heightUIElements))
             make.leading.trailing.equalTo(view).inset(20)
             make.top.equalTo(firstTextField).inset(80)
         }
     }
 
-    func createLabelRuleAllMatchingLetter() {
-        ruleAllMatchingLetters.textTitle = "All matching letter"
+    // MARK: - Add button answer.
+    func createAllButtonAnswer() {
+        let widthUIElements: CGFloat = view.frame.size.width - 20
+        ruleAllMatchingLetters.setTitle(model.titleAllMatching, for: .normal)
+        ruleAllMatchingLetters.tag = 1
+        ruleAllMatchingLetters.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
         view.addSubview(ruleAllMatchingLetters)
         ruleAllMatchingLetters.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: view.frame.size.width - 20, height: 40))
+            make.size.equalTo(CGSize(width: widthUIElements, height: 40))
             make.top.equalTo(secondTextField).inset(100)
             make.trailing.leading.equalTo(view).inset(20)
         }
-    }
 
-    func createLabelRuleAllCharacterDoNotMatch() {
-        ruleAllCharacterDoNotMatch.textTitle = "All characters that don't match"
+        ruleAllCharacterDoNotMatch.setTitle(model.titleAllCharacterDoNotMatch, for: .normal)
+        ruleAllCharacterDoNotMatch.tag = 2
+        ruleAllCharacterDoNotMatch.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
         view.addSubview(ruleAllCharacterDoNotMatch)
         ruleAllCharacterDoNotMatch.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: view.frame.size.width - 20, height: 40))
+            make.size.equalTo(CGSize(width: widthUIElements, height: 40))
             make.top.equalTo(ruleAllMatchingLetters).inset(100)
+            make.trailing.leading.equalTo(view).inset(20)
+        }
+
+        ruleUniqueSymbols.setTitle(model.titleUniqueSymbols, for: .normal)
+        ruleUniqueSymbols.tag = 3
+        ruleUniqueSymbols.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
+        view.addSubview(ruleUniqueSymbols)
+        ruleUniqueSymbols.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: widthUIElements, height: 70))
+            make.top.equalTo(ruleAllCharacterDoNotMatch).inset(100)
             make.trailing.leading.equalTo(view).inset(20)
         }
     }
 
-    func createLabelRuleUniqueSymbols() {
-        ruleUniqueSymbols.textTitle = "All unique characters from the first text field that don't match in text fields"
-        view.addSubview(ruleUniqueSymbols)
-        ruleUniqueSymbols.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: view.frame.size.width - 20, height: 70))
-            make.top.equalTo(ruleAllCharacterDoNotMatch).inset(100)
+    // MARK: - Add answer label.
+    func createAllAnswerLabel() {
+        let height: CGFloat = 50
+        let widthUIElements: CGFloat = view.frame.size.width - 20
+        view.addSubview(answerAllMatchingLetters)
+        answerAllMatchingLetters.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: widthUIElements, height: height))
             make.trailing.leading.equalTo(view).inset(20)
+            make.top.equalTo(ruleAllMatchingLetters).inset(30)
+        }
+
+        view.addSubview(answerAllCharacterDoNotMatch)
+        answerAllCharacterDoNotMatch.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: widthUIElements, height: height))
+            make.trailing.leading.equalTo(view).inset(20)
+            make.top.equalTo(ruleAllCharacterDoNotMatch).inset(30)
+        }
+
+        view.addSubview(answerUniqueSymbols)
+        answerUniqueSymbols.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: widthUIElements, height: height))
+            make.trailing.leading.equalTo(view).inset(20)
+            make.top.equalTo(ruleUniqueSymbols).inset(57)
         }
     }
 

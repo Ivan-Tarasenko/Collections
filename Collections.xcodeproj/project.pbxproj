@@ -31,7 +31,8 @@
 		1A5F821127988C53003032A4 /* ModelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820627988C53003032A4 /* ModelTextField.swift */; };
 		1A5F821227988C53003032A4 /* SetTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F820827988C53003032A4 /* SetTextFields.swift */; };
 		1A5F821327988C53003032A4 /* TextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5F820927988C53003032A4 /* TextField.xib */; };
-		1A5F821627994889003032A4 /* RulesLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F821527994889003032A4 /* RulesLabel.swift */; };
+		1A5F821627994889003032A4 /* RulesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F821527994889003032A4 /* RulesButton.swift */; };
+		1A5F821827998CF2003032A4 /* AnswerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F821727998CF2003032A4 /* AnswerLabel.swift */; };
 		1A8A5710277AC1B1005E0D1F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */; };
 		1A9723122775FE67005ED19D /* Arrya+RandomIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */; };
 		1AB9D2C927734DE400ECA401 /* Array+GenerateRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */; };
@@ -84,7 +85,8 @@
 		1A5F820627988C53003032A4 /* ModelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTextField.swift; sourceTree = "<group>"; };
 		1A5F820827988C53003032A4 /* SetTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTextFields.swift; sourceTree = "<group>"; };
 		1A5F820927988C53003032A4 /* TextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextField.xib; sourceTree = "<group>"; };
-		1A5F821527994889003032A4 /* RulesLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesLabel.swift; sourceTree = "<group>"; };
+		1A5F821527994889003032A4 /* RulesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesButton.swift; sourceTree = "<group>"; };
+		1A5F821727998CF2003032A4 /* AnswerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerLabel.swift; sourceTree = "<group>"; };
 		1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrya+RandomIndex.swift"; sourceTree = "<group>"; };
 		1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+GenerateRandom.swift"; sourceTree = "<group>"; };
@@ -245,7 +247,8 @@
 			children = (
 				1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */,
 				1A3577452787F28A00CE0DD0 /* UITableView.swift */,
-				1A5F821527994889003032A4 /* RulesLabel.swift */,
+				1A5F821527994889003032A4 /* RulesButton.swift */,
+				1A5F821727998CF2003032A4 /* AnswerLabel.swift */,
 			);
 			path = "Custom View";
 			sourceTree = "<group>";
@@ -503,7 +506,7 @@
 				1A2EB2A9276CAB5000B7E5DC /* MainViewController.swift in Sources */,
 				1A3F56E42774495F00E33982 /* ArrayVC.swift in Sources */,
 				1A3F56E62774497400E33982 /* SetVC.swift in Sources */,
-				1A5F821627994889003032A4 /* RulesLabel.swift in Sources */,
+				1A5F821627994889003032A4 /* RulesButton.swift in Sources */,
 				1A3F56E8277449AD00E33982 /* DictionaryVC.swift in Sources */,
 				1A5F820C27988C53003032A4 /* UITextField+Border.swift in Sources */,
 				1A5F820A27988C53003032A4 /* String+StringComparison.swift in Sources */,
@@ -519,6 +522,7 @@
 				1A2F77C7276CBD480072193D /* Model.swift in Sources */,
 				1A5F820F27988C53003032A4 /* UILabel+SafeText.swift in Sources */,
 				1A5F820E27988C53003032A4 /* RegularExpression+Matches.swift in Sources */,
+				1A5F821827998CF2003032A4 /* AnswerLabel.swift in Sources */,
 				1A5F821127988C53003032A4 /* ModelTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,10 @@ class Model {
 
     let title = "Collections"
     let titleBigArray = "Big Array of 10 000 000 elements"
+
+    let titleAllMatching = "All matching letter"
+    let titleAllCharacterDoNotMatch = "All characters that don't match"
+    let titleUniqueSymbols = "All unique characters from the first text field that don't match in text fields"
     
     var bigArray = [Int]()
     var addArray = [Int]()
