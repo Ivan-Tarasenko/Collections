@@ -33,13 +33,19 @@ class SetVC: UIViewController {
     }
 
     @objc func buttonPress(sender: UIButton!) {
+        let stringOne = firstTextField.textField.string
+        let stringTwo = secondTextField.textField.string
+
         switch sender.tag {
         case 1:
-            answerAllMatchingLetters.textTitle = "\(firstTextField.textField.string)"
+            answerAllMatchingLetters.textTitle =
+            model.answerMatchingletter(stringOne: stringOne, stringTwo: stringTwo)
         case 2:
-            answerAllCharacterDoNotMatch.textTitle = "work 2"
+            answerAllCharacterDoNotMatch.textTitle =
+            model.answerDoNotMatchLetter(stringOne: stringOne, stringTwo: stringTwo)
         case 3:
-            answerUniqueSymbols.textTitle = "work 3"
+            answerUniqueSymbols.textTitle =
+            model.answerCharacterDifference(stringOne: stringOne, stringTwo: stringTwo)
         default:
             break
         }

@@ -41,4 +41,28 @@ class Model {
         let answer = (round(1000 * mls) / 1000)
         return "Time \(string): \(answer) ms."
     }
+
+    // MARK: - The result of comparing two sets and the output of all matching characters
+    func answerMatchingletter(stringOne: String, stringTwo: String) -> String {
+        let setOne = Set(stringOne)
+        let setTwo = Set(stringTwo)
+        let answer = setOne.intersection(setTwo)
+        return String(answer.sorted())
+    }
+
+    // MARK: - The result of comparing two sets and the output of all non-matching characters
+    func answerDoNotMatchLetter(stringOne: String, stringTwo: String) -> String {
+        let setOne = Set(stringOne)
+        let setTwo = Set(stringTwo)
+        let answer = setOne.symmetricDifference(setTwo)
+        return String(answer.sorted())
+    }
+
+    // MARK: - Returns elements of the first set that are missing in the second
+    func answerCharacterDifference(stringOne: String, stringTwo: String) -> String {
+        let setOne = Set(stringOne)
+        let setTwo = Set(stringTwo)
+        let answer = setOne.subtracting(setTwo)
+        return String(answer.sorted())
+    }
 }
