@@ -36,6 +36,8 @@
 		1A8A5710277AC1B1005E0D1F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */; };
 		1A9723122775FE67005ED19D /* Arrya+RandomIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */; };
 		1AB9D2C927734DE400ECA401 /* Array+GenerateRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */; };
+		1AC16C51279D3B1E0035DBF7 /* SetVC+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC16C50279D3B1E0035DBF7 /* SetVC+Accessibility.swift */; };
+		1AC16C53279D3F3C0035DBF7 /* IDElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC16C52279D3F3C0035DBF7 /* IDElements.swift */; };
 		F0973311CF23C5E9ED30BA65 /* Pods_Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81845FC9B023F44B06FD9341 /* Pods_Collections.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		1A8A570F277AC1B1005E0D1F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrya+RandomIndex.swift"; sourceTree = "<group>"; };
 		1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+GenerateRandom.swift"; sourceTree = "<group>"; };
+		1AC16C50279D3B1E0035DBF7 /* SetVC+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetVC+Accessibility.swift"; sourceTree = "<group>"; };
+		1AC16C52279D3F3C0035DBF7 /* IDElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDElements.swift; sourceTree = "<group>"; };
 		391D5DBD24AC73DCDA7B2062 /* Pods-Collections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.release.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.release.xcconfig"; sourceTree = "<group>"; };
 		67AD43E1403504BB04E745AC /* Pods-Collections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.debug.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.debug.xcconfig"; sourceTree = "<group>"; };
 		81845FC9B023F44B06FD9341 /* Pods_Collections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +185,7 @@
 			children = (
 				1A2EB2C5276CAB5100B7E5DC /* CollectionsUITests.swift */,
 				1A2EB2C7276CAB5100B7E5DC /* CollectionsUITestsLaunchTests.swift */,
+				1AC16C52279D3F3C0035DBF7 /* IDElements.swift */,
 			);
 			path = CollectionsUITests;
 			sourceTree = "<group>";
@@ -256,10 +261,19 @@
 		1AB9D2C727734D8D00ECA401 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1AC16C4F279D3AAB0035DBF7 /* Accessibility */,
 				1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */,
 				1A9723112775FE67005ED19D /* Arrya+RandomIndex.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1AC16C4F279D3AAB0035DBF7 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				1AC16C50279D3B1E0035DBF7 /* SetVC+Accessibility.swift */,
+			);
+			path = Accessibility;
 			sourceTree = "<group>";
 		};
 		1AECF53B276CB83200DFCF8E /* Views */ = {
@@ -509,6 +523,7 @@
 				1A5F821627994889003032A4 /* RulesButton.swift in Sources */,
 				1A3F56E8277449AD00E33982 /* DictionaryVC.swift in Sources */,
 				1A5F820C27988C53003032A4 /* UITextField+Border.swift in Sources */,
+				1AC16C51279D3B1E0035DBF7 /* SetVC+Accessibility.swift in Sources */,
 				1A5F820A27988C53003032A4 /* String+StringComparison.swift in Sources */,
 				1A2EB2A5276CAB5000B7E5DC /* AppDelegate.swift in Sources */,
 				1A9723122775FE67005ED19D /* Arrya+RandomIndex.swift in Sources */,
@@ -540,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A2EB2C8276CAB5100B7E5DC /* CollectionsUITestsLaunchTests.swift in Sources */,
+				1AC16C53279D3F3C0035DBF7 /* IDElements.swift in Sources */,
 				1A2EB2C6276CAB5100B7E5DC /* CollectionsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

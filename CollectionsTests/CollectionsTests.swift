@@ -14,6 +14,7 @@ class CollectionsTests: XCTestCase {
 
     let stringOne = "Abcdefg"
     let stringTwo = "AbcdY"
+    let wrongAnswer = "qwerty"
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -29,19 +30,25 @@ class CollectionsTests: XCTestCase {
     func testAllMatchingLetters() throws {
         let answer = "Abcd"
         let result = sut.answerMatchingletter(stringOne: stringOne, stringTwo: stringTwo)
+        XCTAssertNotNil(result)
         XCTAssertEqual(result, answer)
+        XCTAssertNotEqual(result, wrongAnswer)
     }
 
     func testAllMatchingDoNotCharacter() throws {
         let answer = "Yefg"
         let result = sut.answerDoNotMatchLetter(stringOne: stringOne, stringTwo: stringTwo)
+        XCTAssertNotNil(result)
         XCTAssertEqual(result, answer)
+        XCTAssertNotEqual(result, wrongAnswer)
     }
 
     func testUniqueCharactersFromFirstField() throws {
         let answer = "efg"
         let result = sut.answerCharacterDifference(stringOne: stringOne, stringTwo: stringTwo)
+        XCTAssertNotNil(result)
         XCTAssertEqual(result, answer)
+        XCTAssertNotEqual(result, wrongAnswer)
     }
 
     func testPerformanceExample() throws {

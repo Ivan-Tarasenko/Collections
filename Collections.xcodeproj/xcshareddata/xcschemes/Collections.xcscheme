@@ -47,6 +47,11 @@
                BlueprintName = "CollectionsUITests"
                ReferencedContainer = "container:Collections.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "CollectionsUITests/testLaunchPerformance()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

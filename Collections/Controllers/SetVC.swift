@@ -12,16 +12,16 @@ class SetVC: UIViewController {
 
     let model = Model()
 
-    private var firstTextField = CustomView()
-    private var secondTextField = CustomView()
+    var firstTextField = CustomView()
+    var secondTextField = CustomView()
 
-    private var ruleAllMatchingLetters = RulesButton()
-    private var ruleAllCharacterDoNotMatch = RulesButton()
-    private var ruleUniqueSymbols = RulesButton()
+    var ruleAllMatchingLetters = RulesButton()
+    var ruleAllCharacterDoNotMatch = RulesButton()
+    var ruleUniqueSymbols = RulesButton()
 
-    private var answerAllMatchingLetters = AnswerLabel()
-    private var answerAllCharacterDoNotMatch = AnswerLabel()
-    private var answerUniqueSymbols = AnswerLabel()
+    var answerAllMatchingLetters = AnswerLabel()
+    var answerAllCharacterDoNotMatch = AnswerLabel()
+    var answerUniqueSymbols = AnswerLabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,7 @@ class SetVC: UIViewController {
         createFirstTextField()
         createAllButtonAnswer()
         createAllAnswerLabel()
+        setVCAccessibilityIdentificator()
     }
 
     @objc func buttonPress(sender: UIButton!) {
