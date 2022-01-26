@@ -38,6 +38,7 @@
 		1AB9D2C927734DE400ECA401 /* Array+GenerateRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */; };
 		1AC16C51279D3B1E0035DBF7 /* SetVC+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC16C50279D3B1E0035DBF7 /* SetVC+Accessibility.swift */; };
 		1AC16C53279D3F3C0035DBF7 /* IDElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC16C52279D3F3C0035DBF7 /* IDElements.swift */; };
+		1AC16C5527A195890035DBF7 /* MainVC+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC16C5427A195890035DBF7 /* MainVC+Accessibility.swift */; };
 		F0973311CF23C5E9ED30BA65 /* Pods_Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81845FC9B023F44B06FD9341 /* Pods_Collections.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		1AB9D2C827734DE400ECA401 /* Array+GenerateRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+GenerateRandom.swift"; sourceTree = "<group>"; };
 		1AC16C50279D3B1E0035DBF7 /* SetVC+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetVC+Accessibility.swift"; sourceTree = "<group>"; };
 		1AC16C52279D3F3C0035DBF7 /* IDElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDElements.swift; sourceTree = "<group>"; };
+		1AC16C5427A195890035DBF7 /* MainVC+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+Accessibility.swift"; sourceTree = "<group>"; };
 		391D5DBD24AC73DCDA7B2062 /* Pods-Collections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.release.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.release.xcconfig"; sourceTree = "<group>"; };
 		67AD43E1403504BB04E745AC /* Pods-Collections.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collections.debug.xcconfig"; path = "Target Support Files/Pods-Collections/Pods-Collections.debug.xcconfig"; sourceTree = "<group>"; };
 		81845FC9B023F44B06FD9341 /* Pods_Collections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				1AC16C50279D3B1E0035DBF7 /* SetVC+Accessibility.swift */,
+				1AC16C5427A195890035DBF7 /* MainVC+Accessibility.swift */,
 			);
 			path = Accessibility;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				1A3F56E62774497400E33982 /* SetVC.swift in Sources */,
 				1A5F821627994889003032A4 /* RulesButton.swift in Sources */,
 				1A3F56E8277449AD00E33982 /* DictionaryVC.swift in Sources */,
+				1AC16C5527A195890035DBF7 /* MainVC+Accessibility.swift in Sources */,
 				1A5F820C27988C53003032A4 /* UITextField+Border.swift in Sources */,
 				1AC16C51279D3B1E0035DBF7 /* SetVC+Accessibility.swift in Sources */,
 				1A5F820A27988C53003032A4 /* String+StringComparison.swift in Sources */,

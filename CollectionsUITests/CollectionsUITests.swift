@@ -31,13 +31,28 @@ class CollectionsUITests: XCTestCase {
 
     var backBarButtonMavBar: XCUIElement!
 
-    
-
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
 
+        firstTextField.otherElements[accessibility.firstTextField]
+        firstTextFieldTitle.staticTexts[accessibility.firstTextFieldTitle]
+        firstTextFieldTextField.textFields[accessibility.firstTextFieldTextField]
+
+        secondTextField.otherElements[accessibility.secondTextField]
+        secondTextFieldTitle.staticTexts[accessibility.secondTextFieldTitle]
+        secondTextFieldTextField.textFields[accessibility.secondTextFieldTextField]
+
+        ruleAllMatchingLetters.buttons[accessibility.ruleAllMatchingLetters]
+        ruleAllCharacterDoNotMatch.buttons[accessibility.ruleAllCharacterDoNotMatch]
+        ruleUniqueSymbols.staticTexts[accessibility.ruleUniqueSymbols]
+
+        answerAllMatchingLetters.staticTexts[accessibility.answerAllMatchingLetters]
+        answerAllCharacterDoNotMatch.staticTexts[accessibility.answerAllCharacterDoNotMatch]
+        answerUniqueSymbols.staticTexts[accessibility.answerUniqueSymbols]
+
+        backBarButtonMavBar.buttons[accessibility.backBarButtonMavBar]
     }
 
     override func tearDownWithError() throws {
@@ -45,9 +60,9 @@ class CollectionsUITests: XCTestCase {
     }
 
     func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+        app.staticTexts["Set"].tap()
+//        firstTextFieldTextField.tap()
+//        firstTextFieldTextField.typeText("Abcd")
 
     }
 
