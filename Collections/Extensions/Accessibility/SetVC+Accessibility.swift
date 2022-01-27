@@ -25,7 +25,5 @@ extension SetVC {
         answerAllMatchingLetters.accessibilityIdentifier = "AllMatch_Label"
         answerAllCharacterDoNotMatch.accessibilityIdentifier = "AllDoNotMatch_Label"
         answerUniqueSymbols.accessibilityIdentifier = "UniqueSymbols_Label"
-
-        navigationItem.backBarButtonItem?.accessibilityIdentifier = "BackButton_NavBar"
     }
 }

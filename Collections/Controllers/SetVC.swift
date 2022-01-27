@@ -27,10 +27,11 @@ class SetVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setNavigationBar()
-        createFirstTextField()
+        createTextFields()
         createAllButtonAnswer()
         createAllAnswerLabel()
         setVCAccessibilityIdentificator()
+        setupHideKeyboardOnTap()
     }
 
     @objc func buttonPress(sender: UIButton!) {
@@ -58,11 +59,13 @@ class SetVC: UIViewController {
     }
 
     // MARK: - Add text field.
-    func createFirstTextField() {
+    func createTextFields() {
+        let titleFirstTextField = "First text field"
+        let titlesecondTextField = "Second text field"
         let widthUIElements: CGFloat = view.frame.size.width - 20
         let heightUIElements: CGFloat = 66
         firstTextField.settingView(type: .noDigits)
-        firstTextField.title.textTitle.removeAll()
+        firstTextField.title.textTitle = titleFirstTextField
         view.addSubview(firstTextField)
         firstTextField.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: widthUIElements, height: heightUIElements))
@@ -71,7 +74,7 @@ class SetVC: UIViewController {
         }
 
         secondTextField.settingView(type: .noDigits)
-        secondTextField.title.textTitle.removeAll()
+        secondTextField.title.textTitle = titlesecondTextField
         view.addSubview(secondTextField)
         secondTextField.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: widthUIElements, height: heightUIElements))
@@ -150,4 +153,17 @@ class SetVC: UIViewController {
      }
      */
 
+}
+
+extension SetVC {
+    func setupHideKeyboardOnTap() {
+        view.addGestureRecognizer(self.endEditingRecognizer())
+        navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
+    }
+
+    private func endEditingRecognizer() -> UIGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        return tap
+    }
 }

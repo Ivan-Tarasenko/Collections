@@ -25,5 +25,5 @@ struct SetVCAccessibilityIdentifier {
     let answerAllCharacterDoNotMatch = "AllDoNotMatch_Label"
     let answerUniqueSymbols = "UniqueSymbols_Label"
 
-    let backBarButtonMavBar = "BackButton_NavBar"
+    let backBarButtonMavBar = "Collections"
 }

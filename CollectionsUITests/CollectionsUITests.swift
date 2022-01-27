@@ -36,34 +36,70 @@ class CollectionsUITests: XCTestCase {
         app = XCUIApplication()
         app.launch()
 
-        firstTextField.otherElements[accessibility.firstTextField]
-        firstTextFieldTitle.staticTexts[accessibility.firstTextFieldTitle]
-        firstTextFieldTextField.textFields[accessibility.firstTextFieldTextField]
+        firstTextField = app.otherElements[accessibility.firstTextField]
+        firstTextFieldTitle = app.staticTexts[accessibility.firstTextFieldTitle]
+        firstTextFieldTextField = app.textFields[accessibility.firstTextFieldTextField]
 
-        secondTextField.otherElements[accessibility.secondTextField]
-        secondTextFieldTitle.staticTexts[accessibility.secondTextFieldTitle]
-        secondTextFieldTextField.textFields[accessibility.secondTextFieldTextField]
+        secondTextField = app.otherElements[accessibility.secondTextField]
+        secondTextFieldTitle = app.staticTexts[accessibility.secondTextFieldTitle]
+        secondTextFieldTextField = app.textFields[accessibility.secondTextFieldTextField]
 
-        ruleAllMatchingLetters.buttons[accessibility.ruleAllMatchingLetters]
-        ruleAllCharacterDoNotMatch.buttons[accessibility.ruleAllCharacterDoNotMatch]
-        ruleUniqueSymbols.staticTexts[accessibility.ruleUniqueSymbols]
+        ruleAllMatchingLetters = app.buttons[accessibility.ruleAllMatchingLetters]
+        ruleAllCharacterDoNotMatch = app.buttons[accessibility.ruleAllCharacterDoNotMatch]
+        ruleUniqueSymbols = app.buttons[accessibility.ruleUniqueSymbols]
 
-        answerAllMatchingLetters.staticTexts[accessibility.answerAllMatchingLetters]
-        answerAllCharacterDoNotMatch.staticTexts[accessibility.answerAllCharacterDoNotMatch]
-        answerUniqueSymbols.staticTexts[accessibility.answerUniqueSymbols]
+        answerAllMatchingLetters = app.staticTexts[accessibility.answerAllMatchingLetters]
+        answerAllCharacterDoNotMatch = app.staticTexts[accessibility.answerAllCharacterDoNotMatch]
+        answerUniqueSymbols = app.staticTexts[accessibility.answerUniqueSymbols]
 
-        backBarButtonMavBar.buttons[accessibility.backBarButtonMavBar]
+        backBarButtonMavBar = app.buttons[accessibility.backBarButtonMavBar
+        ]
     }
 
     override func tearDownWithError() throws {
         app = nil
     }
 
-    func testExample() throws {
+    func testForPresenceOfElements() throws {
         app.staticTexts["Set"].tap()
-//        firstTextFieldTextField.tap()
-//        firstTextFieldTextField.typeText("Abcd")
 
+        XCTAssertTrue(firstTextField.exists)
+        XCTAssertTrue(firstTextFieldTitle.exists)
+        XCTAssertTrue(firstTextFieldTextField.exists)
+
+        XCTAssertTrue(secondTextField.exists)
+        XCTAssertTrue(secondTextFieldTitle.exists)
+        XCTAssertTrue(secondTextFieldTextField.exists)
+
+        XCTAssertTrue(ruleAllMatchingLetters.exists)
+        XCTAssertTrue(ruleAllCharacterDoNotMatch.exists)
+        XCTAssertTrue(ruleUniqueSymbols.exists)
+
+        XCTAssertTrue(answerAllMatchingLetters.exists)
+        XCTAssertTrue(answerAllCharacterDoNotMatch.exists)
+        XCTAssertTrue(answerUniqueSymbols.exists)
+
+        XCTAssertTrue(backBarButtonMavBar.exists)
+    }
+
+    func testOutputAnswer() throws {
+        let stringOne = "Abcdefg"
+        let stringTwo = "AbcdY"
+        let answer = "Abcd"
+        let answerTwo = "Yefg"
+        let answerThree = "efg"
+        app.staticTexts["Set"].tap()
+        firstTextFieldTextField.tap()
+        firstTextFieldTextField.typeText(stringOne)
+        secondTextFieldTextField.tap()
+        secondTextFieldTextField.typeText(stringTwo)
+        ruleAllMatchingLetters.tap()
+        ruleAllCharacterDoNotMatch.tap()
+        ruleUniqueSymbols.tap()
+        XCTAssertEqual(answerAllMatchingLetters.label, answer)
+        XCTAssertEqual(answerAllCharacterDoNotMatch.label, answerTwo)
+        XCTAssertEqual(answerUniqueSymbols.label, answerThree)
+        backBarButtonMavBar.tap()
     }
 
     func testLaunchPerformance() throws {
