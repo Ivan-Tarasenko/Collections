@@ -9,26 +9,97 @@ import XCTest
 
 class CollectionsUITests: XCTestCase {
 
+    let accessibility = SetVCAccessibilityIdentifier()
+
+    var app: XCUIApplication!
+
+    var firstTextField: XCUIElement!
+    var firstTextFieldTitle: XCUIElement!
+    var firstTextFieldTextField: XCUIElement!
+
+    var secondTextField: XCUIElement!
+    var secondTextFieldTitle: XCUIElement!
+    var secondTextFieldTextField: XCUIElement!
+
+    var ruleAllMatchingLetters: XCUIElement!
+    var ruleAllCharacterDoNotMatch: XCUIElement!
+    var ruleUniqueSymbols: XCUIElement!
+
+    var answerAllMatchingLetters: XCUIElement!
+    var answerAllCharacterDoNotMatch: XCUIElement!
+    var answerUniqueSymbols: XCUIElement!
+
+    var backBarButtonMavBar: XCUIElement!
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        firstTextField = app.otherElements[accessibility.firstTextField]
+        firstTextFieldTitle = app.staticTexts[accessibility.firstTextFieldTitle]
+        firstTextFieldTextField = app.textFields[accessibility.firstTextFieldTextField]
+
+        secondTextField = app.otherElements[accessibility.secondTextField]
+        secondTextFieldTitle = app.staticTexts[accessibility.secondTextFieldTitle]
+        secondTextFieldTextField = app.textFields[accessibility.secondTextFieldTextField]
+
+        ruleAllMatchingLetters = app.buttons[accessibility.ruleAllMatchingLetters]
+        ruleAllCharacterDoNotMatch = app.buttons[accessibility.ruleAllCharacterDoNotMatch]
+        ruleUniqueSymbols = app.buttons[accessibility.ruleUniqueSymbols]
+
+        answerAllMatchingLetters = app.staticTexts[accessibility.answerAllMatchingLetters]
+        answerAllCharacterDoNotMatch = app.staticTexts[accessibility.answerAllCharacterDoNotMatch]
+        answerUniqueSymbols = app.staticTexts[accessibility.answerUniqueSymbols]
+
+        backBarButtonMavBar = app.buttons[accessibility.backBarButtonMavBar
+        ]
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app = nil
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testForPresenceOfElements() throws {
+        app.staticTexts["Set"].tap()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertTrue(firstTextField.exists)
+        XCTAssertTrue(firstTextFieldTitle.exists)
+        XCTAssertTrue(firstTextFieldTextField.exists)
+
+        XCTAssertTrue(secondTextField.exists)
+        XCTAssertTrue(secondTextFieldTitle.exists)
+        XCTAssertTrue(secondTextFieldTextField.exists)
+
+        XCTAssertTrue(ruleAllMatchingLetters.exists)
+        XCTAssertTrue(ruleAllCharacterDoNotMatch.exists)
+        XCTAssertTrue(ruleUniqueSymbols.exists)
+
+        XCTAssertTrue(answerAllMatchingLetters.exists)
+        XCTAssertTrue(answerAllCharacterDoNotMatch.exists)
+        XCTAssertTrue(answerUniqueSymbols.exists)
+
+        XCTAssertTrue(backBarButtonMavBar.exists)
+    }
+
+    func testOutputAnswer() throws {
+        let stringOne = "Abcdefg"
+        let stringTwo = "AbcdY"
+        let answer = "Abcd"
+        let answerTwo = "Yefg"
+        let answerThree = "efg"
+        app.staticTexts["Set"].tap()
+        firstTextFieldTextField.tap()
+        firstTextFieldTextField.typeText(stringOne)
+        secondTextFieldTextField.tap()
+        secondTextFieldTextField.typeText(stringTwo)
+        ruleAllMatchingLetters.tap()
+        ruleAllCharacterDoNotMatch.tap()
+        ruleUniqueSymbols.tap()
+        XCTAssertEqual(answerAllMatchingLetters.label, answer)
+        XCTAssertEqual(answerAllCharacterDoNotMatch.label, answerTwo)
+        XCTAssertEqual(answerUniqueSymbols.label, answerThree)
+        backBarButtonMavBar.tap()
     }
 
     func testLaunchPerformance() throws {

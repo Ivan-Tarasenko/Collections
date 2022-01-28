@@ -11,7 +11,7 @@ import SnapKit
 class MainViewController: UIViewController {
     
     let model = Model()
-    private var tableView: UITableView!
+    var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
