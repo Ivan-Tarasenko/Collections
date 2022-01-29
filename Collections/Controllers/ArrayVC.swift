@@ -106,16 +106,47 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                             model.bigArray = Array(0...9_999)
             })
         }
+
         print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
 
-        if indexPath?.section == 1 && ((indexPath?.isEmpty) != nil) {
-print("section nil")
+        if !model.bigArray.isEmpty {
+            collectionView.reloadData()
+    }
+
+        if indexPath?.section == 1 {
+            switch indexPath?.row {
+            case 0:
+                cell.backgroundColor = .green
+            case 1:
+                cell.backgroundColor = .blue
+            case 2:
+                cell.backgroundColor = .red
+            case 3:
+                cell.backgroundColor = .black
+            case 4:
+                cell.backgroundColor = .brown
+            case 5:
+                cell.backgroundColor = .systemPink
+            case 6:
+                cell.backgroundColor = .systemGray
+            case 7:
+                cell.backgroundColor = .darkGray
+            case 8:
+                cell.backgroundColor = .yellow
+            case 9:
+                cell.backgroundColor = .orange
+            case 10:
+                cell.backgroundColor = .purple
+            case 11:
+                cell.backgroundColor = .systemBlue
+            case 12:
+                cell.backgroundColor = .systemGray4
+            default:
+                break
+
+            }
         }
 
-//        if !model.bigArray.isEmpty {
-//            let index = IndexSet.init(integer: 1)
-//            collectionView.reloadSections(index)
-//    }
     }
 
 //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
