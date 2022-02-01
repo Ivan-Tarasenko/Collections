@@ -44,7 +44,7 @@ class ModelTextField {
 
     // MARK: - No digits character
     func noDigit(string: String) -> Bool {
-        let forbiddenCharacters = CharacterSet.letters    //decimalDigits.inverted
+        let forbiddenCharacters = CharacterSet.letters    // decimalDigits.inverted
         let characterSet = CharacterSet(charactersIn: string)
         return forbiddenCharacters.isSuperset(of: characterSet)
     }

@@ -98,9 +98,11 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         let indexPath = self.collectionView.indexPathForItem(at: convertedPoint)
         guard let cell = self.collectionView.cellForItem(at: indexPath!) as? CustomCollectionViewCell else {fatalError()}
 
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+        var timeOperation = String()
 
-            let text =  model.timeOperation(string: "create Big Array", operation: {
+        if model.bigArray.isEmpty {
+        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            timeOperation =  model.timeOperation(string: "create Big Array", operation: {
                 model.bigArray = Array(0...9_999_999)
             })
 
@@ -108,15 +110,23 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                 collectionView.reloadData()
             }
         }
+        }
 
         if model.bigArray.isEmpty {
             cell.titleLabel.textTitle.removeAll()
             cell.activityIndicator.hidesWhenStopped = true
             cell.activityIndicator.startAnimating()
+        } else {
+            cell.titleLabel.textTitle = "array not is empty"
         }
 
+//        let indexSet = IndexSet(integer: indexPath!.section)
+//         collectionView.reloadSections(indexSet)
+
+        cell.titleLabel.textTitle = timeOperation
 
         print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
+        print(timeOperation)
 
         //        if !model.bigArray.isEmpty {
         //            collectionView.reloadData()
