@@ -13,8 +13,11 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     let model = Model()
     //    let cell = CustomCollectionViewCell()
 
-    var previousSelected : IndexPath?
-    var currentSelected : Int?
+//    var previousSelected : IndexPath?
+//    var currentSelected : Int?
+
+    let queueMain = DispatchQueue.main
+    let queueGlobal = DispatchQueue(label: "com.app.concurrentQueue", attributes: .concurrent)
 
     private var collectionView: UICollectionView!
 
@@ -98,35 +101,51 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         let indexPath = self.collectionView.indexPathForItem(at: convertedPoint)
         guard let cell = self.collectionView.cellForItem(at: indexPath!) as? CustomCollectionViewCell else {fatalError()}
 
-        var timeOperation = String()
-
-        if model.bigArray.isEmpty {
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            timeOperation =  model.timeOperation(string: "create Big Array", operation: {
+        queueGlobal.sync {
+            cell.activityIndicator.startAnimating()
+            cell.titleLabel.textTitle.removeAll()
+        }
+        queueGlobal.async { [self] in
+            let title = model.timeOperation(string: "Create Big Array") {
                 model.bigArray = Array(0...9_999_999)
-            })
-
-            DispatchQueue.main.async {
+            }
+            queueMain.sync {
                 collectionView.reloadData()
             }
-        }
+            queueMain.sync {
+                cell.titleLabel.textTitle = title
+                cell.activityIndicator.stopAnimating()
+                cell.activityIndicator.hidesWhenStopped = true
+            }
         }
 
-        if model.bigArray.isEmpty {
-            cell.titleLabel.textTitle.removeAll()
-            cell.activityIndicator.hidesWhenStopped = true
-            cell.activityIndicator.startAnimating()
-        } else {
-            cell.titleLabel.textTitle = "array not is empty"
-        }
+//        if model.bigArray.isEmpty {
+//        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+//            timeOperation =  model.timeOperation(string: "create Big Array", operation: {
+//                model.bigArray = Array(0...9_999_999)
+//            })
+//
+//            DispatchQueue.main.async {
+//                collectionView.reloadData()
+//            }
+//        }
+//        }
+//
+//        if model.bigArray.isEmpty {
+//            cell.titleLabel.textTitle.removeAll()
+//            cell.activityIndicator.hidesWhenStopped = true
+//            cell.activityIndicator.startAnimating()
+//        } else {
+//            cell.titleLabel.textTitle = "array not is empty"
+//        }
 
 //        let indexSet = IndexSet(integer: indexPath!.section)
 //         collectionView.reloadSections(indexSet)
 
-        cell.titleLabel.textTitle = timeOperation
+//        cell.titleLabel.textTitle = timeOperation
 
         print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
-        print(timeOperation)
+
 
         //        if !model.bigArray.isEmpty {
         //            collectionView.reloadData()
