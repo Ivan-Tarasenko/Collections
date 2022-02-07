@@ -114,6 +114,7 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             }
             queueMain.sync {
                 cell.titleLabel.textTitle = title
+                cell.titleLabel.textColor = .black
                 cell.activityIndicator.stopAnimating()
                 cell.activityIndicator.hidesWhenStopped = true
             }
@@ -187,31 +188,51 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
     }
 
-    //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    //
-    //                guard let cell = cell as? CustomCollectionViewCell else {return}
-    //
-    //                switch indexPath.section {
-    //                case 1:
-    //                    cell.backgroundColor = .red
-    //                default:
-    //                    cell.backgroundColor = .blue
-    //                }
-    //            }
+        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//
+                    guard let cell = cell as? CustomCollectionViewCell else {return}
 
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //                guard let cell = collectionView.dequeueReusableCell(
-    //                    withReuseIdentifier: CustomCollectionViewCell.identifier,
-    //                    for: indexPath
-    //                ) as? CustomCollectionViewCell else {fatalError()}
-    ////        guard (self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell) != nil else {fatalError()}
-    //
-    //print("click to cell")
-    //        currentSelected = indexPath.row
-    //        previousSelected = indexPath
-    //
-    //        // For reload the selected cell
-    //        self.collectionView.reloadItems(at: [indexPath])
-    //    }
+            queueGlobal.sync {
+                cell.activityIndicator.startAnimating()
+                cell.titleLabel.textTitle.removeAll()
+            }
+            queueGlobal.async { [self] in
+                let title = model.timeOperation(string: "Create Big Array") {
+                    model.bigArray = Array(0...9_999_999)
+                }
+                queueMain.sync {
+                    cell.titleLabel.textTitle = title
+                    cell.titleLabel.textColor = .black
+                    cell.activityIndicator.stopAnimating()
+                    cell.activityIndicator.hidesWhenStopped = true
+                }
+            }
+
+            if indexPath.section == 0 {
+
+            }
+//
+//                    switch indexPath.section {
+//                    case 1:
+//                        cell.backgroundColor = .red
+//                    default:
+//                        cell.backgroundColor = .blue
+//                    }
+//                }
+//
+//        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//                    guard let cell = collectionView.dequeueReusableCell(
+//                        withReuseIdentifier: CustomCollectionViewCell.identifier,
+//                        for: indexPath
+//                    ) as? CustomCollectionViewCell else {fatalError()}
+//    //        guard (self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell) != nil else {fatalError()}
+//
+//    print("click to cell")
+//            currentSelected = indexPath.row
+//            previousSelected = indexPath
+//
+//            // For reload the selected cell
+//            self.collectionView.reloadItems(at: [indexPath])
+        }
 
 }
