@@ -17,7 +17,7 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 //    var currentSelected : Int?
 
     let queueMain = DispatchQueue.main
-    let queueGlobal = DispatchQueue(label: "com.app.concurrentQueue", attributes: .concurrent)
+    let queueGlobal = DispatchQueue(label: "com.Inan.Collections", attributes: .concurrent)
 
     private var collectionView: UICollectionView!
 
@@ -96,7 +96,7 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
 
     @objc func buttonAction(sender: UIButton!) {
-
+//
         let convertedPoint: CGPoint = sender.convert(CGPoint.zero, to: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: convertedPoint)
         guard let cell = self.collectionView.cellForItem(at: indexPath!) as? CustomCollectionViewCell else {fatalError()}
@@ -188,29 +188,29 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
     }
 
-        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 //
-                    guard let cell = cell as? CustomCollectionViewCell else {return}
-
-            queueGlobal.sync {
-                cell.activityIndicator.startAnimating()
-                cell.titleLabel.textTitle.removeAll()
-            }
-            queueGlobal.async { [self] in
-                let title = model.timeOperation(string: "Create Big Array") {
-                    model.bigArray = Array(0...9_999_999)
-                }
-                queueMain.sync {
-                    cell.titleLabel.textTitle = title
-                    cell.titleLabel.textColor = .black
-                    cell.activityIndicator.stopAnimating()
-                    cell.activityIndicator.hidesWhenStopped = true
-                }
-            }
-
-            if indexPath.section == 0 {
-
-            }
+//                    guard let cell = cell as? CustomCollectionViewCell else {return}
+//
+//            queueGlobal.sync {
+//                cell.activityIndicator.startAnimating()
+//                cell.titleLabel.textTitle.removeAll()
+//            }
+//            queueGlobal.async { [self] in
+//                let title = model.timeOperation(string: "Create Big Array") {
+//                    model.bigArray = Array(0...9_999_999)
+//                }
+//                queueMain.sync {
+//                    cell.titleLabel.textTitle = title
+//                    cell.titleLabel.textColor = .black
+//                    cell.activityIndicator.stopAnimating()
+//                    cell.activityIndicator.hidesWhenStopped = true
+//                }
+//            }
+//
+//            if indexPath.section == 0 {
+//
+//            }
 //
 //                    switch indexPath.section {
 //                    case 1:
@@ -220,19 +220,43 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 //                    }
 //                }
 //
+
+
 //        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //                    guard let cell = collectionView.dequeueReusableCell(
 //                        withReuseIdentifier: CustomCollectionViewCell.identifier,
 //                        for: indexPath
 //                    ) as? CustomCollectionViewCell else {fatalError()}
-//    //        guard (self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell) != nil else {fatalError()}
-//
+
+//            queueGlobal.sync {
+//                cell.activityIndicator.startAnimating()
+//                cell.titleLabel.textTitle.removeAll()
+//            }
+//            queueGlobal.async { [self] in
+//                let title = model.timeOperation(string: "Create Big Array") {
+//                    model.bigArray = Array(0...9_999_999)
+//                }
+//                queueMain.sync {
+////                    collectionView.reloadData()
+//                }
+//                queueMain.sync {
+//                    cell.titleLabel.textTitle = title
+//                    cell.titleLabel.textColor = .black
+//                    cell.activityIndicator.stopAnimating()
+//                    cell.activityIndicator.hidesWhenStopped = true
+//                }
+//            }
+//            guard (self.collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell) != nil else {fatalError()}
+
 //    print("click to cell")
+//            if indexPath.row == 0 {
+//                cell.backgroundColor = .systemOrange
+//            }
 //            currentSelected = indexPath.row
 //            previousSelected = indexPath
 //
 //            // For reload the selected cell
 //            self.collectionView.reloadItems(at: [indexPath])
-        }
+//        }
 
 }
