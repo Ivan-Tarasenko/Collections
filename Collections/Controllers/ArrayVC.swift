@@ -109,9 +109,9 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             let title = model.timeOperation(string: "Create Big Array") {
                 model.bigArray = Array(0...9_999_999)
             }
-            queueMain.sync {
-                collectionView.reloadData()
-            }
+                queueMain.sync {
+                    collectionView.reloadData()
+                }
             queueMain.sync {
                 cell.titleLabel.textTitle = title
                 cell.titleLabel.textColor = .black
@@ -120,6 +120,25 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             }
         }
 
+        if indexPath?.section == 1 || indexPath?.row == 0 {
+            model.addArray = Array(0...999)
+
+            queueGlobal.sync {
+                cell.activityIndicator.startAnimating()
+                cell.titleLabel.textTitle.removeAll()
+            }
+            queueGlobal.async { [self] in
+                let title = model.timeOperation(string: "time add") {
+                    model.bigArray.insert(contentsOf: model.addArray, at: 0)
+                }
+                queueMain.sync {
+                    cell.titleLabel.textTitle = title
+                    cell.titleLabel.textColor = .black
+                    cell.activityIndicator.stopAnimating()
+                    cell.activityIndicator.hidesWhenStopped = true
+                }
+            }
+        }
 //        if model.bigArray.isEmpty {
 //        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
 //            timeOperation =  model.timeOperation(string: "create Big Array", operation: {
@@ -146,7 +165,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 //        cell.titleLabel.textTitle = timeOperation
 
         print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
-
 
         //        if !model.bigArray.isEmpty {
         //            collectionView.reloadData()
