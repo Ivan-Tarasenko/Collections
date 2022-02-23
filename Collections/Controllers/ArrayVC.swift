@@ -11,13 +11,11 @@ import SnapKit
 class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     let model = Model()
-    //    let cell = CustomCollectionViewCell()
 
-//    var previousSelected : IndexPath?
-//    var currentSelected : Int?
 
+// Setting queue
     let queueMain = DispatchQueue.main
-    let queueGlobal = DispatchQueue(label: "com.Inan.Collections", attributes: .concurrent)
+    let queueBigArray = DispatchQueue(label: "CreateBigArrayQueue", attributes: .concurrent)
 
     private var collectionView: UICollectionView!
 
@@ -49,12 +47,13 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
     }
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return model.bigArray.isEmpty ? 1 : 2
-    }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return model.bigArray.isEmpty ? 1 : 2
+//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : model.operationOptions.count
+        return model.operationOptions.count
+//        return section == 0 ? 1 : model.operationOptions.count
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -73,72 +72,59 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CustomCollectionViewCell.identifier,
-            for: indexPath
-        ) as? CustomCollectionViewCell else {fatalError()}
+            for: indexPath) as? CustomCollectionViewCell else {fatalError()}
 
+        cell.backgroundColor = .systemGray4
         cell.layer.borderWidth = 0.4
         cell.layer.borderColor = CGColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1)
-        cell.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+//        cell.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 
-        if indexPath.section == 0 {
+        if indexPath.row == 0 {
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.text = model.titleBigArray
         } else {
             cell.titleLabel.text = "\(model.operationOptions[indexPath.row])"
         }
-        //        if indexPath.row == 4 {
-        //            cell.backgroundColor = .blue
-        //        } else if indexPath.row == 7 {
-        //            cell.backgroundColor = .red
-        //        }
 
         return cell
     }
 
-    @objc func buttonAction(sender: UIButton!) {
+//    @objc func buttonAction(sender: UIButton!) {
+////
+//        let convertedPoint: CGPoint = sender.convert(CGPoint.zero, to: self.collectionView)
+//        let indexPath = self.collectionView.indexPathForItem(at: convertedPoint)
+//        guard let cell = self.collectionView.cellForItem(at: indexPath!) as? CustomCollectionViewCell else {fatalError()}
+
+////////////////////////////////////////////
+//        if model.bigArray.isEmpty {
+//        queueBigArray.sync {
+//            cell.titleLabel.textTitle.removeAll()
+//            cell.activityIndicator.startAnimating()
+//            print(model.bigArray.count)
+//        }
 //
-        let convertedPoint: CGPoint = sender.convert(CGPoint.zero, to: self.collectionView)
-        let indexPath = self.collectionView.indexPathForItem(at: convertedPoint)
-        guard let cell = self.collectionView.cellForItem(at: indexPath!) as? CustomCollectionViewCell else {fatalError()}
-
-        queueGlobal.sync {
-            cell.activityIndicator.startAnimating()
-            cell.titleLabel.textTitle.removeAll()
-        }
-        queueGlobal.async { [self] in
-            let title = model.timeOperation(string: "Create Big Array") {
-                model.bigArray = Array(0...9_999_999)
-            }
-                queueMain.sync {
-                    collectionView.reloadData()
-                }
-            queueMain.sync {
-                cell.titleLabel.textTitle = title
-                cell.titleLabel.textColor = .black
-                cell.activityIndicator.stopAnimating()
-                cell.activityIndicator.hidesWhenStopped = true
-            }
-        }
-
-        if indexPath?.section == 1 || indexPath?.row == 0 {
-            model.addArray = Array(0...999)
-
-            queueGlobal.sync {
-                cell.activityIndicator.startAnimating()
-                cell.titleLabel.textTitle.removeAll()
-            }
-            queueGlobal.async { [self] in
-                let title = model.timeOperation(string: "time add") {
-                    model.bigArray.insert(contentsOf: model.addArray, at: 0)
-                }
-                queueMain.sync {
-                    cell.titleLabel.textTitle = title
-                    cell.titleLabel.textColor = .black
-                    cell.activityIndicator.stopAnimating()
-                    cell.activityIndicator.hidesWhenStopped = true
-                }
-            }
-        }
+//        queueBigArray.async { [self] in
+//           let timeOperation =  model.timeOperation(string: "create Big Array", operation: {
+//                            model.bigArray = Array(0...9_999_999)
+//                        })
+//            queueMain.sync {
+//                collectionView.reloadData()
+//            }
+//
+//            queueMain.sync {
+//                cell.activityIndicator.stopAnimating()
+//                cell.activityIndicator.isHidden = true
+//                cell.titleLabel.textTitle = timeOperation
+//                cell.titleLabel.textColor = .black
+//                cell.backgroundColor = .white
+//                print(model.bigArray.count)
+//
+//            }
+//        }
+//        } else {
+//            cell.titleLabel.textTitle = "хватит блять обнавлять интерфейс"
+//        }
+/////////////////////////////////////////
 //        if model.bigArray.isEmpty {
 //        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
 //            timeOperation =  model.timeOperation(string: "create Big Array", operation: {
@@ -164,7 +150,7 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
 //        cell.titleLabel.textTitle = timeOperation
 
-        print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
+//        print("click button \(indexPath!.row) sectoin \(indexPath!.section)")
 
         //        if !model.bigArray.isEmpty {
         //            collectionView.reloadData()
@@ -204,7 +190,11 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         //            }
         //        }
 
-    }
+//    }
+//////////////////////////////////////////////
+
+
+
 
 //        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 //
@@ -240,12 +230,17 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 //
 
 
-//        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//                    guard let cell = collectionView.dequeueReusableCell(
-//                        withReuseIdentifier: CustomCollectionViewCell.identifier,
-//                        for: indexPath
-//                    ) as? CustomCollectionViewCell else {fatalError()}
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+                    guard let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: CustomCollectionViewCell.identifier,
+                        for: indexPath
+                    ) as? CustomCollectionViewCell else {fatalError()}
+
+
+            if indexPath.row == 2 {
+                cell.backgroundColor = .red
+            }
 //            queueGlobal.sync {
 //                cell.activityIndicator.startAnimating()
 //                cell.titleLabel.textTitle.removeAll()
@@ -275,6 +270,6 @@ class ArrayVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 //
 //            // For reload the selected cell
 //            self.collectionView.reloadItems(at: [indexPath])
-//        }
+        }
 
 }

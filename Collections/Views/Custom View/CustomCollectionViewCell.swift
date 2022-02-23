@@ -23,10 +23,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    lazy var button: UIButton = {
-        let button = UIButton()
-        return button
-    }()
+//    lazy var button: UIButton = {
+//        let button = UIButton()
+//        button.tag = 0
+//        return button
+//    }()
 
     lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -36,12 +37,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        contentView.addSubview(button)
-        button.snp.makeConstraints { make in
-            make.top.trailing.leading.bottom.equalTo(contentView).inset(0)
-        }
+//        contentView.addSubview(button)
+//        button.snp.makeConstraints { make in
+//            make.top.trailing.leading.bottom.equalTo(contentView).inset(0)
+//        }
 
-//        contentView.backgroundColor = .systemGray5
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalTo(contentView).inset(10)

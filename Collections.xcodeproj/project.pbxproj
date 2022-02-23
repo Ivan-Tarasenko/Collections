@@ -165,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				1A5F81FC27988C53003032A4 /* Custom TextField */,
-				1A35774B278BE2F200CE0DD0 /* New Group */,
 				1AECF53D276CB85400DFCF8E /* Models */,
 				1AECF53B276CB83200DFCF8E /* Views */,
 				1AECF53C276CB84500DFCF8E /* Controllers */,
@@ -190,13 +189,6 @@
 				1AC16C52279D3F3C0035DBF7 /* IDElements.swift */,
 			);
 			path = CollectionsUITests;
-			sourceTree = "<group>";
-		};
-		1A35774B278BE2F200CE0DD0 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		1A5F81FC27988C53003032A4 /* Custom TextField */ = {

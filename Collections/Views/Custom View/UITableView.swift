@@ -17,6 +17,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
             cell.textLabel?.text = "\(model.myArray[indexPath.row])"
+            cell.accessoryType = .disclosureIndicator
             return cell
         }
 
