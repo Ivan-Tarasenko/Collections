@@ -42,8 +42,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - Transition on other view.
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             var viewController = UIViewController()
-            let randomValue = Array.generateRandom(size: 9999)
-            let title = "\(model.myArray[indexPath.row]): \(randomValue.randomIndex())"
+            let randomValue = Int.random(in: 0...9999)
+            let title = "\(model.myArray[indexPath.row]): \(randomValue)"
             switch indexPath.row {
             case 0:
                 viewController = ArrayVC()

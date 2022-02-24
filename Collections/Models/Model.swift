@@ -32,11 +32,11 @@ class Model {
                             "Removing 1000 elements from the middle of the array one at a time",
                             "Removing 1000 elements from the end of the array at once",
                             "Removing 1000 elements from the end of the array one at a time"]
-
-    func createBigArray() -> [Int] {
-        bigArray = Array(0 ... 9_999_999)
-        return bigArray
-    }
+//
+//    func createBigArray() -> [Int] {
+//        bigArray = Array(0 ... 9_999_999)
+//        return bigArray
+//    }
 
     // MARK: - Method for determining the algorithm execution speed.
     func timeOperation (string: String, operation: () -> Void ) -> String {
