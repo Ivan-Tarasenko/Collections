@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Collections
 //
-//  Created by Иван Тарасенко on 17.12.2021.
+//  Created by Иван Тарасенко on 22.02.2022.
 //
 
 import UIKit
@@ -12,16 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let winScene = scene as? UIWindowScene {
-            let myWindow = UIWindow(windowScene: winScene)
-            let navContr = UINavigationController()
-            let mainVC = MainViewController()
-
-            navContr.viewControllers = [mainVC]
-            myWindow.rootViewController = navContr
-            self.window = myWindow
-            myWindow.makeKeyAndVisible()
-        }
 
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -53,5 +43,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
 }

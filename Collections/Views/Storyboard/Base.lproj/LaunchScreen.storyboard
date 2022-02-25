@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tXF-FN-3c6">
-                                <rect key="frame" x="111.5" y="251" width="191" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nl3-ny-CBh">
+                                <rect key="frame" x="111.5" y="229" width="191" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,8 +27,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tXF-FN-3c6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="207" id="4Kr-L2-VuE"/>
-                            <constraint firstItem="tXF-FN-3c6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yhn-UZ-5tg"/>
+                            <constraint firstItem="Nl3-ny-CBh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="185" id="rTe-iF-fAZ"/>
+                            <constraint firstItem="Nl3-ny-CBh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ttS-7o-qxq"/>
                         </constraints>
                     </view>
                 </viewController>

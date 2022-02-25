@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A2EB2A0276CAB4F00B7E5DC"
+               BlueprintIdentifier = "1A78939F27C5009800BB2679"
                BuildableName = "Collections.app"
                BlueprintName = "Collections"
                ReferencedContainer = "container:Collections.xcodeproj">
@@ -28,31 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A2EB2B6276CAB5100B7E5DC"
-               BuildableName = "CollectionsTests.xctest"
-               BlueprintName = "CollectionsTests"
-               ReferencedContainer = "container:Collections.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A2EB2C0276CAB5100B7E5DC"
-               BuildableName = "CollectionsUITests.xctest"
-               BlueprintName = "CollectionsUITests"
-               ReferencedContainer = "container:Collections.xcodeproj">
-            </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "CollectionsUITests/testLaunchPerformance()">
-               </Test>
-            </SkippedTests>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -69,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1A2EB2A0276CAB4F00B7E5DC"
+            BlueprintIdentifier = "1A78939F27C5009800BB2679"
             BuildableName = "Collections.app"
             BlueprintName = "Collections"
             ReferencedContainer = "container:Collections.xcodeproj">
@@ -86,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1A2EB2A0276CAB4F00B7E5DC"
+            BlueprintIdentifier = "1A78939F27C5009800BB2679"
             BuildableName = "Collections.app"
             BlueprintName = "Collections"
             ReferencedContainer = "container:Collections.xcodeproj">
