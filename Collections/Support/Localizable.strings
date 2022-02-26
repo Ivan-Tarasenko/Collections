@@ -39,3 +39,68 @@
 "titleAllCharacterDoNotMatch" = "All characters that don't match";
 "titleUniqueSymbols" = "All unique characters from the first text field that don't match in text fields";
 
+
+
+
+
+                                    // localozation test field
+// Localization title label.
+"Text_Fields_All" = "Text Fields";
+"Text_Fields_NoDigit" = "Text Field without numbers";
+"Text_Fields_LimitChar" = "Restricted text field";
+"Text_Fields_OnlyChar" = "Text Tield for characters only";
+"Text_Fields_Link" = "Text Tield for the link";
+"Text_Fields_Password" = "Password text field";
+
+// No Digits.
+"NO_Digits_field" = "NO Digits field";
+"Type_here" = "Type here";
+
+//Input Limit.
+"Input_limit" = "Input limit";
+
+// Only characters.
+"Only_characters" = "Only characters";
+"wwwww_ddddd" =  "wwwww-ddddd";
+
+// Link.
+"Link" = "Link";
+"www.example.com" = "www.example.com";
+
+// Validation rules.
+"Validation_rules" = "Validation rules";
+"Password" = "Password";
+
+// Localization label password validation.
+"Min_length_characters" = "- Min length 8 characters.";
+"Min_1_digit" = "- Min 1 digit.";
+"Min_1_lowercase" = "- Min 1 lowercase.";
+"Min_1_capital_required" = "- Min 1 capital required.";
+"special_characters_are_not_allowed" = "✘ Special characters are not allowed";
+"only_English_characters" = "✘ Only English characters";
+
+// Localization string for test "no digit"
+"NoDigitstrInput" = "qwert123yu!@#";
+"NoDigitstrOut" = "qwertyu!@#";
+
+// Localization string for test "Limit character"
+"limitStrInput" = "Checking limit character";
+
+// Localization string for test "Link"
+"LinkString" = "There is a link here";
+
+// Localization string for test "Password validation"
+"Min_length_charactersTest" = "✓ Min length 8 characters.";
+"Min_1_digitTest" = "✓ Min 1 digit.";
+"Min_1_lowercaseTest" = "✓ Min 1 lowercase.";
+"Min_1_capital_requiredTest" = "✓ Min 1 capital required.";
+
+// Localization for incorrect characters.
+"NextKeyboard" = "Next keyboard";
+
+// Localization for test progress bar.
+"25%" = "25%";
+"50%" = "50%";
+"75%" = "75%";
+"100%" = "100%";
+

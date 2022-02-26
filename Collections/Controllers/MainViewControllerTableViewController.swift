@@ -51,14 +51,11 @@ class MainViewController: UITableViewController {
     // MARK: - Setting title.
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-
         let label = UILabel()
         label.frame = CGRect(x: 20, y: 0, width: headerView.frame.width, height: headerView.frame.height-10)
         label.text = titleTableView
         label.font = UIFont.boldSystemFont(ofSize: 37)
-
         headerView.addSubview(label)
-
         return headerView
     }
 
@@ -67,23 +64,38 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var viewController = UIViewController()
-        let randomValue = Int.random(in: 0...9999)
-        let name = nameCell[indexPath.row]
-        let title = "\(name.nameCell): \(randomValue)"
         switch indexPath.row {
         case 0:
-            viewController = ArrayViewController()
-            viewController.navigationItem.title = title
+            performSegue(withIdentifier: "transitionArray", sender: self)
         case 1:
-            viewController = SetViewController()
-            viewController.navigationItem.title = title
+            performSegue(withIdentifier: "transitionSet", sender: self)
         case 2:
-            viewController = DictionaryViewController()
-            viewController.navigationItem.title = title
+            performSegue(withIdentifier: "transitionDictionary", sender: self)
         default:
             break
         }
-        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let randomValue = Int.random(in: 0...9999)
+        let name = nameCell[indexPath.row]
+        let title = "\(name.nameCell): \(randomValue)"
+
+        switch segue.identifier {
+        case "transitionArray":
+            if let destantArray = segue.destination as? ArrayViewController {
+                destantArray.navigationItem.title = title
+            }
+        case "transitionSet":
+            if let destantSet = segue.destination as? SetViewController {
+                destantSet.navigationItem.title = title
+            }
+        case "transitionDictionary":
+            if let destantDictionary = segue.destination as? DictionaryViewController {
+                destantDictionary.navigationItem.title = title
+            }
+        default: break
+        }
     }
 }
