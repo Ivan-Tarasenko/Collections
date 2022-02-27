@@ -25,7 +25,7 @@ class MainViewController: UITableViewController {
         ]
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
+        navigationItem.backButtonTitle = "Collections"
     }
 
     // MARK: - Table view data source
