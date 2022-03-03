@@ -1,0 +1,60 @@
+// Localization title label.
+"Text_Fields_All" = "Текстовые поля";
+"Text_Fields_NoDigit" = "Текстовое поле без цифр";
+"Text_Fields_LimitChar" = "Ограниченное текстовое поле";
+"Text_Fields_OnlyChar" = "Текстовое поле только для символов";
+"Text_Fields_Link" = "Текстовое поле для ссылки";
+"Text_Fields_Password" = "Текстовое поле пароля";
+
+// No Digits.
+"NO_Digits_field" = "БЕЗ цифр";
+"Type_here" = "Пишите здесь";
+
+//Input Limit.
+"Input_limit" = "Предел ввода";
+"Type_here" = "Пишите здесь";
+
+// Only characters.
+"Only_characters" = "Только символы";
+"wwwww_ddddd" = "ввввв-ддддд";
+
+// Link.
+"Link" = "Ссылка";
+"www.example.com" = "www.example.ru";
+
+// Validation rules.
+"Validation_rules" = "Проверка пароля";
+"Password" = "Пароль";
+
+// Localization label password validation.
+"Min_length_characters" = "- Мин 8 символов.";
+"Min_1_digit" = "- Мин 1 цыфра.";
+"Min_1_lowercase" = "- Мин 1 строчный символ.";
+"Min_1_capital_required" = "- Мин 1 заглавный символ.";
+"special_characters_are_not_allowed" = "✘ Cпецсимволы недопустимы";
+"only_English_characters" = "✘ Tолько английские символы";
+
+// Localization string for test "no digit"
+"NoDigitstrInput" = "йцуке123нг!@#";
+"NoDigitstrOut" = "йцукенг!@#";
+
+// Localization string for test "Limit character"
+"limitStrInput" = "Проверка количества символов";
+
+// Localization string for test "Link"
+"LinkString" = "Тут есть ссылка";
+
+// Localization string for test "Password validation"
+"Min_length_charactersTest" = "✓ Мин 8 символов.";
+"Min_1_digitTest" = "✓ Мин 1 цыфра.";
+"Min_1_lowercaseTest" = "✓ Мин 1 строчный символ.";
+"Min_1_capital_requiredTest" = "✓ Мин 1 заглавный символ.";
+
+// Localization for incorrect characters.
+"NextKeyboard" = "Следующая клавиатура";
+
+// test progress bar.
+"25%" = "25 %";
+"50%" = "50 %";
+"75%" = "75 %";
+"100%" = "100 %";
