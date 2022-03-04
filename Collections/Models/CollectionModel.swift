@@ -7,14 +7,18 @@
 
 import Foundation
 
-struct TableViewText {
+struct TableViewNameCell {
+    let nameCell: String
+}
+
+struct CollectionViewNameCell {
     let nameCell: String
 }
 
 class CollectionModel {
 
     // MARK: - Method for determining the algorithm execution speed.
-    func taskCompletionTime (string: String, execute: () -> () ) -> String {
+    func taskCompletionTime (string: String, execute: () -> Void ) -> String {
         let startTime = CFAbsoluteTimeGetCurrent()
         execute()
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime

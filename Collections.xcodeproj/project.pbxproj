@@ -7,32 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A4DE1A527C8EDC7006352AA /* MainViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE1A427C8EDC7006352AA /* MainViewControllerTableViewController.swift */; };
+		1A4DE1A527C8EDC7006352AA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE1A427C8EDC7006352AA /* MainViewController.swift */; };
 		1A4DE1A927C8F4FD006352AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A4DE1A827C8F4FD006352AA /* Localizable.strings */; };
+		1A4DE1E927C91E5F006352AA /* ArrayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE1E827C91E5F006352AA /* ArrayViewController.swift */; };
+		1A4DE1EB27C91E9D006352AA /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE1EA27C91E9D006352AA /* DictionaryViewController.swift */; };
+		1A4DE23227CA1727006352AA /* String+StringComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE21E27CA1727006352AA /* String+StringComparison.swift */; };
+		1A4DE23327CA1727006352AA /* String+NSDataDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE21F27CA1727006352AA /* String+NSDataDetector.swift */; };
+		1A4DE23427CA1727006352AA /* UITextField+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22027CA1727006352AA /* UITextField+Border.swift */; };
+		1A4DE23527CA1727006352AA /* UIView+NibLoading+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22127CA1727006352AA /* UIView+NibLoading+Border.swift */; };
+		1A4DE23627CA1727006352AA /* RegularExpression+Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22227CA1727006352AA /* RegularExpression+Matches.swift */; };
+		1A4DE23727CA1727006352AA /* UILabel+SafeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22327CA1727006352AA /* UILabel+SafeText.swift */; };
+		1A4DE23827CA1727006352AA /* CustomPasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22527CA1727006352AA /* CustomPasswordValidation.swift */; };
+		1A4DE23927CA1727006352AA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22627CA1727006352AA /* Models.swift */; };
+		1A4DE23A27CA1727006352AA /* SetTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22827CA1727006352AA /* SetTextFields.swift */; };
+		1A4DE23B27CA1727006352AA /* TextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4DE22927CA1727006352AA /* TextField.xib */; };
+		1A4DE23D27CA1727006352AA /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE22F27CA1727006352AA /* Localization.swift */; };
 		1A7893A427C5009800BB2679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7893A327C5009800BB2679 /* AppDelegate.swift */; };
 		1A7893A627C5009800BB2679 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7893A527C5009800BB2679 /* SceneDelegate.swift */; };
 		1A7893AB27C5009800BB2679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7893A927C5009800BB2679 /* Main.storyboard */; };
 		1A7893AD27C5009900BB2679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7893AC27C5009900BB2679 /* Assets.xcassets */; };
 		1A7893B027C5009900BB2679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7893AE27C5009900BB2679 /* LaunchScreen.storyboard */; };
-		1ADC81E727C515F4009AB73C /* ArrayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81E627C515F4009AB73C /* ArrayViewController.swift */; };
+		1A86EF1427D0E2A800943DB4 /* CustomXibCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86EF1227D0E2A800943DB4 /* CustomXibCollectionViewCell.swift */; };
+		1A86EF1527D0E2A800943DB4 /* CustomXibCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A86EF1327D0E2A800943DB4 /* CustomXibCollectionViewCell.xib */; };
 		1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81E927C5161C009AB73C /* SetViewController.swift */; };
-		1ADC81EC27C51639009AB73C /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81EB27C51639009AB73C /* DictionaryViewController.swift */; };
 		1ADC81F427C51A25009AB73C /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81F327C51A25009AB73C /* CollectionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A4DE1A427C8EDC7006352AA /* MainViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		1A4DE1A427C8EDC7006352AA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1A4DE1A827C8F4FD006352AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1A4DE1E827C91E5F006352AA /* ArrayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewController.swift; sourceTree = "<group>"; };
+		1A4DE1EA27C91E9D006352AA /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
+		1A4DE21E27CA1727006352AA /* String+StringComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+StringComparison.swift"; sourceTree = "<group>"; };
+		1A4DE21F27CA1727006352AA /* String+NSDataDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSDataDetector.swift"; sourceTree = "<group>"; };
+		1A4DE22027CA1727006352AA /* UITextField+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Border.swift"; sourceTree = "<group>"; };
+		1A4DE22127CA1727006352AA /* UIView+NibLoading+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoading+Border.swift"; sourceTree = "<group>"; };
+		1A4DE22227CA1727006352AA /* RegularExpression+Matches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegularExpression+Matches.swift"; sourceTree = "<group>"; };
+		1A4DE22327CA1727006352AA /* UILabel+SafeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+SafeText.swift"; sourceTree = "<group>"; };
+		1A4DE22527CA1727006352AA /* CustomPasswordValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasswordValidation.swift; sourceTree = "<group>"; };
+		1A4DE22627CA1727006352AA /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1A4DE22827CA1727006352AA /* SetTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTextFields.swift; sourceTree = "<group>"; };
+		1A4DE22927CA1727006352AA /* TextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextField.xib; sourceTree = "<group>"; };
+		1A4DE22F27CA1727006352AA /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		1A7893A027C5009800BB2679 /* Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7893A327C5009800BB2679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A7893A527C5009800BB2679 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1A7893AA27C5009800BB2679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A7893AC27C5009900BB2679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A7893AF27C5009900BB2679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A86EF1227D0E2A800943DB4 /* CustomXibCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomXibCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A86EF1327D0E2A800943DB4 /* CustomXibCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomXibCollectionViewCell.xib; sourceTree = "<group>"; };
 		1ADC81CE27C51060009AB73C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1ADC81E627C515F4009AB73C /* ArrayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewController.swift; sourceTree = "<group>"; };
 		1ADC81E927C5161C009AB73C /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
-		1ADC81EB27C51639009AB73C /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		1ADC81F327C51A25009AB73C /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +73,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A4DE21C27CA1727006352AA /* Custom TextField */ = {
+			isa = PBXGroup;
+			children = (
+				1A4DE21D27CA1727006352AA /* Extension */,
+				1A4DE22427CA1727006352AA /* Models */,
+				1A4DE22727CA1727006352AA /* Custom View */,
+				1A4DE22A27CA1727006352AA /* Localization */,
+			);
+			path = "Custom TextField";
+			sourceTree = "<group>";
+		};
+		1A4DE21D27CA1727006352AA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1A4DE21E27CA1727006352AA /* String+StringComparison.swift */,
+				1A4DE21F27CA1727006352AA /* String+NSDataDetector.swift */,
+				1A4DE22027CA1727006352AA /* UITextField+Border.swift */,
+				1A4DE22127CA1727006352AA /* UIView+NibLoading+Border.swift */,
+				1A4DE22227CA1727006352AA /* RegularExpression+Matches.swift */,
+				1A4DE22327CA1727006352AA /* UILabel+SafeText.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1A4DE22427CA1727006352AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A4DE22527CA1727006352AA /* CustomPasswordValidation.swift */,
+				1A4DE22627CA1727006352AA /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A4DE22727CA1727006352AA /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				1A4DE22827CA1727006352AA /* SetTextFields.swift */,
+				1A4DE22927CA1727006352AA /* TextField.xib */,
+			);
+			path = "Custom View";
+			sourceTree = "<group>";
+		};
+		1A4DE22A27CA1727006352AA /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				1A4DE22F27CA1727006352AA /* Localization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		1A78939727C5009800BB2679 = {
 			isa = PBXGroup;
 			children = (
@@ -66,12 +142,22 @@
 		1A7893A227C5009800BB2679 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				1A4DE21C27CA1727006352AA /* Custom TextField */,
 				1ADC81DB27C514FF009AB73C /* Models */,
 				1ADC81CC27C50D2D009AB73C /* Views */,
 				1ADC81CD27C50D41009AB73C /* Controllers */,
 				1ADC81CB27C50CA6009AB73C /* Support */,
 			);
 			path = Collections;
+			sourceTree = "<group>";
+		};
+		1A86EF1627D0EF1A00943DB4 /* customCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A86EF1227D0E2A800943DB4 /* CustomXibCollectionViewCell.swift */,
+				1A86EF1327D0E2A800943DB4 /* CustomXibCollectionViewCell.xib */,
+			);
+			path = customCollectionCell;
 			sourceTree = "<group>";
 		};
 		1ADC81CB27C50CA6009AB73C /* Support */ = {
@@ -89,6 +175,7 @@
 		1ADC81CC27C50D2D009AB73C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1AFB8C5727CBAC3D0061D1C2 /* CustomView */,
 				1ADC81D127C513AE009AB73C /* Storyboard */,
 			);
 			path = Views;
@@ -97,10 +184,10 @@
 		1ADC81CD27C50D41009AB73C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1A4DE1A427C8EDC7006352AA /* MainViewControllerTableViewController.swift */,
-				1ADC81E627C515F4009AB73C /* ArrayViewController.swift */,
+				1A4DE1A427C8EDC7006352AA /* MainViewController.swift */,
+				1A4DE1E827C91E5F006352AA /* ArrayViewController.swift */,
 				1ADC81E927C5161C009AB73C /* SetViewController.swift */,
-				1ADC81EB27C51639009AB73C /* DictionaryViewController.swift */,
+				1A4DE1EA27C91E9D006352AA /* DictionaryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,6 +207,14 @@
 				1ADC81F327C51A25009AB73C /* CollectionModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1AFB8C5727CBAC3D0061D1C2 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				1A86EF1627D0EF1A00943DB4 /* customCollectionCell */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +260,10 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
+				"zh-HK",
+				es,
+				ru,
 			);
 			mainGroup = 1A78939727C5009800BB2679;
 			productRefGroup = 1A7893A127C5009800BB2679 /* Products */;
@@ -181,7 +280,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4DE23B27CA1727006352AA /* TextField.xib in Resources */,
 				1A7893B027C5009900BB2679 /* LaunchScreen.storyboard in Resources */,
+				1A86EF1527D0E2A800943DB4 /* CustomXibCollectionViewCell.xib in Resources */,
 				1A4DE1A927C8F4FD006352AA /* Localizable.strings in Resources */,
 				1A7893AD27C5009900BB2679 /* Assets.xcassets in Resources */,
 				1A7893AB27C5009800BB2679 /* Main.storyboard in Resources */,
@@ -216,13 +317,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4DE23827CA1727006352AA /* CustomPasswordValidation.swift in Sources */,
+				1A4DE23D27CA1727006352AA /* Localization.swift in Sources */,
 				1A7893A427C5009800BB2679 /* AppDelegate.swift in Sources */,
-				1ADC81EC27C51639009AB73C /* DictionaryViewController.swift in Sources */,
-				1ADC81E727C515F4009AB73C /* ArrayViewController.swift in Sources */,
+				1A4DE23527CA1727006352AA /* UIView+NibLoading+Border.swift in Sources */,
+				1A4DE23427CA1727006352AA /* UITextField+Border.swift in Sources */,
+				1A4DE1E927C91E5F006352AA /* ArrayViewController.swift in Sources */,
+				1A4DE23727CA1727006352AA /* UILabel+SafeText.swift in Sources */,
+				1A4DE23A27CA1727006352AA /* SetTextFields.swift in Sources */,
+				1A86EF1427D0E2A800943DB4 /* CustomXibCollectionViewCell.swift in Sources */,
+				1A4DE23327CA1727006352AA /* String+NSDataDetector.swift in Sources */,
 				1ADC81F427C51A25009AB73C /* CollectionModel.swift in Sources */,
 				1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */,
+				1A4DE23927CA1727006352AA /* Models.swift in Sources */,
+				1A4DE23227CA1727006352AA /* String+StringComparison.swift in Sources */,
+				1A4DE23627CA1727006352AA /* RegularExpression+Matches.swift in Sources */,
 				1A7893A627C5009800BB2679 /* SceneDelegate.swift in Sources */,
-				1A4DE1A527C8EDC7006352AA /* MainViewControllerTableViewController.swift in Sources */,
+				1A4DE1EB27C91E9D006352AA /* DictionaryViewController.swift in Sources */,
+				1A4DE1A527C8EDC7006352AA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
