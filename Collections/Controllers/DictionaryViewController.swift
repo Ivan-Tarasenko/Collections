@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DictionaryViewController.swift
 //  Collections
 //
 //  Created by Иван Тарасенко on 22.02.2022.
@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DictionaryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
     }
-
-
 }
-
