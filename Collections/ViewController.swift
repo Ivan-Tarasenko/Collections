@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Collections
 //
-//  Created by Иван Тарасенко on 17.12.2021.
+//  Created by Иван Тарасенко on 22.02.2022.
 //
 
 import UIKit
@@ -14,4 +14,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+
 }
+
