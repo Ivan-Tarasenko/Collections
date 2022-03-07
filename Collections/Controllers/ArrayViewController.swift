@@ -3,6 +3,7 @@
 //  Collections
 //
 //  Created by Иван Тарасенко on 25.02.2022.
+//
 
 import UIKit
 
@@ -29,7 +30,7 @@ class ArrayViewController: UICollectionViewController {
 
     var nameCell = [CollectionViewNameCell]()
     var bigArray = [Int]()
-    let layoutCell = UICollectionViewFlowLayout()
+    let layout = UICollectionViewFlowLayout()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ class ArrayViewController: UICollectionViewController {
         registerXibCell()
 //        bigArray = Array(0...9999)
 
-        collectionView.collectionViewLayout = layoutCell
+        collectionView.collectionViewLayout = layout
     }
     func registerXibCell() {
         collectionView.register(UINib(nibName: "CustomXibCollectionViewCell", bundle: nil),
@@ -77,7 +78,6 @@ class ArrayViewController: UICollectionViewController {
         let name = nameCell[indexPath.row]
         cell.backgroundColor = .systemGray4
         cell.layer.borderWidth = 0.5
-        cell.nameCellLabel.textColor = .systemBlue
 
         if indexPath.section == 0 {
             cell.nameCellLabel.textTitle = titleBigArray
@@ -118,5 +118,5 @@ extension ArrayViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
-
     }
+}

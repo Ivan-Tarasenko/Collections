@@ -22,10 +22,10 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
         getNameCell()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        navigationItem.backButtonTitle = "Collections"
 
     }
-        navigationItem.backButtonTitle = "Collections"
 
     func getNameCell() {
         nameCell = [TableViewNameCell(nameCell: nameFirstCell),
@@ -69,7 +69,6 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "transitionArray", sender: self)
