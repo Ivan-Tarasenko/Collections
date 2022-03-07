@@ -2,10 +2,12 @@
 //  ArrayViewController.swift
 //  Collections
 //
+
 //  Created by Иван Тарасенко on 25.02.2022.
-//
+
 
 import UIKit
+
 
 private let reuseIdentifier = "Cell"
 
@@ -82,5 +84,6 @@ class ArrayViewController: UICollectionViewController {
     
     }
     */
+
 
 }

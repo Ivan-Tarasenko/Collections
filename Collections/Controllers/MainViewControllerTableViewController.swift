@@ -25,7 +25,9 @@ class MainViewController: UITableViewController {
         ]
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
         navigationItem.backButtonTitle = "Collections"
+
     }
 
     // MARK: - Table view data source
@@ -51,11 +53,14 @@ class MainViewController: UITableViewController {
     // MARK: - Setting title.
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+
         let label = UILabel()
         label.frame = CGRect(x: 20, y: 0, width: headerView.frame.width, height: headerView.frame.height-10)
         label.text = titleTableView
         label.font = UIFont.boldSystemFont(ofSize: 37)
+
         headerView.addSubview(label)
+
         return headerView
     }
 
@@ -64,6 +69,7 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "transitionArray", sender: self)

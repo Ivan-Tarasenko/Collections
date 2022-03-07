@@ -4,9 +4,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+<<<<<<< HEAD
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
+=======
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+>>>>>>> dev
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,9 +30,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+<<<<<<< HEAD
                                 <connections>
                                     <segue destination="7J2-1L-GzC" kind="show" identifier="transitionArray" id="l6G-8q-5m8"/>
                                 </connections>
+=======
+>>>>>>> dev
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,15 +44,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="F6g-Rz-tbK"/>
+<<<<<<< HEAD
                     <connections>
                         <segue destination="Zrr-PH-a3z" kind="show" identifier="transitionSet" id="uer-jn-tvd"/>
                         <segue destination="cAS-w0-ZMW" kind="show" identifier="transitionDictionary" id="psv-ZW-JaH"/>
                     </connections>
+=======
+>>>>>>> dev
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQi-OH-LP1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="962.31884057971024" y="56.919642857142854"/>
         </scene>
+<<<<<<< HEAD
         <!--Set View Controller-->
         <scene sceneID="QHR-Ti-w7U">
             <objects>
@@ -234,6 +245,8 @@
             </objects>
             <point key="canvasLocation" x="2012" y="-619"/>
         </scene>
+=======
+>>>>>>> dev
         <!--Navigation Controller-->
         <scene sceneID="5zh-qh-A3A">
             <objects>
@@ -252,6 +265,7 @@
             </objects>
             <point key="canvasLocation" x="52.173913043478265" y="56.919642857142854"/>
         </scene>
+<<<<<<< HEAD
         <!--Dictionary View Controller-->
         <scene sceneID="ZtR-tA-1j4">
             <objects>
@@ -292,6 +306,10 @@
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+=======
+    </scenes>
+    <resources>
+>>>>>>> dev
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
