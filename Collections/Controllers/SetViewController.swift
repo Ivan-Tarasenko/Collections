@@ -25,10 +25,10 @@ class SetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         settingViews()
-        settingTitleButton()
-        settingLabel()
+
         hideKeyboard()
-        setVCAccessibilityIdentificator()
+        setTitleButton()
+        setLabel()
     }
 
     @IBAction func pressButton(_ sender: UIButton) {
@@ -38,12 +38,12 @@ class SetViewController: UIViewController {
         let answerAllMatch = getAnswer.answerMatchingletter(first: firstString, second: secondString)
         let answerAllDoNotMatch = getAnswer.answerDoNotMatchLetter(first: firstString, second: secondString)
         let answerUniqueCharacter = getAnswer.answerCharacterDifference(first: firstString, second: secondString)
-       
+
         switch sender.tag {
         case 0:
-           allMatchLabel.textTitle = answerAllMatch
+            allMatchLabel.textTitle = answerAllMatch
         case 1:
-           allDoNotMatchLabel.textTitle = answerAllDoNotMatch
+            allDoNotMatchLabel.textTitle = answerAllDoNotMatch
         case 2:
             uniqueCharacterLabel.textTitle = answerUniqueCharacter
         default:
@@ -61,7 +61,9 @@ class SetViewController: UIViewController {
         secondView.title.textTitle = nameSecondView
     }
 
-    func settingTitleButton() {
+
+    func setTitleButton() {
+
         let titleAllMatch = NSLocalizedString("titleAllMatching", comment: "title button allMatch")
         let titleAllDoNotMatch = NSLocalizedString("titleAllCharacterDoNotMatch", comment: "title button allDoNotMatch")
         let titleUniqueButton = NSLocalizedString("titleUniqueSymbols", comment: "title button uniqueCharacter")
@@ -72,7 +74,7 @@ class SetViewController: UIViewController {
         uniqueCharacterButton.setTitle(titleUniqueButton, for: .normal)
     }
 
-    func settingLabel() {
+    func setLabel() {
         allMatchLabel.textTitle.removeAll()
         allDoNotMatchLabel.textTitle.removeAll()
         uniqueCharacterLabel.textTitle.removeAll()

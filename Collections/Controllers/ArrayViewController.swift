@@ -2,88 +2,121 @@
 //  ArrayViewController.swift
 //  Collections
 //
-
 //  Created by Иван Тарасенко on 25.02.2022.
-
 
 import UIKit
 
-
-private let reuseIdentifier = "Cell"
-
 class ArrayViewController: UICollectionViewController {
+
+    let titleBigArray = NSLocalizedString("titleBigArray", comment: "")
+
+    let insertBeginOnce = NSLocalizedString("insertBeginOnce", comment: "")
+    let insertBeginOneTime = NSLocalizedString("insertBeginOneTime", comment: "")
+    let insertMiddleOnce = NSLocalizedString("insertMiddleOnce", comment: "")
+    let insertMiddleOneTime = NSLocalizedString("insertMiddleOneTime", comment: "")
+    let insertTheEndOnce = NSLocalizedString("insertTheEndOnce", comment: "")
+    let insertTheEndOneTime = NSLocalizedString("insertTheEndOneTime", comment: "")
+    let removeBeginOnce = NSLocalizedString("removeBeginOnce", comment: "")
+    let removeBeginOneTime = NSLocalizedString("removeBeginOneTime", comment: "")
+    let removeMiddleOnce = NSLocalizedString("removeMiddleOnce", comment: "")
+    let removeMiddleOneTime = NSLocalizedString("removeMiddleOneTime", comment: "")
+    let removeTheEndOnce = NSLocalizedString("removeTheEndOnce", comment: "")
+    let removeTheEndOneTime = NSLocalizedString("removeTheEndOneTime", comment: "")
+// Variable cell sizes.
+    var heightDivider: CGFloat = 0.0
+    var itemsPerRow: CGFloat = 0.0
+    let sectionInsert = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+
+    var nameCell = [CollectionViewNameCell]()
+    var bigArray = [Int]()
+    let layoutCell = UICollectionViewFlowLayout()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        getNameCollectionView()
+        registerXibCell()
+//        bigArray = Array(0...9999)
 
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        collectionView.collectionViewLayout = layoutCell
+    }
+    func registerXibCell() {
+        collectionView.register(UINib(nibName: "CustomXibCollectionViewCell", bundle: nil),
+                                forCellWithReuseIdentifier: "xibCell")
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    func getNameCollectionView() {
+        nameCell = [CollectionViewNameCell(nameCell: insertBeginOnce),
+                    CollectionViewNameCell(nameCell: insertBeginOneTime),
+                    CollectionViewNameCell(nameCell: insertMiddleOnce),
+                    CollectionViewNameCell(nameCell: insertMiddleOneTime),
+                    CollectionViewNameCell(nameCell: insertTheEndOnce),
+                    CollectionViewNameCell(nameCell: insertTheEndOneTime),
+                    CollectionViewNameCell(nameCell: removeBeginOnce),
+                    CollectionViewNameCell(nameCell: removeBeginOneTime),
+                    CollectionViewNameCell(nameCell: removeMiddleOnce),
+                    CollectionViewNameCell(nameCell: removeMiddleOneTime),
+                    CollectionViewNameCell(nameCell: removeTheEndOnce),
+                    CollectionViewNameCell(nameCell: removeTheEndOneTime)
+        ]
     }
-    */
 
     // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return bigArray.isEmpty ? 1 : 2
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return section == 0 ? 1 : nameCell.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "xibCell",
+            for: indexPath) as? CustomXibCollectionViewCell else { fatalError() }
+
+        let name = nameCell[indexPath.row]
+        cell.backgroundColor = .systemGray4
+        cell.layer.borderWidth = 0.5
+        cell.nameCellLabel.textColor = .systemBlue
+
+        if indexPath.section == 0 {
+            cell.nameCellLabel.textTitle = titleBigArray
+            cell.nameCellLabel.textAlignment = .center
+        } else {
+            cell.nameCellLabel.textTitle = "\(name.nameCell)"
+        }
+
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
-
 }
+
+extension ArrayViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        if indexPath.section == 0 {
+            heightDivider = 3
+            itemsPerRow = 1
+        } else {
+            heightDivider = 2
+            itemsPerRow = 2
+        }
+
+        let paddingWigth = sectionInsert.left * (itemsPerRow + 1)
+        let avialabelWigth = collectionView.frame.width - paddingWigth
+        let withPerItem = avialabelWigth / itemsPerRow
+        let heightPerItem = withPerItem / heightDivider
+        return   CGSize(width: withPerItem, height: heightPerItem)
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsert
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+
+    }

@@ -14,24 +14,27 @@ class MainViewController: UITableViewController {
     let nameSecondCell = NSLocalizedString("secondCell", comment: "title second cell")
     let nameThirdCell = NSLocalizedString("thirdCell", comment: "title third cell")
 
-    var nameCell = [TableViewText]()
+    private let reuseIdentifier = "cell"
+
+    var nameCell = [TableViewNameCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getNameCell()
 
-        nameCell = [TableViewText(nameCell: nameFirstCell),
-                    TableViewText(nameCell: nameSecondCell),
-                    TableViewText(nameCell: nameThirdCell)
-        ]
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
+    }
         navigationItem.backButtonTitle = "Collections"
 
+    func getNameCell() {
+        nameCell = [TableViewNameCell(nameCell: nameFirstCell),
+                    TableViewNameCell(nameCell: nameSecondCell),
+                    TableViewNameCell(nameCell: nameThirdCell)
+        ]
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
 
         return 1
@@ -53,14 +56,11 @@ class MainViewController: UITableViewController {
     // MARK: - Setting title.
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-
         let label = UILabel()
         label.frame = CGRect(x: 20, y: 0, width: headerView.frame.width, height: headerView.frame.height-10)
         label.text = titleTableView
         label.font = UIFont.boldSystemFont(ofSize: 37)
-
         headerView.addSubview(label)
-
         return headerView
     }
 
