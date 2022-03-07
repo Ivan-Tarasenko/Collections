@@ -1,0 +1,53 @@
+//
+//  CollectionsUnitTests.swift
+//  CollectionsUnitTests
+//
+//  Created by Иван Тарасенко on 26.02.2022.
+//
+
+import XCTest
+@testable import Collections
+
+class CollectionsUnitTests: XCTestCase {
+
+        var sut: CollectionModel!
+
+        let firstString = "Abcdefg"
+        let secondString = "AbcdY"
+        let wrongAnswer = "qwerty"
+
+        override func setUpWithError() throws {
+            try super.setUpWithError()
+            sut = CollectionModel()
+
+        }
+
+        override func tearDownWithError() throws {
+            sut = CollectionModel()
+            try super.tearDownWithError()
+        }
+
+        func testAllMatchingLetters() throws {
+            let answer = "Abcd"
+            let result = sut.answerMatchingletter(first: firstString, second: secondString)
+            XCTAssertNotNil(result)
+            XCTAssertEqual(result, answer)
+            XCTAssertNotEqual(result, wrongAnswer)
+        }
+
+        func testAllMatchingDoNotCharacter() throws {
+            let answer = "Yefg"
+            let result = sut.answerDoNotMatchLetter(first: firstString, second: secondString)
+            XCTAssertNotNil(result)
+            XCTAssertEqual(result, answer)
+            XCTAssertNotEqual(result, wrongAnswer)
+        }
+
+        func testUniqueCharactersFromFirstField() throws {
+            let answer = "efg"
+            let result = sut.answerCharacterDifference(first: firstString, second: secondString)
+            XCTAssertNotNil(result)
+            XCTAssertEqual(result, answer)
+            XCTAssertNotEqual(result, wrongAnswer)
+        }
+    }
