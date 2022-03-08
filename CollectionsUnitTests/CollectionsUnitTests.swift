@@ -10,7 +10,7 @@ import XCTest
 
 class CollectionsUnitTests: XCTestCase {
 
-        var sut: CollectionModel!
+        var sut: SetViewModel!
 
         let firstString = "Abcdefg"
         let secondString = "AbcdY"
@@ -18,12 +18,12 @@ class CollectionsUnitTests: XCTestCase {
 
         override func setUpWithError() throws {
             try super.setUpWithError()
-            sut = CollectionModel()
+            sut = SetViewModel()
 
         }
 
         override func tearDownWithError() throws {
-            sut = CollectionModel()
+            sut = SetViewModel()
             try super.tearDownWithError()
         }
 

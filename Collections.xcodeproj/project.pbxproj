@@ -36,6 +36,11 @@
 		1A86EF1527D0E2A800943DB4 /* CustomXibCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A86EF1327D0E2A800943DB4 /* CustomXibCollectionViewCell.xib */; };
 		1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81E927C5161C009AB73C /* SetViewController.swift */; };
 		1ADC81F427C51A25009AB73C /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81F327C51A25009AB73C /* CollectionModel.swift */; };
+		1AE9454127D78338009853B5 /* ArrayView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9453F27D78338009853B5 /* ArrayView.storyboard */; };
+		1AE9454327D7835F009853B5 /* SetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9454227D7835F009853B5 /* SetView.storyboard */; };
+		1AE9454627D78385009853B5 /* DictionaryView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9454427D78385009853B5 /* DictionaryView.storyboard */; };
+		1AE9454927D78513009853B5 /* SetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454827D78513009853B5 /* SetViewModel.swift */; };
+		1AE9454C27D785E3009853B5 /* ArrayCollectionView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454B27D785E3009853B5 /* ArrayCollectionView+Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +94,11 @@
 		1ADC81CE27C51060009AB73C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ADC81E927C5161C009AB73C /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		1ADC81F327C51A25009AB73C /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
+		1AE9454027D78338009853B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Collections/Views/Storyboard/Base.lproj/ArrayView.storyboard; sourceTree = "<group>"; };
+		1AE9454227D7835F009853B5 /* SetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SetView.storyboard; sourceTree = "<group>"; };
+		1AE9454527D78385009853B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Collections/Views/Storyboard/Base.lproj/DictionaryView.storyboard; sourceTree = "<group>"; };
+		1AE9454827D78513009853B5 /* SetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewModel.swift; sourceTree = "<group>"; };
+		1AE9454B27D785E3009853B5 /* ArrayCollectionView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayCollectionView+Layout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				1A4DE25B27CA4910006352AA /* Accessibility */,
+				1AE9454B27D785E3009853B5 /* ArrayCollectionView+Layout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7893A227C5009800BB2679 /* Collections */,
+				1AE9454A27D78564009853B5 /* Resources */,
 				1A4DE24327CA4750006352AA /* CollectionsUnitTests */,
 				1A4DE25027CA475B006352AA /* CollectionsUITests */,
 				1A7893A127C5009800BB2679 /* Products */,
@@ -223,32 +235,22 @@
 		1A7893A227C5009800BB2679 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				1A4DE21C27CA1727006352AA /* Custom TextField */,
 				1ADC81DB27C514FF009AB73C /* Models */,
 				1ADC81CC27C50D2D009AB73C /* Views */,
 				1ADC81CD27C50D41009AB73C /* Controllers */,
 				1ADC81CB27C50CA6009AB73C /* Support */,
-				1A4DE25A27CA48EF006352AA /* Extensions */,
 			);
 			path = Collections;
-			sourceTree = "<group>";
-		};
-		1A86EF1627D0EF1A00943DB4 /* customCollectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				1A86EF1227D0E2A800943DB4 /* CustomXibCollectionViewCell.swift */,
-				1A86EF1327D0E2A800943DB4 /* CustomXibCollectionViewCell.xib */,
-			);
-			path = customCollectionCell;
 			sourceTree = "<group>";
 		};
 		1ADC81CB27C50CA6009AB73C /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				1A4DE1A827C8F4FD006352AA /* Localizable.strings */,
+				1A4DE25A27CA48EF006352AA /* Extensions */,
+				1A4DE21C27CA1727006352AA /* Custom TextField */,
+				1A7893AE27C5009900BB2679 /* LaunchScreen.storyboard */,
 				1A7893A327C5009800BB2679 /* AppDelegate.swift */,
 				1A7893A527C5009800BB2679 /* SceneDelegate.swift */,
-				1A7893AC27C5009900BB2679 /* Assets.xcassets */,
 				1ADC81CE27C51060009AB73C /* Info.plist */,
 			);
 			path = Support;
@@ -258,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				1AFB8C5727CBAC3D0061D1C2 /* CustomView */,
-				1ADC81D127C513AE009AB73C /* Storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,21 +267,12 @@
 		1ADC81CD27C50D41009AB73C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1A4DE1A427C8EDC7006352AA /* MainViewController.swift */,
-				1A4DE1E827C91E5F006352AA /* ArrayViewController.swift */,
-				1ADC81E927C5161C009AB73C /* SetViewController.swift */,
-				1A4DE1EA27C91E9D006352AA /* DictionaryViewController.swift */,
+				1AE9453B27D7828A009853B5 /* MainViewController */,
+				1AE9453C27D782BD009853B5 /* ArrayViewController */,
+				1AE9453D27D782D5009853B5 /* SetViewController */,
+				1AE9453E27D782E8009853B5 /* DictionaryViewController */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		1ADC81D127C513AE009AB73C /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				1A7893AE27C5009900BB2679 /* LaunchScreen.storyboard */,
-				1A7893A927C5009800BB2679 /* Main.storyboard */,
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		1ADC81DB27C514FF009AB73C /* Models */ = {
@@ -291,10 +283,65 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1AE9453B27D7828A009853B5 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1A7893A927C5009800BB2679 /* Main.storyboard */,
+				1A4DE1A427C8EDC7006352AA /* MainViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		1AE9453C27D782BD009853B5 /* ArrayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1AE9453F27D78338009853B5 /* ArrayView.storyboard */,
+				1A4DE1E827C91E5F006352AA /* ArrayViewController.swift */,
+			);
+			path = ArrayViewController;
+			sourceTree = "<group>";
+		};
+		1AE9453D27D782D5009853B5 /* SetViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1AE9454827D78513009853B5 /* SetViewModel.swift */,
+				1AE9454227D7835F009853B5 /* SetView.storyboard */,
+				1ADC81E927C5161C009AB73C /* SetViewController.swift */,
+			);
+			path = SetViewController;
+			sourceTree = "<group>";
+		};
+		1AE9453E27D782E8009853B5 /* DictionaryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1AE9454427D78385009853B5 /* DictionaryView.storyboard */,
+				1A4DE1EA27C91E9D006352AA /* DictionaryViewController.swift */,
+			);
+			path = DictionaryViewController;
+			sourceTree = "<group>";
+		};
+		1AE9454727D783A1009853B5 /* ArrayCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A86EF1327D0E2A800943DB4 /* CustomXibCollectionViewCell.xib */,
+				1A86EF1227D0E2A800943DB4 /* CustomXibCollectionViewCell.swift */,
+			);
+			path = ArrayCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1AE9454A27D78564009853B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A4DE1A827C8F4FD006352AA /* Localizable.strings */,
+				1A7893AC27C5009900BB2679 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1AFB8C5727CBAC3D0061D1C2 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				1A86EF1627D0EF1A00943DB4 /* customCollectionCell */,
+				1AE9454727D783A1009853B5 /* ArrayCollectionViewCell */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -422,12 +469,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE9454627D78385009853B5 /* DictionaryView.storyboard in Resources */,
+				1AE9454327D7835F009853B5 /* SetView.storyboard in Resources */,
 				1A4DE23B27CA1727006352AA /* TextField.xib in Resources */,
 				1A7893B027C5009900BB2679 /* LaunchScreen.storyboard in Resources */,
 				1A86EF1527D0E2A800943DB4 /* CustomXibCollectionViewCell.xib in Resources */,
 				1A4DE1A927C8F4FD006352AA /* Localizable.strings in Resources */,
 				1A7893AD27C5009900BB2679 /* Assets.xcassets in Resources */,
 				1A7893AB27C5009800BB2679 /* Main.storyboard in Resources */,
+				1AE9454127D78338009853B5 /* ArrayView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,12 +532,14 @@
 				1A7893A427C5009800BB2679 /* AppDelegate.swift in Sources */,
 				1A4DE23527CA1727006352AA /* UIView+NibLoading+Border.swift in Sources */,
 				1A4DE23427CA1727006352AA /* UITextField+Border.swift in Sources */,
+				1AE9454927D78513009853B5 /* SetViewModel.swift in Sources */,
 				1A4DE1E927C91E5F006352AA /* ArrayViewController.swift in Sources */,
 				1A4DE23727CA1727006352AA /* UILabel+SafeText.swift in Sources */,
 				1A4DE23A27CA1727006352AA /* SetTextFields.swift in Sources */,
 				1A86EF1427D0E2A800943DB4 /* CustomXibCollectionViewCell.swift in Sources */,
 				1A4DE23327CA1727006352AA /* String+NSDataDetector.swift in Sources */,
 				1ADC81F427C51A25009AB73C /* CollectionModel.swift in Sources */,
+				1AE9454C27D785E3009853B5 /* ArrayCollectionView+Layout.swift in Sources */,
 				1A4DE25D27CA494A006352AA /* SetVC+Accessibility.swift in Sources */,
 				1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */,
 				1A4DE23927CA1727006352AA /* Models.swift in Sources */,
@@ -529,6 +581,22 @@
 				1A7893AF27C5009900BB2679 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1AE9453F27D78338009853B5 /* ArrayView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AE9454027D78338009853B5 /* Base */,
+			);
+			name = ArrayView.storyboard;
+			sourceTree = "<group>";
+		};
+		1AE9454427D78385009853B5 /* DictionaryView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AE9454527D78385009853B5 /* Base */,
+			);
+			name = DictionaryView.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

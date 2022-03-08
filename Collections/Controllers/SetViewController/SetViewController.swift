@@ -20,7 +20,7 @@ class SetViewController: UIViewController {
     @IBOutlet weak var allDoNotMatchLabel: UILabel!
     @IBOutlet weak var uniqueCharacterLabel: UILabel!
 
-    let getAnswer = CollectionModel()
+    let getAnswer = SetViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
