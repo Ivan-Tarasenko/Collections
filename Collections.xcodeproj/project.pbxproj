@@ -41,6 +41,13 @@
 		1AE9454627D78385009853B5 /* DictionaryView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9454427D78385009853B5 /* DictionaryView.storyboard */; };
 		1AE9454927D78513009853B5 /* SetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454827D78513009853B5 /* SetViewModel.swift */; };
 		1AE9454C27D785E3009853B5 /* ArrayCollectionView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454B27D785E3009853B5 /* ArrayCollectionView+Layout.swift */; };
+		1AE9454E27D8B0DD009853B5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454D27D8B0DD009853B5 /* MainViewModel.swift */; };
+		1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */; };
+		1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */; };
+		1AE9455427D8C192009853B5 /* ArrayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455327D8C192009853B5 /* ArrayViewModel.swift */; };
+		1AE9455627D8C373009853B5 /* ArrayVC+DataSours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455527D8C373009853B5 /* ArrayVC+DataSours.swift */; };
+		1AE9455827D8C404009853B5 /* MainVC+DataSours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455727D8C404009853B5 /* MainVC+DataSours.swift */; };
+		1AE9455A27D8CA3E009853B5 /* SetVC+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455927D8CA3E009853B5 /* SetVC+HideKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,13 @@
 		1AE9454527D78385009853B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Collections/Views/Storyboard/Base.lproj/DictionaryView.storyboard; sourceTree = "<group>"; };
 		1AE9454827D78513009853B5 /* SetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewModel.swift; sourceTree = "<group>"; };
 		1AE9454B27D785E3009853B5 /* ArrayCollectionView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayCollectionView+Layout.swift"; sourceTree = "<group>"; };
+		1AE9454D27D8B0DD009853B5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		1AE9455327D8C192009853B5 /* ArrayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewModel.swift; sourceTree = "<group>"; };
+		1AE9455527D8C373009853B5 /* ArrayVC+DataSours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayVC+DataSours.swift"; sourceTree = "<group>"; };
+		1AE9455727D8C404009853B5 /* MainVC+DataSours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+DataSours.swift"; sourceTree = "<group>"; };
+		1AE9455927D8CA3E009853B5 /* SetVC+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetVC+HideKeyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				1ADC81F327C51A25009AB73C /* CollectionModel.swift */,
+				1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */,
+				1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,8 +302,10 @@
 		1AE9453B27D7828A009853B5 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1AE9454D27D8B0DD009853B5 /* MainViewModel.swift */,
 				1A7893A927C5009800BB2679 /* Main.storyboard */,
 				1A4DE1A427C8EDC7006352AA /* MainViewController.swift */,
+				1AE9455727D8C404009853B5 /* MainVC+DataSours.swift */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -295,8 +313,10 @@
 		1AE9453C27D782BD009853B5 /* ArrayViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1AE9455327D8C192009853B5 /* ArrayViewModel.swift */,
 				1AE9453F27D78338009853B5 /* ArrayView.storyboard */,
 				1A4DE1E827C91E5F006352AA /* ArrayViewController.swift */,
+				1AE9455527D8C373009853B5 /* ArrayVC+DataSours.swift */,
 			);
 			path = ArrayViewController;
 			sourceTree = "<group>";
@@ -307,6 +327,7 @@
 				1AE9454827D78513009853B5 /* SetViewModel.swift */,
 				1AE9454227D7835F009853B5 /* SetView.storyboard */,
 				1ADC81E927C5161C009AB73C /* SetViewController.swift */,
+				1AE9455927D8CA3E009853B5 /* SetVC+HideKeyboard.swift */,
 			);
 			path = SetViewController;
 			sourceTree = "<group>";
@@ -532,6 +553,7 @@
 				1A7893A427C5009800BB2679 /* AppDelegate.swift in Sources */,
 				1A4DE23527CA1727006352AA /* UIView+NibLoading+Border.swift in Sources */,
 				1A4DE23427CA1727006352AA /* UITextField+Border.swift in Sources */,
+				1AE9455827D8C404009853B5 /* MainVC+DataSours.swift in Sources */,
 				1AE9454927D78513009853B5 /* SetViewModel.swift in Sources */,
 				1A4DE1E927C91E5F006352AA /* ArrayViewController.swift in Sources */,
 				1A4DE23727CA1727006352AA /* UILabel+SafeText.swift in Sources */,
@@ -539,15 +561,21 @@
 				1A86EF1427D0E2A800943DB4 /* CustomXibCollectionViewCell.swift in Sources */,
 				1A4DE23327CA1727006352AA /* String+NSDataDetector.swift in Sources */,
 				1ADC81F427C51A25009AB73C /* CollectionModel.swift in Sources */,
+				1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */,
 				1AE9454C27D785E3009853B5 /* ArrayCollectionView+Layout.swift in Sources */,
 				1A4DE25D27CA494A006352AA /* SetVC+Accessibility.swift in Sources */,
 				1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */,
+				1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */,
 				1A4DE23927CA1727006352AA /* Models.swift in Sources */,
 				1A4DE23227CA1727006352AA /* String+StringComparison.swift in Sources */,
 				1A4DE23627CA1727006352AA /* RegularExpression+Matches.swift in Sources */,
 				1A7893A627C5009800BB2679 /* SceneDelegate.swift in Sources */,
 				1A4DE1EB27C91E9D006352AA /* DictionaryViewController.swift in Sources */,
 				1A4DE1A527C8EDC7006352AA /* MainViewController.swift in Sources */,
+				1AE9455627D8C373009853B5 /* ArrayVC+DataSours.swift in Sources */,
+				1AE9455427D8C192009853B5 /* ArrayViewModel.swift in Sources */,
+				1AE9455A27D8CA3E009853B5 /* SetVC+HideKeyboard.swift in Sources */,
+				1AE9454E27D8B0DD009853B5 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

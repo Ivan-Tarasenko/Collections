@@ -77,12 +77,4 @@ class SetViewController: UIViewController {
         allDoNotMatchLabel.textTitle.removeAll()
         uniqueCharacterLabel.textTitle.removeAll()
     }
-
-    func hideKeyboard() {
-        let endEditingTapRecognizer = UITapGestureRecognizer(
-            target: view,
-            action: #selector(UIView.endEditing)
-        )
-        view.addGestureRecognizer(endEditingTapRecognizer)
-    }
 }

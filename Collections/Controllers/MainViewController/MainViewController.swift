@@ -9,56 +9,23 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    let titleTableView = NSLocalizedString("titleTableView", comment: "Title UITbleView")
-    let nameFirstCell = NSLocalizedString("firstCell", comment: "title first cell")
-    let nameSecondCell = NSLocalizedString("secondCell", comment: "title second cell")
-    let nameThirdCell = NSLocalizedString("thirdCell", comment: "title third cell")
+    let getNameCell = ExtractionNameForCell()
 
-    private let reuseIdentifier = "cell"
-
-    var nameCell = [TableViewNameCell]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getNameCell()
+        getNameCell.getNameCell()
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
         navigationItem.backButtonTitle = "Collections"
 
     }
 
-    func getNameCell() {
-        nameCell = [TableViewNameCell(nameCell: nameFirstCell),
-                    TableViewNameCell(nameCell: nameSecondCell),
-                    TableViewNameCell(nameCell: nameThirdCell)
-        ]
-    }
-
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return nameCell.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let name = nameCell[indexPath.row]
-        cell.textLabel?.text = name.nameCell
-        cell.accessoryType = .disclosureIndicator
-        return cell
-    }
-
-    // MARK: - Setting title.
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         let label = UILabel()
         label.frame = CGRect(x: 20, y: 0, width: headerView.frame.width, height: headerView.frame.height-10)
-        label.text = titleTableView
+        label.text = getNameCell.titleTableView
         label.font = UIFont.boldSystemFont(ofSize: 37)
         headerView.addSubview(label)
         return headerView
@@ -84,7 +51,7 @@ class MainViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let randomValue = Int.random(in: 0...9999)
-        let name = nameCell[indexPath.row]
+        let name = getNameCell.nameCell[indexPath.row]
         let title = "\(name.nameCell): \(randomValue)"
 
         switch segue.identifier {

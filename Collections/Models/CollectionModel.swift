@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct TableViewNameCell {
-    let nameCell: String
-}
-
-struct CollectionViewNameCell {
-    let nameCell: String
-}
-
 class CollectionModel {
 
     // MARK: - Method for determining the algorithm execution speed.

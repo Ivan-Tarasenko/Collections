@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomXibCollectionViewCell: UICollectionViewCell {
+    
 
     @IBOutlet weak var nameCellLabel: UILabel!
     
