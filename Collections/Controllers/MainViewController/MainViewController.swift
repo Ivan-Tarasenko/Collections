@@ -7,35 +7,79 @@
 
 import UIKit
 
-class MainViewController: UITableViewController {
+class MainViewController: UIViewController {
 
-    let getNameCell = ExtractionNameForCell()
+    let dataCell = ExtractionNameForCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getNameCell.getNameCell()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        dataCell.dataCell()
 
         navigationItem.backButtonTitle = "Collections"
 
     }
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let indexPath =  tableView.indexPathForSelectedRow else { return }
+//        let randomValue = Int.random(in: 0...9999)
+//        let name = dataCell.data[indexPath.row]
+//        let title = "\(name.nameCell): \(randomValue)"
+//
+//        switch segue.identifier {
+//        case "transitionArray":
+//            if let destantArray = segue.destination as? ArrayViewController {
+//                destantArray.navigationItem.title = title
+//            }
+//        case "transitionSet":
+//            if let destantSet = segue.destination as? SetViewController {
+//                destantSet.navigationItem.title = title
+//            }
+//        case "transitionDictionary":
+//            if let destantDictionary = segue.destination as? DictionaryViewController {
+//                destantDictionary.navigationItem.title = title
+//            }
+//        default: break
+//        }
+//    }
+}
+// MARK: - Extention ViewController on TableViewDataSours and TableViewDelegate
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataCell.data.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else { fatalError() }
+
+        let name = dataCell.data[indexPath.row]
+        cell.labelInCell.textTitle = name.nameCell
+
+//        cell.setNameCell(indexPath: indexPath)
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         let label = UILabel()
         label.frame = CGRect(x: 20, y: 0, width: headerView.frame.width, height: headerView.frame.height-10)
-        label.text = getNameCell.titleTableView
+        label.text = dataCell.titleTableView
         label.font = UIFont.boldSystemFont(ofSize: 37)
         headerView.addSubview(label)
         return headerView
     }
 
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 55
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "transitionArray", sender: self)
@@ -48,26 +92,4 @@ class MainViewController: UITableViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let randomValue = Int.random(in: 0...9999)
-        let name = getNameCell.nameCell[indexPath.row]
-        let title = "\(name.nameCell): \(randomValue)"
-
-        switch segue.identifier {
-        case "transitionArray":
-            if let destantArray = segue.destination as? ArrayViewController {
-                destantArray.navigationItem.title = title
-            }
-        case "transitionSet":
-            if let destantSet = segue.destination as? SetViewController {
-                destantSet.navigationItem.title = title
-            }
-        case "transitionDictionary":
-            if let destantDictionary = segue.destination as? DictionaryViewController {
-                destantDictionary.navigationItem.title = title
-            }
-        default: break
-        }
-    }
 }

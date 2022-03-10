@@ -14,12 +14,12 @@ class ExtractionNameForCell {
     let nameSecondCell = NSLocalizedString("secondCell", comment: "title second cell")
     let nameThirdCell = NSLocalizedString("thirdCell", comment: "title third cell")
 
-    var nameCell = [TableViewName]()
+    var data = [TableViewName]()
 
-    func getNameCell() {
-        nameCell = [TableViewName(nameCell: nameFirstCell),
-                    TableViewName(nameCell: nameSecondCell),
-                    TableViewName(nameCell: nameThirdCell)
+    func dataCell() {
+        data = [TableViewName(nameCell: nameFirstCell),
+                TableViewName(nameCell: nameSecondCell),
+                TableViewName(nameCell: nameThirdCell)
         ]
     }
 }
