@@ -8,6 +8,6 @@
 import Foundation
 
 class BigArrayModel {
-
+    
     var bigArray = [Int]()
 }

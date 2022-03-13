@@ -8,19 +8,12 @@
 import Foundation
 
 class MainViewModel {
+    
+    private(set) var cellData: [TableViewData] = []
+    private var dataManager = MainDataManager.shared
 
-    let titleTableView = NSLocalizedString("titleTableView", comment: "Title UITbleView")
-    let nameFirstCell = NSLocalizedString("firstCell", comment: "title first cell")
-    let nameSecondCell = NSLocalizedString("secondCell", comment: "title second cell")
-    let nameThirdCell = NSLocalizedString("thirdCell", comment: "title third cell")
-
-    var data = [TableViewData]()
-
-    func fetchData() {
-        data = [TableViewData(nameCell: nameFirstCell),
-                TableViewData(nameCell: nameSecondCell),
-                TableViewData(nameCell: nameThirdCell)
-        ]
+    init() {
+        cellData = dataManager.fetchData()
     }
 
     func getRandomValue() -> Int {

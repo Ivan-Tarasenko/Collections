@@ -11,7 +11,6 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
     var object = [ArrayCollectionViewData]()
     private let bigArrayModel = BigArrayModel()
-    private let titleBigArray = NSLocalizedString("titleBigArray", comment: "")  // Title big array
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         bigArrayModel.bigArray = Array(0...999)                                 // creating big array for testing interface
@@ -26,6 +25,7 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ArrayCollectionViewCell.identifier,
             for: indexPath) as? ArrayCollectionViewCell else { fatalError() }
+        let titleBigArray = NSLocalizedString("titleBigArray", comment: "")
 
         let object = object[indexPath.row]
         cell.backgroundColor = .systemGray4
