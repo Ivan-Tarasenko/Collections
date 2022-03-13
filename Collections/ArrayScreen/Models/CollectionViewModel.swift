@@ -8,5 +8,5 @@
 import Foundation
 
 struct ArrayCollectionViewData {
-    let nameCell: String
+    let title: String
 }

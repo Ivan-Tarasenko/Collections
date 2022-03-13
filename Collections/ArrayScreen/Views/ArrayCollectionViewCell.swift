@@ -8,16 +8,16 @@
 import UIKit
 
 class ArrayCollectionViewCell: UICollectionViewCell {
+    
+    static var identifier: String {
+        return String(describing: self)
+    }
 
     lazy var label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label
     }()
-
-    static var identifier: String {
-        return String(describing: self)
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +26,6 @@ class ArrayCollectionViewCell: UICollectionViewCell {
                              width: bounds.width - 6,
                              height: bounds.height
         )
-        
         addSubview(label)
     }
 
@@ -35,6 +34,6 @@ class ArrayCollectionViewCell: UICollectionViewCell {
     }
 
     func setArrayCell(data: ArrayCollectionViewData) {
-        label.textTitle = data.nameCell
+        label.textTitle = data.title
     }
 }

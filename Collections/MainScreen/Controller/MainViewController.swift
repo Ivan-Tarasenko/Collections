@@ -9,12 +9,15 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     let mainViewModel = MainViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mainViewModel.fetchData()
         navigationItem.backButtonTitle = "Collections"
+        tableView.rowHeight = 44
 
     }
 
@@ -87,5 +90,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             break
         }
     }
-
 }

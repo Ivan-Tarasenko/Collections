@@ -40,14 +40,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="AkV-VA-HnS" customClass="CustomTableViewCell" customModule="Collections" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AkV-VA-HnS" id="2MD-mW-KXv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-Ip-JAB">
-                                                    <rect key="frame" x="16" y="0.0" width="382" height="44.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="FlP-FZ-aZ7"/>
                                                     </constraints>
@@ -59,7 +59,6 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="eSj-Ip-JAB" secondAttribute="trailing" constant="16" id="8Jc-U3-b7y"/>
                                                 <constraint firstItem="eSj-Ip-JAB" firstAttribute="top" secondItem="2MD-mW-KXv" secondAttribute="top" id="AJH-LL-3lr"/>
-                                                <constraint firstAttribute="bottom" secondItem="eSj-Ip-JAB" secondAttribute="bottom" id="NKw-BA-qmg"/>
                                                 <constraint firstItem="eSj-Ip-JAB" firstAttribute="leading" secondItem="2MD-mW-KXv" secondAttribute="leading" constant="16" id="tx2-lU-UQC"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -85,6 +84,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vhF-uc-ceD"/>
                     <connections>
+                        <outlet property="tableView" destination="8Bo-r6-81k" id="Rk9-8w-IFC"/>
                         <segue destination="cAk-AY-LEp" kind="show" identifier="transitionSet" id="GrA-VT-iLa"/>
                         <segue destination="eUd-tD-urV" kind="show" identifier="transitionDictionary" id="fZM-Hj-v5C"/>
                         <segue destination="d8A-af-SN4" kind="show" identifier="transitionArray" id="sMS-oP-8I8"/>

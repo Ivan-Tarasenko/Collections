@@ -20,7 +20,7 @@ class SetViewController: UIViewController {
     @IBOutlet weak var allDoNotMatchLabel: UILabel!
     @IBOutlet weak var uniqueCharacterLabel: UILabel!
 
-    let setModel = SetViewModel()
+    let viewModel = SetViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +34,9 @@ class SetViewController: UIViewController {
         let firstString = firstView.textField.string
         let secondString = secondView.textField.string
 
-        let answerAllMatch = setModel.answerMatchingletter(first: firstString, second: secondString)
-        let answerAllDoNotMatch = setModel.answerDoNotMatchLetter(first: firstString, second: secondString)
-        let answerUniqueCharacter = setModel.answerCharacterDifference(first: firstString, second: secondString)
+        let answerAllMatch = viewModel.answerMatchingletter(first: firstString, second: secondString)
+        let answerAllDoNotMatch = viewModel.answerDoNotMatchLetter(first: firstString, second: secondString)
+        let answerUniqueCharacter = viewModel.answerCharacterDifference(first: firstString, second: secondString)
        
         switch sender.tag {
         case 0:
@@ -63,8 +63,8 @@ class SetViewController: UIViewController {
     func settingTitleButton() {
         uniqueCharacterButton.titleLabel?.numberOfLines = 0
         uniqueCharacterButton.titleLabel?.textAlignment = .center
-        allMatchButton.setTitle(setModel.titleAllMatch, for: .normal)
-        allDoNotMatchButton.setTitle(setModel.titleAllDoNotMatch, for: .normal)
-        uniqueCharacterButton.setTitle(setModel.titleUniqueButton, for: .normal)
+        allMatchButton.setTitle(viewModel.titleAllMatch, for: .normal)
+        allDoNotMatchButton.setTitle(viewModel.titleAllDoNotMatch, for: .normal)
+        uniqueCharacterButton.setTitle(viewModel.titleUniqueButton, for: .normal)
     }
 }
