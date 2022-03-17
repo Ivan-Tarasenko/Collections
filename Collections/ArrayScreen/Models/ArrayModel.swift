@@ -16,6 +16,6 @@ class ArrayModel {
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         let timeElapsedDouble = Double(timeElapsed)
         let answer = (round(1000 * timeElapsedDouble) / 1000)
-        return "Time \(string): \(answer) ms."
+        return "\(string): \(answer) ms."
     }
 }

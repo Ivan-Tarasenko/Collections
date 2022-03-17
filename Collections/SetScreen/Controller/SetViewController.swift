@@ -68,3 +68,14 @@ class SetViewController: UIViewController {
         uniqueCharacterButton.setTitle(viewModel.titleUniqueButton, for: .normal)
     }
 }
+
+extension SetViewController {
+
+    func hideKeyboard() {
+        let endEditingTapRecognizer = UITapGestureRecognizer(
+            target: view,
+            action: #selector(UIView.endEditing)
+        )
+        view.addGestureRecognizer(endEditingTapRecognizer)
+    }
+}

@@ -52,7 +52,7 @@
 		1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */; };
 		1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */; };
 		1AE9455427D8C192009853B5 /* ArrayDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455327D8C192009853B5 /* ArrayDataManager.swift */; };
-		1AE9455A27D8CA3E009853B5 /* SetVC+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455927D8CA3E009853B5 /* SetVC+HideKeyboard.swift */; };
+		1AF00E6F27E0A8B400486607 /* WorkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF00E6E27E0A8B400486607 /* WorkingCell.swift */; };
 		1AFC5E5927DB4D8B00022F6C /* DictionaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC5E5727DB4D8B00022F6C /* DictionaryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,7 +123,7 @@
 		1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		1AE9455327D8C192009853B5 /* ArrayDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDataManager.swift; sourceTree = "<group>"; };
-		1AE9455927D8CA3E009853B5 /* SetVC+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetVC+HideKeyboard.swift"; sourceTree = "<group>"; };
+		1AF00E6E27E0A8B400486607 /* WorkingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingCell.swift; sourceTree = "<group>"; };
 		1AFC5E5727DB4D8B00022F6C /* DictionaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				1A2CB58E27DA27810001B472 /* Accessibility */,
-				1AE9455927D8CA3E009853B5 /* SetVC+HideKeyboard.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -291,6 +290,7 @@
 			children = (
 				1ACC771927DC48FD006190A0 /* ArrayDataSource.swift */,
 				1ACC772727DE0AAB006190A0 /* ArrayDelegate.swift */,
+				1AF00E6E27E0A8B400486607 /* WorkingCell.swift */,
 				1ACC772927DE0ADD006190A0 /* ArrayCellLayout.swift */,
 			);
 			path = DataSource;
@@ -652,6 +652,7 @@
 				1ADC81F427C51A25009AB73C /* ArrayModel.swift in Sources */,
 				1ACC772A27DE0ADD006190A0 /* ArrayCellLayout.swift in Sources */,
 				1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */,
+				1AF00E6F27E0A8B400486607 /* WorkingCell.swift in Sources */,
 				1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */,
 				1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */,
 				1A4DE23927CA1727006352AA /* Models.swift in Sources */,
@@ -669,7 +670,6 @@
 				1ACC773327DE1B6F006190A0 /* MainDelegete.swift in Sources */,
 				1ACC772627DE097C006190A0 /* BigArrayModel.swift in Sources */,
 				1AE9455427D8C192009853B5 /* ArrayDataManager.swift in Sources */,
-				1AE9455A27D8CA3E009853B5 /* SetVC+HideKeyboard.swift in Sources */,
 				1AE9454E27D8B0DD009853B5 /* MainViewModel.swift in Sources */,
 				1A1D0FDD27DA12DD004122AC /* CustomTableViewCell.swift in Sources */,
 			);

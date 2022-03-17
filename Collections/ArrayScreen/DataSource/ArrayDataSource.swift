@@ -10,10 +10,12 @@ import UIKit
 class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
     var object = [ArrayCollectionViewData]()
-    private let bigArrayModel = BigArrayModel()
+    let bigArrayModel = BigArrayModel()
+    let arrayModel = ArrayModel()
+    let workingCell = WorkingCell()
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        bigArrayModel.bigArray = Array(0...999)                                 // creating big array for testing interface
+//        bigArrayModel.bigArray = Array(0...999)                                 // creating big array for testing interface
         return bigArrayModel.bigArray.isEmpty ? 1 : 2
     }
 
@@ -32,19 +34,20 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
         cell.layer.borderWidth = 0.5
 
         if indexPath.section == 0 {
-            cell.label.textTitle = titleBigArray     // Set title big array
+            cell.label.text = titleBigArray     // Set title big array
+            cell.label.textColor = .systemBlue
             cell.label.textAlignment = .center
         } else {
-            cell.backgroundColor = .red
             cell.setArrayCell(data: object)         // Set title other cell
+            cell.label.textColor = .systemBlue
         }
 
-        if bigArrayModel.bigArray.isEmpty {
-            cell.label.textColor = .systemBlue
-        } else {
-            cell.label.textColor = .black
-            cell.backgroundColor = .white
-        }
+//        if bigArrayModel.bigArray.isEmpty {
+//            cell.label.textColor = .systemBlue
+//        } else {
+//            cell.label.textColor = .black
+//            cell.backgroundColor = .white
+//        }
 
         return cell
     }

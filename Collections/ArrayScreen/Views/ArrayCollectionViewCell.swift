@@ -19,14 +19,17 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        return indicator
+    }()
+
+
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        label.frame = CGRect(x: bounds.minX + 6,
-                             y: bounds.minY,
-                             width: bounds.width - 6,
-                             height: bounds.height
-        )
-        addSubview(label)
+        createLabel()
+        createActivityIndicator()
     }
 
     required init?(coder: NSCoder) {
@@ -35,5 +38,25 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 
     func setArrayCell(data: ArrayCollectionViewData) {
         label.textTitle = data.title
+    }
+
+    private func createLabel() {
+        label.frame = CGRect(
+            x: bounds.minX + 6,
+            y: bounds.minY,
+            width: bounds.width - 6,
+            height: bounds.height
+        )
+        addSubview(label)
+    }
+
+    private func createActivityIndicator() {
+        activityIndicator.frame = CGRect(
+            x: bounds.minX,
+            y: bounds.minY,
+            width: bounds.width,
+            height: bounds.height
+        )
+        addSubview(activityIndicator)
     }
 }

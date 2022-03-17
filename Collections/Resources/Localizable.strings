@@ -14,7 +14,7 @@
 "thirdCell" = "Dictionary";
 
 // Localization Array.
-"titleBigArray" = "Big Array of 10 000 000 elements";
+"titleBigArray" = "Big Array of 10_000_000 elements";
 
 "insertBeginOnce" = "Inserting 1000 elements at the beginning of the array at once";
 "insertBeginOneTime" = "Inserting 1000 elements at the beginning of the array one at a time";
