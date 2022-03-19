@@ -30,7 +30,6 @@ class CustomView: UIView {
             tuneBorderForTextField ?
             textField.setBorder(radius: 10, color: UIColor.systemBlue) :
             textField.setBorder(radius: 10, color: UIColor.systemGray6)
-            
         }
     }
     

@@ -22,11 +22,8 @@ class MainDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else { fatalError() }
-
         let name = object[indexPath.row]
-
         cell.setCell(data: name)
-        cell.accessoryType = .disclosureIndicator
         return cell
     }
 }

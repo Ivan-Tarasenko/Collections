@@ -24,23 +24,48 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         return indicator
     }()
 
-
+    var settingTheStyleForDifferentCells: Bool = false {
+        didSet {
+            settingTheStyleForDifferentCells ?
+            settingCellForBigArray() :
+            settingUpForOtherCells()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         createLabel()
         createActivityIndicator()
+        generalSettings()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setArrayCell(data: ArrayCollectionViewData) {
-        label.textTitle = data.title
+    func settingDataCell(data: ArrayCollectionViewData) {
+        label.text = data.title
     }
 
-    private func createLabel() {
+    func cellStart() {
+        label.text!.removeAll()
+        activityIndicator.startAnimating()
+    }
+
+    func cellFinish(title: String) {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        label.text = title
+        label.textColor = .black
+        backgroundColor = .white
+    }
+
+}
+
+// MARK: - Private extension for ArrayCollectionCell
+private extension ArrayCollectionViewCell {
+
+    func createLabel() {
         label.frame = CGRect(
             x: bounds.minX + 6,
             y: bounds.minY,
@@ -50,7 +75,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         addSubview(label)
     }
 
-    private func createActivityIndicator() {
+    func createActivityIndicator() {
         activityIndicator.frame = CGRect(
             x: bounds.minX,
             y: bounds.minY,
@@ -58,5 +83,19 @@ class ArrayCollectionViewCell: UICollectionViewCell {
             height: bounds.height
         )
         addSubview(activityIndicator)
+    }
+
+    func generalSettings() {
+        backgroundColor = .systemGray4
+        layer.borderWidth = 0.5
+    }
+
+    func settingCellForBigArray() {
+        label.textColor = .systemBlue
+        label.textAlignment = .center
+    }
+
+    func settingUpForOtherCells() {
+        label.textColor = .systemBlue
     }
 }

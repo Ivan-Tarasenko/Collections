@@ -9,9 +9,12 @@ import Foundation
 
 class SetViewModel {
 
-    let titleAllMatch = NSLocalizedString("titleAllMatching", comment: "title button allMatch")
-    let titleAllDoNotMatch = NSLocalizedString("titleAllCharacterDoNotMatch", comment: "title button allDoNotMatch")
-    let titleUniqueButton = NSLocalizedString("titleUniqueSymbols", comment: "title button uniqueCharacter")
+    let titleAllMatch = NSLocalizedString(
+        "titleAllMatching", comment: "title button allMatch")
+    let titleAllDoNotMatch = NSLocalizedString(
+        "titleAllCharacterDoNotMatch", comment: "title button allDoNotMatch")
+    let titleUniqueButton = NSLocalizedString(
+        "titleUniqueSymbols", comment: "title button uniqueCharacter")
 
     // MARK: - The result of comparing two sets and the output of all matching characters
     func answerMatchingletter(first: String, second: String) -> String {

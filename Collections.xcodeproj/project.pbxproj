@@ -41,7 +41,7 @@
 		1ACC772A27DE0ADD006190A0 /* ArrayCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772927DE0ADD006190A0 /* ArrayCellLayout.swift */; };
 		1ACC772E27DE12F5006190A0 /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772D27DE12F5006190A0 /* MainDataSource.swift */; };
 		1ACC773127DE13A6006190A0 /* MainDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC773027DE13A6006190A0 /* MainDataManager.swift */; };
-		1ACC773327DE1B6F006190A0 /* MainDelegete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC773227DE1B6F006190A0 /* MainDelegete.swift */; };
+		1ADB93CE27E5E4A30078E715 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB93CD27E5E4A30078E715 /* UIViewController+HideKeyboard.swift */; };
 		1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81E927C5161C009AB73C /* SetViewController.swift */; };
 		1ADC81F427C51A25009AB73C /* ArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81F327C51A25009AB73C /* ArrayModel.swift */; };
 		1AE9454127D78338009853B5 /* ArrayView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9453F27D78338009853B5 /* ArrayView.storyboard */; };
@@ -52,7 +52,6 @@
 		1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */; };
 		1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */; };
 		1AE9455427D8C192009853B5 /* ArrayDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455327D8C192009853B5 /* ArrayDataManager.swift */; };
-		1AF00E6F27E0A8B400486607 /* WorkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF00E6E27E0A8B400486607 /* WorkingCell.swift */; };
 		1AFC5E5927DB4D8B00022F6C /* DictionaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC5E5727DB4D8B00022F6C /* DictionaryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +110,7 @@
 		1ACC772927DE0ADD006190A0 /* ArrayCellLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCellLayout.swift; sourceTree = "<group>"; };
 		1ACC772D27DE12F5006190A0 /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
 		1ACC773027DE13A6006190A0 /* MainDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataManager.swift; sourceTree = "<group>"; };
-		1ACC773227DE1B6F006190A0 /* MainDelegete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDelegete.swift; sourceTree = "<group>"; };
+		1ADB93CD27E5E4A30078E715 /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 		1ADC81CE27C51060009AB73C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ADC81E927C5161C009AB73C /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		1ADC81F327C51A25009AB73C /* ArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayModel.swift; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		1AE9455327D8C192009853B5 /* ArrayDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDataManager.swift; sourceTree = "<group>"; };
-		1AF00E6E27E0A8B400486607 /* WorkingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingCell.swift; sourceTree = "<group>"; };
 		1AFC5E5727DB4D8B00022F6C /* DictionaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,7 +288,6 @@
 			children = (
 				1ACC771927DC48FD006190A0 /* ArrayDataSource.swift */,
 				1ACC772727DE0AAB006190A0 /* ArrayDelegate.swift */,
-				1AF00E6E27E0A8B400486607 /* WorkingCell.swift */,
 				1ACC772927DE0ADD006190A0 /* ArrayCellLayout.swift */,
 			);
 			path = DataSource;
@@ -316,14 +313,22 @@
 			isa = PBXGroup;
 			children = (
 				1ACC772D27DE12F5006190A0 /* MainDataSource.swift */,
-				1ACC773227DE1B6F006190A0 /* MainDelegete.swift */,
 			);
 			path = MainDataSource;
+			sourceTree = "<group>";
+		};
+		1ADB93CC27E5E4650078E715 /* Extantions */ = {
+			isa = PBXGroup;
+			children = (
+				1ADB93CD27E5E4A30078E715 /* UIViewController+HideKeyboard.swift */,
+			);
+			path = Extantions;
 			sourceTree = "<group>";
 		};
 		1ADC81CB27C50CA6009AB73C /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				1ADB93CC27E5E4650078E715 /* Extantions */,
 				1A4DE21C27CA1727006352AA /* Custom TextField */,
 				1A7893AE27C5009900BB2679 /* LaunchScreen.storyboard */,
 				1A7893A327C5009800BB2679 /* AppDelegate.swift */,
@@ -652,7 +657,6 @@
 				1ADC81F427C51A25009AB73C /* ArrayModel.swift in Sources */,
 				1ACC772A27DE0ADD006190A0 /* ArrayCellLayout.swift in Sources */,
 				1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */,
-				1AF00E6F27E0A8B400486607 /* WorkingCell.swift in Sources */,
 				1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */,
 				1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */,
 				1A4DE23927CA1727006352AA /* Models.swift in Sources */,
@@ -661,13 +665,13 @@
 				1ACC773127DE13A6006190A0 /* MainDataManager.swift in Sources */,
 				1A4DE23627CA1727006352AA /* RegularExpression+Matches.swift in Sources */,
 				1ACC771A27DC48FD006190A0 /* ArrayDataSource.swift in Sources */,
+				1ADB93CE27E5E4A30078E715 /* UIViewController+HideKeyboard.swift in Sources */,
 				1A7893A627C5009800BB2679 /* SceneDelegate.swift in Sources */,
 				1ACC772827DE0AAB006190A0 /* ArrayDelegate.swift in Sources */,
 				1A2CB59027DA27810001B472 /* SetVC+Accessibility.swift in Sources */,
 				1ACC76E827DB5CB0006190A0 /* ArrayCollectionViewCell.swift in Sources */,
 				1A4DE1EB27C91E9D006352AA /* DictionaryViewController.swift in Sources */,
 				1A4DE1A527C8EDC7006352AA /* MainViewController.swift in Sources */,
-				1ACC773327DE1B6F006190A0 /* MainDelegete.swift in Sources */,
 				1ACC772627DE097C006190A0 /* BigArrayModel.swift in Sources */,
 				1AE9455427D8C192009853B5 /* ArrayDataManager.swift in Sources */,
 				1AE9454E27D8B0DD009853B5 /* MainViewModel.swift in Sources */,

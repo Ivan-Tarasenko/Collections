@@ -15,7 +15,7 @@ extension ArrayDataSource: UICollectionViewDelegate {
         var timeOperation = String()
         if bigArrayModel.bigArray.isEmpty {
             concurrentQueue.sync {
-                workingCell.gettingStartedTheCell(cell: cell)
+                cell.cellStart()
             }
             concurrentQueue.async { [self] in // We measure the array creation time
                 timeOperation =  arrayModel.taskCompletionTime(string: "Time create Big Array") {
@@ -27,20 +27,22 @@ extension ArrayDataSource: UICollectionViewDelegate {
                     }
                 }
                 queueMain.sync {
-                    workingCell.endOfWorkingTheCell(cell: cell, titleCell: timeOperation)
+                    cell.cellFinish(title: timeOperation)
                     print(bigArrayModel.bigArray.count)
                 }
             }
         } else {
             concurrentQueue.sync {
-                workingCell.gettingStartedTheCell(cell: cell)
+                cell.cellStart()
             }
             concurrentQueue.async { [self] in // We measure the array creation time
                 if indexPath.section == 1 {
+
                     let addArray = Array(0...9)
                     let insetOperations = "Insert times"
                     let removeOpreations = "Remove time"
                     let middleBigArray = bigArrayModel.bigArray.count / 2
+
                     switch indexPath.row {
                     case 0:
                         timeOperation = arrayModel.taskCompletionTime(string: insetOperations, execute: {
@@ -107,7 +109,7 @@ extension ArrayDataSource: UICollectionViewDelegate {
                     }
                 }
                 queueMain.sync {
-                    workingCell.endOfWorkingTheCell(cell: cell, titleCell: timeOperation)
+                    cell.cellFinish(title: timeOperation)
                     print(bigArrayModel.bigArray.count)
                 }
             }

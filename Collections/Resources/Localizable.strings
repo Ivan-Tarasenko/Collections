@@ -7,6 +7,7 @@
 */
 
 // Localization main screen.
+"backButtonTitle" = "Collections";
 
 "titleTableView" = "Collections";
 "firstCell" = "Array";

@@ -14,15 +14,14 @@ class MainDataManager {
 
    private init() {}
 
-    let nameFirstCell = NSLocalizedString("firstCell", comment: "title first cell")
-    let nameSecondCell = NSLocalizedString("secondCell", comment: "title second cell")
-    let nameThirdCell = NSLocalizedString("thirdCell", comment: "title third cell")
-
     func fetchData() -> [TableViewData] {
         var data = [TableViewData]()
-        data.append(TableViewData(nameCell: nameFirstCell))
-        data.append(TableViewData(nameCell: nameSecondCell))
-        data.append(TableViewData(nameCell: nameThirdCell))
+        data.append(TableViewData(
+            nameCell: NSLocalizedString("firstCell", comment: "title first cell")))
+        data.append(TableViewData(
+            nameCell: NSLocalizedString("secondCell", comment: "title second cell")))
+        data.append(TableViewData(
+            nameCell: NSLocalizedString("thirdCell", comment: "title third cell")))
         return data
     }
 

@@ -34,15 +34,18 @@ class SetViewController: UIViewController {
         let firstString = firstView.textField.string
         let secondString = secondView.textField.string
 
-        let answerAllMatch = viewModel.answerMatchingletter(first: firstString, second: secondString)
-        let answerAllDoNotMatch = viewModel.answerDoNotMatchLetter(first: firstString, second: secondString)
-        let answerUniqueCharacter = viewModel.answerCharacterDifference(first: firstString, second: secondString)
-       
+        let answerAllMatch = viewModel.answerMatchingletter(
+            first: firstString, second: secondString)
+        let answerAllDoNotMatch = viewModel.answerDoNotMatchLetter(
+            first: firstString, second: secondString)
+        let answerUniqueCharacter = viewModel.answerCharacterDifference(
+            first: firstString, second: secondString)
+
         switch sender.tag {
         case 0:
-           allMatchLabel.textTitle = answerAllMatch
+            allMatchLabel.textTitle = answerAllMatch
         case 1:
-           allDoNotMatchLabel.textTitle = answerAllDoNotMatch
+            allDoNotMatchLabel.textTitle = answerAllDoNotMatch
         case 2:
             uniqueCharacterLabel.textTitle = answerUniqueCharacter
         default:
@@ -51,7 +54,7 @@ class SetViewController: UIViewController {
 
     }
 
-    func settingViews() {
+    private func settingViews() {
         let nameFirstView = "First Text Field"
         let nameSecondView = "Second Text Field"
         firstView.settingView(type: .noDigits)
@@ -60,22 +63,11 @@ class SetViewController: UIViewController {
         secondView.title.textTitle = nameSecondView
     }
 
-    func settingTitleButton() {
+    private func settingTitleButton() {
         uniqueCharacterButton.titleLabel?.numberOfLines = 0
         uniqueCharacterButton.titleLabel?.textAlignment = .center
         allMatchButton.setTitle(viewModel.titleAllMatch, for: .normal)
         allDoNotMatchButton.setTitle(viewModel.titleAllDoNotMatch, for: .normal)
         uniqueCharacterButton.setTitle(viewModel.titleUniqueButton, for: .normal)
-    }
-}
-
-extension SetViewController {
-
-    func hideKeyboard() {
-        let endEditingTapRecognizer = UITapGestureRecognizer(
-            target: view,
-            action: #selector(UIView.endEditing)
-        )
-        view.addGestureRecognizer(endEditingTapRecognizer)
     }
 }
