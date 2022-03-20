@@ -40,20 +40,6 @@ class CustomView: UIView {
             textField.setBorder(radius: 10, color: UIColor.systemBlue)
         }
     }
-
-    // Расскаментировать в случае использования без View в Storyboard //
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        configureView()
-//        textField.delegate = self
-//
-//        addLabelPasswordValidation()
-//        addProgressBar()
-//        customPassValid.showLabelForPasswordValidation = true
-//        customPassValid.progressView.isHidden = true
-//        customPassValid.showLabelForbiddenChar = true
-//
-//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
