@@ -14,12 +14,16 @@ class ArrayViewController: UIViewController {
     private let dataSource = ArrayDataSource()
     private let viewModel = ArrayViewModel()
 
+    let layout = CollectionViewFlowLayout()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        collectionView.collectionViewLayout = layout
         registerCell()
         bind()
     }
-
+    
     func registerCell() {
         collectionView.register(
             ArrayCollectionViewCell.self,
@@ -30,6 +34,6 @@ class ArrayViewController: UIViewController {
     func bind() {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
-        dataSource.object = viewModel.cellData
+        dataSource.objects = viewModel.cellData
     }
 }

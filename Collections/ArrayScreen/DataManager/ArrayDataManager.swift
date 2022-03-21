@@ -14,34 +14,34 @@ class ArrayDataManager {
 
     private init() {}
 
-    func fetchArrayData() -> [ArrayCollectionViewData] {
+    func fetchArrayData() -> [ArrayCollectionModel] {
 
-        var dataArray = [ArrayCollectionViewData]()
-        dataArray.append(ArrayCollectionViewData(
+        var dataArray = [ArrayCollectionModel]()
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("titleBigArray", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("insertBeginOnce", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("insertBeginOneTime", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("insertMiddleOnce", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("insertMiddleOneTime", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("insertTheEndOnce", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("insertTheEndOneTime", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("removeBeginOnce", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("removeBeginOneTime", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("removeMiddleOnce", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("removeMiddleOneTime", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("removeTheEndOnce", comment: "")))
-        dataArray.append(ArrayCollectionViewData(
+        dataArray.append(ArrayCollectionModel(
             title: NSLocalizedString("removeTheEndOneTime", comment: "")))
         return dataArray
     }

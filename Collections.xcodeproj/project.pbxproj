@@ -37,20 +37,17 @@
 		1ACC771A27DC48FD006190A0 /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC771927DC48FD006190A0 /* ArrayDataSource.swift */; };
 		1ACC772427DDF9CF006190A0 /* ArrayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772327DDF9CF006190A0 /* ArrayViewModel.swift */; };
 		1ACC772627DE097C006190A0 /* BigArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772527DE097C006190A0 /* BigArrayModel.swift */; };
-		1ACC772827DE0AAB006190A0 /* ArrayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772727DE0AAB006190A0 /* ArrayDelegate.swift */; };
-		1ACC772A27DE0ADD006190A0 /* ArrayCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772927DE0ADD006190A0 /* ArrayCellLayout.swift */; };
 		1ACC772E27DE12F5006190A0 /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772D27DE12F5006190A0 /* MainDataSource.swift */; };
 		1ACC773127DE13A6006190A0 /* MainDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC773027DE13A6006190A0 /* MainDataManager.swift */; };
 		1ADB93CE27E5E4A30078E715 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB93CD27E5E4A30078E715 /* UIViewController+HideKeyboard.swift */; };
 		1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81E927C5161C009AB73C /* SetViewController.swift */; };
-		1ADC81F427C51A25009AB73C /* ArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC81F327C51A25009AB73C /* ArrayModel.swift */; };
 		1AE9454127D78338009853B5 /* ArrayView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9453F27D78338009853B5 /* ArrayView.storyboard */; };
 		1AE9454327D7835F009853B5 /* SetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9454227D7835F009853B5 /* SetView.storyboard */; };
 		1AE9454627D78385009853B5 /* DictionaryView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE9454427D78385009853B5 /* DictionaryView.storyboard */; };
 		1AE9454927D78513009853B5 /* SetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454827D78513009853B5 /* SetViewModel.swift */; };
 		1AE9454E27D8B0DD009853B5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454D27D8B0DD009853B5 /* MainViewModel.swift */; };
 		1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */; };
-		1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */; };
+		1AE9455227D8BC8E009853B5 /* ArrayCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455127D8BC8E009853B5 /* ArrayCollectionModel.swift */; };
 		1AE9455427D8C192009853B5 /* ArrayDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9455327D8C192009853B5 /* ArrayDataManager.swift */; };
 		1AFC5E5927DB4D8B00022F6C /* DictionaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC5E5727DB4D8B00022F6C /* DictionaryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -106,21 +103,18 @@
 		1ACC771927DC48FD006190A0 /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
 		1ACC772327DDF9CF006190A0 /* ArrayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewModel.swift; sourceTree = "<group>"; };
 		1ACC772527DE097C006190A0 /* BigArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigArrayModel.swift; sourceTree = "<group>"; };
-		1ACC772727DE0AAB006190A0 /* ArrayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDelegate.swift; sourceTree = "<group>"; };
-		1ACC772927DE0ADD006190A0 /* ArrayCellLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCellLayout.swift; sourceTree = "<group>"; };
 		1ACC772D27DE12F5006190A0 /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
 		1ACC773027DE13A6006190A0 /* MainDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataManager.swift; sourceTree = "<group>"; };
 		1ADB93CD27E5E4A30078E715 /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 		1ADC81CE27C51060009AB73C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ADC81E927C5161C009AB73C /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
-		1ADC81F327C51A25009AB73C /* ArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayModel.swift; sourceTree = "<group>"; };
 		1AE9454027D78338009853B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Collections/Views/Storyboard/Base.lproj/ArrayView.storyboard; sourceTree = "<group>"; };
 		1AE9454227D7835F009853B5 /* SetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SetView.storyboard; sourceTree = "<group>"; };
 		1AE9454527D78385009853B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Collections/Views/Storyboard/Base.lproj/DictionaryView.storyboard; sourceTree = "<group>"; };
 		1AE9454827D78513009853B5 /* SetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewModel.swift; sourceTree = "<group>"; };
 		1AE9454D27D8B0DD009853B5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1AE9454F27D8B9E0009853B5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
-		1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		1AE9455127D8BC8E009853B5 /* ArrayCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCollectionModel.swift; sourceTree = "<group>"; };
 		1AE9455327D8C192009853B5 /* ArrayDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDataManager.swift; sourceTree = "<group>"; };
 		1AFC5E5727DB4D8B00022F6C /* DictionaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,8 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				1ACC771927DC48FD006190A0 /* ArrayDataSource.swift */,
-				1ACC772727DE0AAB006190A0 /* ArrayDelegate.swift */,
-				1ACC772927DE0ADD006190A0 /* ArrayCellLayout.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -447,8 +439,7 @@
 		1AFC5E6027DB514600022F6C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1ADC81F327C51A25009AB73C /* ArrayModel.swift */,
-				1AE9455127D8BC8E009853B5 /* CollectionViewModel.swift */,
+				1AE9455127D8BC8E009853B5 /* ArrayCollectionModel.swift */,
 				1ACC772527DE097C006190A0 /* BigArrayModel.swift */,
 			);
 			path = Models;
@@ -654,9 +645,7 @@
 				1A4DE23727CA1727006352AA /* UILabel+SafeText.swift in Sources */,
 				1A4DE23A27CA1727006352AA /* SetTextFields.swift in Sources */,
 				1A4DE23327CA1727006352AA /* String+NSDataDetector.swift in Sources */,
-				1ADC81F427C51A25009AB73C /* ArrayModel.swift in Sources */,
-				1ACC772A27DE0ADD006190A0 /* ArrayCellLayout.swift in Sources */,
-				1AE9455227D8BC8E009853B5 /* CollectionViewModel.swift in Sources */,
+				1AE9455227D8BC8E009853B5 /* ArrayCollectionModel.swift in Sources */,
 				1ADC81EA27C5161C009AB73C /* SetViewController.swift in Sources */,
 				1AE9455027D8B9E0009853B5 /* TableViewModel.swift in Sources */,
 				1A4DE23927CA1727006352AA /* Models.swift in Sources */,
@@ -667,7 +656,6 @@
 				1ACC771A27DC48FD006190A0 /* ArrayDataSource.swift in Sources */,
 				1ADB93CE27E5E4A30078E715 /* UIViewController+HideKeyboard.swift in Sources */,
 				1A7893A627C5009800BB2679 /* SceneDelegate.swift in Sources */,
-				1ACC772827DE0AAB006190A0 /* ArrayDelegate.swift in Sources */,
 				1A2CB59027DA27810001B472 /* SetVC+Accessibility.swift in Sources */,
 				1ACC76E827DB5CB0006190A0 /* ArrayCollectionViewCell.swift in Sources */,
 				1A4DE1EB27C91E9D006352AA /* DictionaryViewController.swift in Sources */,

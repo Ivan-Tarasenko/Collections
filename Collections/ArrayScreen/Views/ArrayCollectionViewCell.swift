@@ -43,7 +43,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func settingDataCell(data: ArrayCollectionViewData) {
+    func settingDataCell(data: ArrayCollectionModel) {
         label.text = data.title
     }
 
@@ -59,7 +59,6 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         backgroundColor = .white
     }
-
 }
 
 // MARK: - Private extension for ArrayCollectionCell
