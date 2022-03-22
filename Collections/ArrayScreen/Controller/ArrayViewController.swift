@@ -14,12 +14,8 @@ class ArrayViewController: UIViewController {
     private let dataSource = ArrayDataSource()
     private let viewModel = ArrayViewModel()
 
-    let layout = CollectionViewFlowLayout()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        collectionView.collectionViewLayout = layout
         registerCell()
         bind()
     }
