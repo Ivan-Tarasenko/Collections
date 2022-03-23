@@ -35,6 +35,9 @@
  "removeTheEndOnce" = "Removing 1000 elements from the end of the array at once";
  "removeTheEndOneTime" = "Removing 1000 elements from the end of the array one at a time";
 
+"insetOperations" = "Insert times";
+"removeOpreations" = "Remove time";
+
 // Localization Set.
 "titleAllMatching" = "All matching letter";
 "titleAllCharacterDoNotMatch" = "All characters that don't match";

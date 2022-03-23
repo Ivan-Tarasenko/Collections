@@ -43,23 +43,22 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func settingDataCell(data: ArrayCollectionViewData) {
+    func settingDataCell(data: ArrayCollectionModel) {
         label.text = data.title
     }
 
-    func cellStart() {
+    func workStart() {
         label.text!.removeAll()
         activityIndicator.startAnimating()
     }
 
-    func cellFinish(title: String) {
+    func workFinish(title: String) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         label.text = title
         label.textColor = .black
         backgroundColor = .white
     }
-
 }
 
 // MARK: - Private extension for ArrayCollectionCell

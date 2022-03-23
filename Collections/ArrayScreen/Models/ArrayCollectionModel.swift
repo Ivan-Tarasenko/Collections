@@ -1,5 +1,5 @@
 //
-//  CollectionViewModel.swift
+//  ArrayCollectionModel.swift
 //  Collections
 //
 //  Created by Иван Тарасенко on 09.03.2022.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ArrayCollectionViewData {
+struct ArrayCollectionModel {
     let title: String
 }

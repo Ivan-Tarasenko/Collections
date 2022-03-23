@@ -10,7 +10,6 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerLabel: UILabel!
 
     private let dataSource = MainDataSource()
     private let viewModel = MainViewModel()
@@ -59,8 +58,17 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let titleTableView = NSLocalizedString("titleTableView", comment: "Title UITebleView")
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        headerView.addSubview(headerLabel)
+        let label = UILabel()
+        label.frame = CGRect(
+            x: 20, y: 0,
+            width: headerView.frame.width,
+            height: headerView.frame.height-10
+        )
+        label.text = titleTableView
+        label.font = UIFont.boldSystemFont(ofSize: 37)
+        headerView.addSubview(label)
         return headerView
     }
 

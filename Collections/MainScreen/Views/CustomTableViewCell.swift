@@ -9,8 +9,6 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var labelInCell: UILabel!
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -20,6 +18,8 @@ class CustomTableViewCell: UITableViewCell {
         super.init(coder: coder)
         configure()
     }
+
+    @IBOutlet weak var labelInCell: UILabel!
 
     func setCell(data: TableViewData) {
         labelInCell.textTitle = data.nameCell
