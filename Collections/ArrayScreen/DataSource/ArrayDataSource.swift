@@ -10,12 +10,11 @@ import UIKit
 class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
     var objects = [ArrayCollectionModel]()
-    let bigArrayModel = BigArrayModel()
     private let viewModel = ArrayViewModel()
     private let sectionInsert = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return bigArrayModel.bigArray.isEmpty ? 1 : 2
+        return viewModel.bigArray.isEmpty ? 1 : 2
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,15 +51,16 @@ extension ArrayDataSource: UICollectionViewDelegate {
         let queueMain = DispatchQueue.main
         let concurrentQueue = DispatchQueue(label: "CreateBigArrayQueue", attributes: .concurrent)
         var timeOperation = String()
-        //
-        if bigArrayModel.bigArray.isEmpty {
-            concurrentQueue.sync {
-                cell.cellStart()
+
+        if viewModel.bigArray.isEmpty {
+            concurrentQueue.sync {      
+                cell.workStart()
             }
+
             concurrentQueue.async { [self] in // We measure the array creation time
-                timeOperation =  viewModel.taskCompletionTime(string: "Time create Big Array") {
-                    bigArrayModel.bigArray = Array(0...9_999_)
-                }
+                timeOperation = viewModel.createBigArray()
+                print(viewModel.bigArray.count)
+
                 queueMain.sync {
                     if indexPath.section == 0 {
                         collectionView.reloadData()    // Reload Collection View in main thread
@@ -68,94 +68,52 @@ extension ArrayDataSource: UICollectionViewDelegate {
                 }
 
                 queueMain.sync {
-                    cell.cellFinish(title: timeOperation)
-                    print(bigArrayModel.bigArray.count)
+                    cell.workFinish(title: timeOperation)
                 }
             }
+            cell.label.text = timeOperation
         } else {
-            concurrentQueue.sync {
-                cell.cellStart()
-            }
 
+            concurrentQueue.sync {
+                cell.workStart()
+            }
             concurrentQueue.async { [self] in // We measure the array creation time
                 if indexPath.section == 1 {
-
-                    let addArray = Array(0...9)
-                    let insetOperations = "Insert times"
-                    let removeOpreations = "Remove time"
-                    let middleBigArray = bigArrayModel.bigArray.count / 2
-
                     switch indexPath.row {
                     case 0:
-                        timeOperation = viewModel.taskCompletionTime(string: insetOperations, execute: {
-                            bigArrayModel.bigArray.insert(contentsOf: addArray, at: 0)
-                        })
+                        timeOperation = viewModel.insertBeginOnce()
                     case 1:
-                        timeOperation = viewModel.taskCompletionTime(string: insetOperations, execute: {
-                            addArray.forEach({bigArrayModel.bigArray.insert($0, at: bigArrayModel.bigArray.startIndex)})
-                        })
+                        timeOperation = viewModel.insertBeginOneTime()
                     case 2:
-                        timeOperation = viewModel.taskCompletionTime(string: insetOperations, execute: {
-                            bigArrayModel.bigArray.insert(contentsOf: addArray, at: middleBigArray)
-                        })
+                        timeOperation = viewModel.insertMiddleOnce()
                     case 3:
-                        timeOperation = viewModel.taskCompletionTime(string: insetOperations, execute: {
-                            addArray.forEach({bigArrayModel.bigArray.insert($0, at: middleBigArray)})
-                        })
+                        timeOperation = viewModel.insertMiddleOneTime()
                     case 4:
-                        timeOperation = viewModel.taskCompletionTime(string: insetOperations, execute: {
-                            bigArrayModel.bigArray += addArray
-                        })
+                        timeOperation = viewModel.insertTheEndOnce()
                     case 5:
-                        timeOperation = viewModel.taskCompletionTime(string: insetOperations, execute: {
-                            addArray.forEach({bigArrayModel.bigArray.insert($0, at: bigArrayModel.bigArray.endIndex)})
-                        })
+                        timeOperation = viewModel.insertTheEndOneTime()
                     case 6:
-                        timeOperation = viewModel.taskCompletionTime(string: removeOpreations, execute: {
-                            bigArrayModel.bigArray.removeFirst(10)
-                            print(bigArrayModel.bigArray)
-                        })
+                        timeOperation = viewModel.removeBeginOnce()
                     case 7:
-                        timeOperation = viewModel.taskCompletionTime(string: removeOpreations, execute: {
-                            for element in addArray {
-                                bigArrayModel.bigArray.removeFirst(element)
-                                print(bigArrayModel.bigArray)
-                            }
-                        })
+                        timeOperation = viewModel.removeBeginOneTime()
                     case 8:
-                        timeOperation = viewModel.taskCompletionTime(string: removeOpreations, execute: {
-                            bigArrayModel.bigArray.removeSubrange(middleBigArray...middleBigArray + 9)
-                            print(bigArrayModel.bigArray)
-                        })
+                        timeOperation = viewModel.removeMiddleOnce()
                     case 9:
-                        timeOperation = viewModel.taskCompletionTime(string: removeOpreations, execute: {
-                            for element in addArray {
-                                bigArrayModel.bigArray.remove(at: middleBigArray + element) // race conditon
-                                print(bigArrayModel.bigArray)
-                            }
-                        })
+                        timeOperation = viewModel.removeMiddleOneTime()
                     case 10:
-                        timeOperation = viewModel.taskCompletionTime(string: removeOpreations, execute: {
-                            bigArrayModel.bigArray.removeLast(10)
-                            print(bigArrayModel.bigArray)
-                        })
+                        timeOperation = viewModel.removeTheEndOnce()
                     case 11:
-                        timeOperation = viewModel.taskCompletionTime(string: removeOpreations, execute: {
-                            for element in addArray {
-                                bigArrayModel.bigArray.removeLast(element)
-                                print(bigArrayModel.bigArray)
-                            }
-                        })
+                        timeOperation = viewModel.removeTheEndOneTime()
                     default:
                         break
                     }
                 }
                 queueMain.sync {
-                    cell.cellFinish(title: timeOperation)
-                    print(bigArrayModel.bigArray.count)
+                    cell.workFinish(title: timeOperation)
                 }
             }
         }
+        print("section: \(indexPath.section) cell: \(indexPath.row)")
     }
 }
 

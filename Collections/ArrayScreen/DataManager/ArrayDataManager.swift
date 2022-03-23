@@ -45,8 +45,4 @@ class ArrayDataManager {
             title: NSLocalizedString("removeTheEndOneTime", comment: "")))
         return dataArray
     }
-
-    func test() {
-        print(fetchArrayData().count)
-    }
 }

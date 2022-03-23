@@ -47,12 +47,12 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         label.text = data.title
     }
 
-    func cellStart() {
+    func workStart() {
         label.text!.removeAll()
         activityIndicator.startAnimating()
     }
 
-    func cellFinish(title: String) {
+    func workFinish(title: String) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         label.text = title
