@@ -12,16 +12,16 @@ class ArrayViewModel {
 
     var bigArray = [Int]()
     
-    let queueMain = DispatchQueue.main
-    let concurrentQueue = DispatchQueue(label: "CreateBigArrayQueue", attributes: .concurrent)
-
     private(set) var cellData: [ArrayCollectionModel] = []
     private var dataManager = ArrayDataManager.shared
+
+    let queueMain = DispatchQueue.main
+    let concurrentQueue = DispatchQueue(label: "CreateBigArrayQueue", attributes: .concurrent)
 
     private let insetOperations = NSLocalizedString("insetOperations", comment: "")
     private let removeOpreations = NSLocalizedString("removeOpreations", comment: "")
 
-    private let addArray = Array(0...9999)
+    private let littleArray = Array(0...999)
     private var middleBigArray = Int()
 
     init() {
@@ -42,7 +42,7 @@ class ArrayViewModel {
     // MARK: - Craate big array
     func createBigArray() -> String {
 return taskCompletionTime(string: "Time create Big Array") {
-    bigArray = Array(0...9_999_99)
+    bigArray = Array(0...9_999_999)
 }
     }
     
@@ -51,105 +51,99 @@ return taskCompletionTime(string: "Time create Big Array") {
     // Inserting 1000 elements at the beginning of the array at once
     func insertBeginOnce() -> String {
         return taskCompletionTime(string: insetOperations, execute: {
-            bigArray.insert(contentsOf: addArray, at: 0)
-            print(bigArray.count)
+            bigArray.insert(contentsOf: littleArray, at: 0)
         })
     }
 
     // Inserting 1000 elements at the beginning of the array one at a time
     func insertBeginOneTime() -> String {
         return taskCompletionTime(string: insetOperations, execute: {
-            addArray.forEach({bigArray.insert(
+            littleArray.forEach({bigArray.insert(
                 $0, at: bigArray.startIndex)}
             )
-            print(bigArray.count)
         })
     }
 
     // Inserting 1000 elements into the middle of the array at once
     func insertMiddleOnce() -> String {
         return taskCompletionTime(string: insetOperations, execute: {
-            bigArray.insert(contentsOf: addArray, at: middleBigArray)
-            print(bigArray.count)
+            bigArray.insert(contentsOf: littleArray, at: middleBigArray)
         })
     }
 
     // Inserting 1000 elements into the middle of the array one at a time
     func insertMiddleOneTime() -> String {
         return taskCompletionTime(string: insetOperations, execute: {
-            addArray.forEach({bigArray.insert($0, at: middleBigArray)})
-            print(bigArray.count)
+            littleArray.forEach({bigArray.insert($0, at: middleBigArray)})
         })
     }
 
     // Inserting 1000 elements at the end of the array at once
     func insertTheEndOnce() -> String {
         return taskCompletionTime(string: insetOperations, execute: {
-            bigArray += addArray
-            print(bigArray.count)
+            bigArray += littleArray
         })
     }
 
     // Inserting 1000 elements at the end of the array one at a time
     func insertTheEndOneTime() -> String {
         return taskCompletionTime(string: insetOperations, execute: {
-            addArray.forEach({bigArray.insert(
+            littleArray.forEach({bigArray.insert(
                 $0, at: bigArray.endIndex)}
             )
-            print(bigArray.count)
         })
     }
 
     // Removing 1000 elements from the beginning of the array at once
     func removeBeginOnce() -> String {
-        return taskCompletionTime(string: insetOperations, execute: {
-            bigArray.removeFirst(10)
-            print(bigArray.count)
+        return taskCompletionTime(string: removeOpreations, execute: {
+            bigArray.removeFirst(littleArray.count)
         })
     }
 
     // Removing 1000 elements from the beginning of the array one at a time
     func removeBeginOneTime() -> String {
-        return taskCompletionTime(string: insetOperations, execute: {
-//            for element in addArray {
-//                bigArrayModel.bigArray.removeFirst(element)
-//            }
+        return taskCompletionTime(string: removeOpreations, execute: {
+            for element in littleArray {
+                bigArray.remove(at: element)
+            }
         })
     }
 
     // Removing 1000 elements from the middle of the array at once
     func removeMiddleOnce() -> String {
-        return taskCompletionTime(string: insetOperations, execute: {
-            bigArray.removeSubrange(middleBigArray...(middleBigArray + 9))
-            print(bigArray.count)
+
+        let range = middleBigArray...(middleBigArray + (littleArray.count - 1))
+
+        return taskCompletionTime(string: removeOpreations, execute: {
+            bigArray.removeSubrange(range)
         })
     }
     
 // Removing 1000 elements from the middle of the array one at a time
     func removeMiddleOneTime() -> String {
-        return taskCompletionTime(string: insetOperations, execute: {
-            for element in addArray {
-                bigArray.remove(at: middleBigArray + element) // race conditon
+        return taskCompletionTime(string: removeOpreations, execute: {
+            for element in littleArray {
+                bigArray.remove(at: middleBigArray + element)
             }
-            print(bigArray.count)
         })
     }
     
 // Removing 1000 elements from the end of the array at once"
     func removeTheEndOnce() -> String {
-        return taskCompletionTime(string: insetOperations, execute: {
-            bigArray.removeLast(10)
-            print(bigArray.count)
+        return taskCompletionTime(string: removeOpreations, execute: {
+            bigArray.removeLast(littleArray.count)
         })
     }
     
 // Removing 1000 elements from the end of the array one at a time
     func removeTheEndOneTime() -> String { 
-        return taskCompletionTime(string: insetOperations, execute: {
-//            for element in addArray {
-//                bigArrayModel.bigArray.removeLast(element)
-//            }
-            print(bigArray.count)
+        return taskCompletionTime(string: removeOpreations, execute: {
+            guard let lastElement = bigArray.last else { return }
+
+            for _ in littleArray {
+                bigArray.remove(at: lastElement)
+            }
         })
     }
 }

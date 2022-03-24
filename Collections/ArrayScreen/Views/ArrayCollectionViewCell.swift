@@ -50,6 +50,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
     func workStart() {
         label.text!.removeAll()
         activityIndicator.startAnimating()
+        backgroundColor = .systemFill
     }
 
     func workFinish(title: String) {

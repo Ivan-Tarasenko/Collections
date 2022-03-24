@@ -11,7 +11,7 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
     var objects = [ArrayCollectionModel]()
     private let viewModel = ArrayViewModel()
-    private let sectionInsert = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+    private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.bigArray.isEmpty ? 1 : 2
@@ -47,37 +47,37 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 // MARK: - Delegate for ArrayViewController
 extension ArrayDataSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ArrayCollectionViewCell else { fatalError() }
+        guard let cell = collectionView.cellForItem(
+            at: indexPath) as? ArrayCollectionViewCell else { fatalError() }
+
         let queueMain = DispatchQueue.main
         let concurrentQueue = DispatchQueue(label: "CreateBigArrayQueue", attributes: .concurrent)
         var timeOperation = String()
 
         if viewModel.bigArray.isEmpty {
-            concurrentQueue.sync {      
+            concurrentQueue.sync {
                 cell.workStart()
             }
-
             concurrentQueue.async { [self] in // We measure the array creation time
                 timeOperation = viewModel.createBigArray()
-                print(viewModel.bigArray.count)
 
                 queueMain.sync {
                     if indexPath.section == 0 {
                         collectionView.reloadData()    // Reload Collection View in main thread
                     }
                 }
-
                 queueMain.sync {
                     cell.workFinish(title: timeOperation)
                 }
             }
-            cell.label.text = timeOperation
-        } else {
+        }
+
+        if !viewModel.bigArray.isEmpty && indexPath.section != 0 {
 
             concurrentQueue.sync {
                 cell.workStart()
             }
-            concurrentQueue.async { [self] in // We measure the array creation time
+            concurrentQueue.async { [self] in
                 if indexPath.section == 1 {
                     switch indexPath.row {
                     case 0:
@@ -112,8 +112,19 @@ extension ArrayDataSource: UICollectionViewDelegate {
                     cell.workFinish(title: timeOperation)
                 }
             }
+
+        } else {
+            concurrentQueue.sync {
+                cell.workStart()
+            }
+            concurrentQueue.async { [self] in
+                timeOperation = viewModel.createBigArray()
+
+                queueMain.sync {
+                    cell.workFinish(title: timeOperation)
+                }
+            }
         }
-        print("section: \(indexPath.section) cell: \(indexPath.row)")
     }
 }
 
@@ -150,10 +161,10 @@ extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
         return sectionInsert
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 0
     }
 }
