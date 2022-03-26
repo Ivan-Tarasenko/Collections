@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collections" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.47999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nl3-ny-CBh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collections" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.33000000000000002" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nl3-ny-CBh">
                                 <rect key="frame" x="46" y="229" width="320" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="MHQ-NA-kCb"/>
@@ -34,7 +34,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QxJ-Q9-wbd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6lY-c4-mUs"/>
-                            <constraint firstItem="QxJ-Q9-wbd" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.57971" constant="60.000000000000057" id="DlA-c6-grt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nl3-ny-CBh" secondAttribute="trailing" constant="47.780000000000001" id="JFw-HC-sD2"/>
                             <constraint firstItem="QxJ-Q9-wbd" firstAttribute="top" secondItem="Nl3-ny-CBh" secondAttribute="bottom" constant="27" id="LPu-3g-koP"/>
                             <constraint firstItem="Nl3-ny-CBh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46.219999999999999" id="jMa-b8-ol9"/>

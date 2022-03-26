@@ -36,7 +36,7 @@
  "removeTheEndOneTime" = "Removing 1000 elements from the end of the array one at a time";
 
 "insetOperations" = "Insert times";
-"removeOpreations" = "Remove time";
+"removeOperations" = "Remove time";
 
 // Localization Set.
 "titleAllMatching" = "All matching letter";
@@ -47,13 +47,13 @@
 
 
 
-                                    // localozation test field
+                                    // localization test field
 // Localization title label.
 "Text_Fields_All" = "Text Fields";
 "Text_Fields_NoDigit" = "Text Field without numbers";
 "Text_Fields_LimitChar" = "Restricted text field";
-"Text_Fields_OnlyChar" = "Text Tield for characters only";
-"Text_Fields_Link" = "Text Tield for the link";
+"Text_Fields_OnlyChar" = "Text Field for characters only";
+"Text_Fields_Link" = "Text Field for the link";
 "Text_Fields_Password" = "Password text field";
 
 // No Digits.

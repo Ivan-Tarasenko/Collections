@@ -15,7 +15,9 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 
     lazy var label: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
+        label.minimumScaleFactor = 0.5
         return label
     }()
 
@@ -58,6 +60,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         activityIndicator.isHidden = true
         label.text = title
         label.textColor = .black
+        label.textAlignment = .center
         backgroundColor = .white
     }
 }
