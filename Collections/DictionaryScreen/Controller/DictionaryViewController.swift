@@ -10,25 +10,22 @@ import UIKit
 class DictionaryViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+
+    private let dataSource = DictionaryDaraSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       registerCell()
+        bind()
+    }
+
+    func registerCell() {
         collectionView.register(DictionaryCollectionViewCell.self, forCellWithReuseIdentifier: DictionaryCollectionViewCell.identifier)
     }
-}
 
-extension DictionaryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: DictionaryCollectionViewCell.identifier,
-            for: indexPath) as? DictionaryCollectionViewCell else { fatalError() }
-
-        cell.backgroundColor = .systemBlue
-        return cell
+    func bind() {
+        collectionView.dataSource = dataSource
+        collectionView.delegate = dataSource
+//        dataSource.objects = viewModel.cellData
     }
 }

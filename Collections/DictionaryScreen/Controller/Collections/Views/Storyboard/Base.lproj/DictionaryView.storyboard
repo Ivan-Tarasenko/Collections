@@ -23,13 +23,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a0Z-4C-6x4">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dicCell" id="lFW-vg-O93" customClass="DictionaryCollectionViewCell" customModule="Collections" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="50" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ny2-NT-qQi">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -37,6 +37,40 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="G31-Mm-KYk" customClass="HeaderDictionary" customModule="Collections" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyP-7r-Bl3">
+                                            <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0J-qT-8a4">
+                                            <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pyP-7r-Bl3" firstAttribute="top" secondItem="G31-Mm-KYk" secondAttribute="top" id="4OY-9F-r7P"/>
+                                        <constraint firstItem="pyP-7r-Bl3" firstAttribute="leading" secondItem="G31-Mm-KYk" secondAttribute="leading" id="4si-81-2Mn"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="firstBaseline" secondItem="pyP-7r-Bl3" secondAttribute="firstBaseline" id="CGh-hw-dPp"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="top" secondItem="pyP-7r-Bl3" secondAttribute="top" id="FQV-Rj-B0s"/>
+                                        <constraint firstAttribute="bottom" secondItem="pyP-7r-Bl3" secondAttribute="bottom" id="JOq-Ua-pqI"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="top" secondItem="G31-Mm-KYk" secondAttribute="top" id="ONM-xm-Y44"/>
+                                        <constraint firstAttribute="trailing" secondItem="f0J-qT-8a4" secondAttribute="trailing" id="QQy-Cb-koE"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="leading" secondItem="pyP-7r-Bl3" secondAttribute="trailing" id="Sxw-nm-HxS"/>
+                                        <constraint firstItem="pyP-7r-Bl3" firstAttribute="width" secondItem="f0J-qT-8a4" secondAttribute="width" id="Wdf-nf-J5T"/>
+                                        <constraint firstAttribute="bottom" secondItem="f0J-qT-8a4" secondAttribute="bottom" id="uXh-te-Ath"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerArray" destination="pyP-7r-Bl3" id="vMn-gy-Aug"/>
+                                        <outlet property="headerDictionary" destination="f0J-qT-8a4" id="Mke-dY-Xqe"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="I2G-Ll-Slb" id="wxf-ly-NI8"/>
                                     <outlet property="delegate" destination="I2G-Ll-Slb" id="GvL-PP-T0y"/>
@@ -58,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-64-X3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2723" y="424"/>
+            <point key="canvasLocation" x="2721.739130434783" y="423.88392857142856"/>
         </scene>
     </scenes>
     <resources>

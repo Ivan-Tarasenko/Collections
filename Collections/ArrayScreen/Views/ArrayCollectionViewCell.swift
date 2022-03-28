@@ -17,7 +17,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
-        label.minimumScaleFactor = 0.5
+        label.minimumScaleFactor = 0.3
         return label
     }()
 
@@ -69,13 +69,14 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 private extension ArrayCollectionViewCell {
 
     func createLabel() {
+        addSubview(label)
+
         label.frame = CGRect(
             x: bounds.minX + 6,
             y: bounds.minY,
             width: bounds.width - 6,
             height: bounds.height
         )
-        addSubview(label)
     }
 
     func createActivityIndicator() {

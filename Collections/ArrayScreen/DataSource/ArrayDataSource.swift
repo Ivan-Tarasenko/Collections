@@ -107,7 +107,6 @@ extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
         let availableHeight = height - heightSpacingBetweenSections - heightSpacingBetweenCell
         let heightItem = availableHeight / numberOfRows
 
-        print(heightItem)
         return CGSize(width: widthItem, height: heightItem)
     }
 

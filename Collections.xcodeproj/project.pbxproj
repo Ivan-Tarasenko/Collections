@@ -33,6 +33,9 @@
 		1A7893AB27C5009800BB2679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7893A927C5009800BB2679 /* Main.storyboard */; };
 		1A7893AD27C5009900BB2679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7893AC27C5009900BB2679 /* Assets.xcassets */; };
 		1A7893B027C5009900BB2679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7893AE27C5009900BB2679 /* LaunchScreen.storyboard */; };
+		1A97D57F27EFFC3F00FE6C7B /* DictionaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97D57E27EFFC3F00FE6C7B /* DictionaryDataSource.swift */; };
+		1A97D58227EFFF0100FE6C7B /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97D58127EFFF0100FE6C7B /* DictionaryModel.swift */; };
+		1A97D58427F026C900FE6C7B /* HeaderDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97D58327F026C900FE6C7B /* HeaderDictionary.swift */; };
 		1ACC76E827DB5CB0006190A0 /* ArrayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC76E727DB5CB0006190A0 /* ArrayCollectionViewCell.swift */; };
 		1ACC771A27DC48FD006190A0 /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC771927DC48FD006190A0 /* ArrayDataSource.swift */; };
 		1ACC772427DDF9CF006190A0 /* ArrayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC772327DDF9CF006190A0 /* ArrayViewModel.swift */; };
@@ -98,6 +101,9 @@
 		1A7893AA27C5009800BB2679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A7893AC27C5009900BB2679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A7893AF27C5009900BB2679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A97D57E27EFFC3F00FE6C7B /* DictionaryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDataSource.swift; sourceTree = "<group>"; };
+		1A97D58127EFFF0100FE6C7B /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
+		1A97D58327F026C900FE6C7B /* HeaderDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDictionary.swift; sourceTree = "<group>"; };
 		1ACC76E727DB5CB0006190A0 /* ArrayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayCollectionViewCell.swift; sourceTree = "<group>"; };
 		1ACC771927DC48FD006190A0 /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
 		1ACC772327DDF9CF006190A0 /* ArrayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewModel.swift; sourceTree = "<group>"; };
@@ -259,6 +265,22 @@
 			path = Collections;
 			sourceTree = "<group>";
 		};
+		1A97D57D27EFFC0000FE6C7B /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1A97D57E27EFFC3F00FE6C7B /* DictionaryDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		1A97D58027EFFEC100FE6C7B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A97D58127EFFF0100FE6C7B /* DictionaryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1ACC76E627DB5C96006190A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				1AFC5E5727DB4D8B00022F6C /* DictionaryCollectionViewCell.swift */,
+				1A97D58327F026C900FE6C7B /* HeaderDictionary.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,18 +443,12 @@
 		1AFC5E5E27DB502600022F6C /* DictionaryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				1AFC5E5F27DB50D300022F6C /* Model */,
+				1A97D57D27EFFC0000FE6C7B /* DataSource */,
+				1A97D58027EFFEC100FE6C7B /* Models */,
 				1AFC5E5627DB4D0B00022F6C /* Views */,
 				1AE9453E27D782E8009853B5 /* Controller */,
 			);
 			path = DictionaryScreen;
-			sourceTree = "<group>";
-		};
-		1AFC5E5F27DB50D300022F6C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		1AFC5E6027DB514600022F6C /* Models */ = {
@@ -653,7 +670,10 @@
 				1ACC771A27DC48FD006190A0 /* ArrayDataSource.swift in Sources */,
 				1ADB93CE27E5E4A30078E715 /* UIViewController+HideKeyboard.swift in Sources */,
 				1A7893A627C5009800BB2679 /* SceneDelegate.swift in Sources */,
+				1A97D58227EFFF0100FE6C7B /* DictionaryModel.swift in Sources */,
 				1A2CB59027DA27810001B472 /* SetVC+Accessibility.swift in Sources */,
+				1A97D57F27EFFC3F00FE6C7B /* DictionaryDataSource.swift in Sources */,
+				1A97D58427F026C900FE6C7B /* HeaderDictionary.swift in Sources */,
 				1ACC76E827DB5CB0006190A0 /* ArrayCollectionViewCell.swift in Sources */,
 				1A4DE1EB27C91E9D006352AA /* DictionaryViewController.swift in Sources */,
 				1A4DE1A527C8EDC7006352AA /* MainViewController.swift in Sources */,
