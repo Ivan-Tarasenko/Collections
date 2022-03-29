@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A1D0FDD27DA12DD004122AC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D0FDC27DA12DD004122AC /* CustomTableViewCell.swift */; };
+		1A2C7A4327F2D89F00A822A3 /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C7A4227F2D89F00A822A3 /* DictionaryViewModel.swift */; };
 		1A2CB59027DA27810001B472 /* SetVC+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2CB58F27DA27810001B472 /* SetVC+Accessibility.swift */; };
 		1A4DE1A527C8EDC7006352AA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE1A427C8EDC7006352AA /* MainViewController.swift */; };
 		1A4DE1A927C8F4FD006352AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A4DE1A827C8F4FD006352AA /* Localizable.strings */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		1A1D0FDC27DA12DD004122AC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		1A2C7A4227F2D89F00A822A3 /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
 		1A2CB58F27DA27810001B472 /* SetVC+Accessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetVC+Accessibility.swift"; sourceTree = "<group>"; };
 		1A4DE1A427C8EDC7006352AA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1A4DE1A827C8F4FD006352AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		1AE9453E27D782E8009853B5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1A2C7A4227F2D89F00A822A3 /* DictionaryViewModel.swift */,
 				1AE9454427D78385009853B5 /* DictionaryView.storyboard */,
 				1A4DE1EA27C91E9D006352AA /* DictionaryViewController.swift */,
 			);
@@ -667,6 +670,7 @@
 				1A4DE23227CA1727006352AA /* String+StringComparison.swift in Sources */,
 				1ACC773127DE13A6006190A0 /* MainDataManager.swift in Sources */,
 				1A4DE23627CA1727006352AA /* RegularExpression+Matches.swift in Sources */,
+				1A2C7A4327F2D89F00A822A3 /* DictionaryViewModel.swift in Sources */,
 				1ACC771A27DC48FD006190A0 /* ArrayDataSource.swift in Sources */,
 				1ADB93CE27E5E4A30078E715 /* UIViewController+HideKeyboard.swift in Sources */,
 				1A7893A627C5009800BB2679 /* SceneDelegate.swift in Sources */,

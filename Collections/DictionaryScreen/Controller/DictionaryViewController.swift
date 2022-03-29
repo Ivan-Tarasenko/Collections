@@ -10,12 +10,25 @@ import UIKit
 class DictionaryViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var startView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private let dataSource = DictionaryDaraSource()
-    
+    private let viewModel = DictionaryViewModel()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if viewModel.arrayContacts.isEmpty {
+            activityIndicator.startAnimating()
+        }
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       registerCell()
+//        collectionView.collectionViewLayout = collectionView.flowLayout
+        registerCell()
         bind()
     }
 
@@ -26,6 +39,6 @@ class DictionaryViewController: UIViewController {
     func bind() {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
-//        dataSource.objects = viewModel.cellData
+        //        dataSource.objects = viewModel.cellData
     }
 }

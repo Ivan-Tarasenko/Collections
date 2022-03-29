@@ -28,29 +28,14 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 
 extension DictionaryDaraSource: UICollectionViewDelegate {
 
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        guard let cell = cell as? DictionaryCollectionViewCell else { return }
-//        let mainQueue = DispatchQueue.main
-//        let concurrentQueue = DispatchQueue(label: "test", attributes: .concurrent)
-//
-//        mainQueue.sync {
-//            cell.activityIndicator.startAnimating()
-//        }
-//
-//        mainQueue.async {
-//            let arr = Array(0...9_999_999)
-//
-//
-//                cell.activityIndicator.stopAnimating()
-//
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? DictionaryCollectionViewCell else { return }
+        cell.isHidden = true
+    }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
-
-        cell.backgroundColor = .red
         
     }
 }
@@ -93,6 +78,7 @@ extension DictionaryDaraSource: UICollectionViewDelegateFlowLayout {
 
             reusableview.setHeaderArray()
             reusableview.setHeaderDictionary()
+            reusableview.isHidden = true
             return reusableview
 
         default:  fatalError("Unexpected element kind")
