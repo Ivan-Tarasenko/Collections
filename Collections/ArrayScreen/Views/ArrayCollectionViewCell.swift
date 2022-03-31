@@ -15,9 +15,10 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 
     lazy var label: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
-        label.minimumScaleFactor = 0.5
+//        label.minimumScaleFactor = 0.5
         return label
     }()
 
@@ -69,13 +70,26 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 private extension ArrayCollectionViewCell {
 
     func createLabel() {
-        label.frame = CGRect(
-            x: bounds.minX + 6,
-            y: bounds.minY,
-            width: bounds.width - 6,
-            height: bounds.height
-        )
+
+        label.backgroundColor = .systemGray5
+//        label.frame = CGRect(
+//            x: bounds.minX + 6,
+//            y: bounds.minY,
+//            width: bounds.width - 6,
+//            height: bounds.height
+//        )
+
         addSubview(label)
+
+        label.widthAnchor.constraint(equalToConstant: bounds.width - 6).isActive = true
+        label.heightAnchor.constraint(equalToConstant: bounds.height - 6).isActive = true
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+        ])
     }
 
     func createActivityIndicator() {

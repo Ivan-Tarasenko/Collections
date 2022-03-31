@@ -96,7 +96,7 @@ extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
         }
 
         let height = collectionView.safeAreaLayoutGuide.layoutFrame.size.height
-        let width = UIScreen.main.bounds.width
+        let width = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
 
         let spacingWidth: CGFloat = sectionInsert.left
         let availableWidth = width - spacingWidth * (numberOfItemsPerRow + 1)
@@ -107,7 +107,8 @@ extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
         let availableHeight = height - heightSpacingBetweenSections - heightSpacingBetweenCell
         let heightItem = availableHeight / numberOfRows
 
-        print(heightItem)
+        print("width screen: \(width) width item: \(widthItem)")
+
         return CGSize(width: widthItem, height: heightItem)
     }
 
