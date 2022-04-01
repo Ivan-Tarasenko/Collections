@@ -14,6 +14,14 @@ class ArrayViewController: UIViewController {
     private let dataSource = ArrayDataSource()
     private let viewModel = ArrayViewModel()
 
+    override func viewWillLayoutSubviews() {
+        if UIDevice.current.orientation.isLandscape {
+            collectionView.backgroundColor = . systemPurple
+        } else {
+            collectionView.backgroundColor = .systemRed
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()

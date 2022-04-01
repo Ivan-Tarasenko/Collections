@@ -71,25 +71,40 @@ private extension ArrayCollectionViewCell {
 
     func createLabel() {
 
-        label.backgroundColor = .systemGray5
-//        label.frame = CGRect(
-//            x: bounds.minX + 6,
-//            y: bounds.minY,
-//            width: bounds.width - 6,
-//            height: bounds.height
-//        )
+
+        if UIDevice.current.orientation.isLandscape {
+            label.backgroundColor = .systemYellow
+//            contentView.setNeedsDisplay()
+//            label.frame = CGRect(
+//                x: bounds.minX + 6,
+//                y: bounds.minY + 6,
+//                width: bounds.width - 12,
+//                height: bounds.height - 12
+//            )
+        } else {
+            label.backgroundColor = .blue
+//            contentView.setNeedsLayout()
+//            label.frame = CGRect(
+//                x: bounds.minX + 6,
+//                y: bounds.minY + 6,
+//                width: bounds.width - 12,
+//                height: bounds.height - 12
+//            )
+        }
+
 
         addSubview(label)
 
-        label.widthAnchor.constraint(equalToConstant: bounds.width - 6).isActive = true
-        label.heightAnchor.constraint(equalToConstant: bounds.height - 6).isActive = true
+        label.widthAnchor.constraint(equalToConstant: bounds.width - 12).isActive = true
+        label.heightAnchor.constraint(equalToConstant: bounds.height - 12).isActive = true
 
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: contentView.topAnchor),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
-        ])
+
+//            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+
+        print("\(label.frame)")
     }
 
     func createActivityIndicator() {
