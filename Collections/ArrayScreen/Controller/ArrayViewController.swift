@@ -14,13 +14,15 @@ class ArrayViewController: UIViewController {
     private let dataSource = ArrayDataSource()
     private let viewModel = ArrayViewModel()
 
-    override func viewWillLayoutSubviews() {
-        if UIDevice.current.orientation.isLandscape {
-            collectionView.backgroundColor = . systemPurple
-        } else {
-            collectionView.backgroundColor = .systemRed
-        }
-    }
+//    override func viewWillLayoutSubviews() {
+//        if UIDevice.current.orientation.isLandscape {
+//            
+//            collectionView.backgroundColor = .systemRed
+//        } else {
+//
+//            collectionView.backgroundColor = .systemPurple
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

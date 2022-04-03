@@ -15,10 +15,9 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 
     lazy var label: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
-//        label.minimumScaleFactor = 0.5
+        //        label.minimumScaleFactor = 0.5
         return label
     }()
 
@@ -38,8 +37,9 @@ class ArrayCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         createLabel()
-        createActivityIndicator()
+//        createActivityIndicator()
         generalSettings()
+
     }
     
     required init?(coder: NSCoder) {
@@ -64,45 +64,58 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         backgroundColor = .white
     }
+
+    internal override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+
+        if UIDevice.current.orientation.isLandscape {
+            label.backgroundColor = .systemYellow
+            label.frame.size = CGSize(
+                width: contentView.bounds.width - 12,
+                height: contentView.bounds.height - 12
+            )
+            print("\(label.frame)")
+        } else {
+            label.backgroundColor = .systemRed
+            label.frame.size = CGSize(
+                width: contentView.bounds.width - 12,
+                height: contentView.bounds.height - 12
+            )
+            print("\(label.frame)")
+        }
+    }
 }
 
 // MARK: - Private extension for ArrayCollectionCell
 private extension ArrayCollectionViewCell {
-
     func createLabel() {
 
+//        label.frame = CGRect(
+//            x: bounds.minX + 6,
+//            y: bounds.minY + 6,
+//            width: bounds.width - 12,
+//            height: bounds.height - 12
+//        )
+        label.backgroundColor = .systemGreen
 
-        if UIDevice.current.orientation.isLandscape {
-            label.backgroundColor = .systemYellow
-//            contentView.setNeedsDisplay()
-//            label.frame = CGRect(
-//                x: bounds.minX + 6,
-//                y: bounds.minY + 6,
-//                width: bounds.width - 12,
-//                height: bounds.height - 12
-//            )
-        } else {
-            label.backgroundColor = .blue
-//            contentView.setNeedsLayout()
-//            label.frame = CGRect(
-//                x: bounds.minX + 6,
-//                y: bounds.minY + 6,
-//                width: bounds.width - 12,
-//                height: bounds.height - 12
-//            )
-        }
+            contentView.addSubview(label)
 
-
-        addSubview(label)
-
-        label.widthAnchor.constraint(equalToConstant: bounds.width - 12).isActive = true
-        label.heightAnchor.constraint(equalToConstant: bounds.height - 12).isActive = true
-
-
+        label.translatesAutoresizingMaskIntoConstraints = false
+//        if UIDevice.current.orientation.isLandscape {
+//            label.backgroundColor = .systemYellow
+//
+//        } else {
+//            label.backgroundColor = .blue
+        label.frame.size = CGSize(width: contentView.bounds.width - 12, height: contentView.bounds.height - 12)
+//        }
+//
+        NSLayoutConstraint.activate([
 //            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 //            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+//            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
 
         print("\(label.frame)")
     }
