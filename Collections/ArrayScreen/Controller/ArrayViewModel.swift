@@ -23,6 +23,10 @@ class ArrayViewModel {
         cellData = dataManager.fetchArrayData()
     }
 
+    func removeFirstIndex(sequence: inout [Any]) {
+        sequence.remove(at: 0)
+    }
+
     // Method for determining the algorithm execution speed.
     func taskCompletionTime (string: String, execute: () -> Void ) -> String {
         let startTime = CFAbsoluteTimeGetCurrent()
