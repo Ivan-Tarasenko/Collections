@@ -30,13 +30,12 @@ extension DictionaryDaraSource: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? DictionaryCollectionViewCell else { return }
-        cell.isHidden = true
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
-        
+       
     }
 }
 
@@ -44,9 +43,16 @@ extension DictionaryDaraSource: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let width = UIScreen.main.bounds.width
-        let heightDivider: CGFloat = 2
+        let width = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
+
+        var heightDivider: CGFloat = 0
         let numberOfItemsPerRow: CGFloat = 2
+
+        if UIDevice.current.orientation.isLandscape {
+            heightDivider = 4
+        } else {
+            heightDivider = 2
+        }
 
         let spacingWidth: CGFloat = sectionInsert.left
         let availableWidth = width - spacingWidth * (numberOfItemsPerRow + 1)
@@ -78,7 +84,6 @@ extension DictionaryDaraSource: UICollectionViewDelegateFlowLayout {
 
             reusableview.setHeaderArray()
             reusableview.setHeaderDictionary()
-            reusableview.isHidden = true
             return reusableview
 
         default:  fatalError("Unexpected element kind")

@@ -13,7 +13,7 @@
         <!--Dictionary View Controller-->
         <scene sceneID="Do0-zp-iWG">
             <objects>
-                <viewController id="I2G-Ll-Slb" customClass="DictionaryViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc1" id="I2G-Ll-Slb" customClass="DictionaryViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sUo-ec-dHV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,24 +27,6 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <view key="backgroundView" contentMode="scaleToFill" id="YFQ-MC-eR3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ckX-KA-9LR">
-                                            <rect key="frame" x="187" y="389" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40.000000000000114" id="FLq-ME-zK2"/>
-                                                <constraint firstAttribute="width" constant="40" id="KtP-el-u06"/>
-                                            </constraints>
-                                            <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ckX-KA-9LR" firstAttribute="centerX" secondItem="YFQ-MC-eR3" secondAttribute="centerX" id="YFx-xq-tpt"/>
-                                        <constraint firstItem="ckX-KA-9LR" firstAttribute="centerY" secondItem="YFQ-MC-eR3" secondAttribute="centerY" id="kEz-HN-NdD"/>
-                                    </constraints>
-                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dicCell" id="lFW-vg-O93" customClass="DictionaryCollectionViewCell" customModule="Collections" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="128" height="128"/>
@@ -105,9 +87,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="ckX-KA-9LR" id="3g8-Nf-ofO"/>
                         <outlet property="collectionView" destination="deB-fJ-h8h" id="gF6-qB-6dd"/>
-                        <outlet property="startView" destination="YFQ-MC-eR3" id="B61-zd-f6Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-64-X3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

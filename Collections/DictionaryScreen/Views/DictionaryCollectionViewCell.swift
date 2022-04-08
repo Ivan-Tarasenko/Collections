@@ -15,11 +15,16 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
 
     lazy var label: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.frame = CGRect(
+            x: bounds.minX + 6,
+            y: bounds.minY,
+            width: bounds.width - 6,
+            height: bounds.height
+        )
         label.numberOfLines = 0
-        label.minimumScaleFactor = 0.3
         label.textAlignment = .center
         label.text = "test"
+        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return label
     }()
 
@@ -30,8 +35,8 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.addSubview(label)
         generalSettingCell()
-        createLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -46,16 +51,5 @@ private extension DictionaryCollectionViewCell {
         backgroundColor = .systemGray4
         layer.borderWidth = 0.5
 
-    }
-
-    func createLabel() {
-        addSubview(label)
-        
-        label.frame = CGRect(
-            x: bounds.minX + 6,
-            y: bounds.minY,
-            width: bounds.width - 6,
-            height: bounds.height
-        )
     }
 }
