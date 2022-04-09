@@ -23,7 +23,6 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
         )
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.text = "test"
         label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return label
     }()
@@ -32,6 +31,14 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
         let indicator = UIActivityIndicatorView()
         return indicator
     }()
+
+    var settingTheStyleForDifferentCells: Bool = false {
+        didSet {
+            settingTheStyleForDifferentCells ?
+            settingCellForBigArray() :
+            settingUpForOtherCells()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,14 +49,25 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    func settingDataCell(data: DictionaryCollectionModel) {
+        label.text = data.title
+    }
 }
 
 private extension DictionaryCollectionViewCell {
 
     func generalSettingCell() {
-        backgroundColor = .systemGray4
+        backgroundColor = .systemGray5
         layer.borderWidth = 0.5
+    }
 
+    func settingCellForBigArray() {
+        label.textColor = .systemBlue
+        label.textAlignment = .center
+    }
+
+    func settingUpForOtherCells() {
+        label.textColor = .systemBlue
     }
 }

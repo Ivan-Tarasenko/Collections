@@ -37,7 +37,7 @@ class DictionaryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        viewModel.arrayContacts = Array(0...9_999_999)
+        viewModel.arrayContacts = Array(0...9)
 
         if !viewModel.arrayContacts.isEmpty {
             hiddenLoadingView()
@@ -64,7 +64,7 @@ class DictionaryViewController: UIViewController {
     func bind() {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
-        //        dataSource.objects = viewModel.cellData
+        dataSource.objects = viewModel.cellData
     }
 
     func hiddenLoadingView() {

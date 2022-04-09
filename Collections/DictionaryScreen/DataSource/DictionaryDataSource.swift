@@ -10,10 +10,13 @@ import UIKit
 
 class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 
+    var objects = [DictionaryCollectionModel]()
+    let viewModel = DictionaryViewModel()
+
     private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return objects.count * 2
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -21,21 +24,34 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
             withReuseIdentifier: DictionaryCollectionViewCell.identifier,
             for: indexPath) as? DictionaryCollectionViewCell else { fatalError() }
 
+        var objects: [Any] = objects
+        viewModel.doublesArray(sequence: &objects)
+
+        let object = objects[indexPath.row]
+        switch indexPath.row {
+        case 0...1 :
+            cell.settingDataCell(data: (object as? DictionaryCollectionModel)!)
+            cell.settingTheStyleForDifferentCells = true
+        case 2...3 :
+            cell.settingDataCell(data: (object as? DictionaryCollectionModel)!)
+            cell.settingTheStyleForDifferentCells = true
+        case 4...5 :
+            cell.settingDataCell(data: (object as? DictionaryCollectionModel)!)
+            cell.settingTheStyleForDifferentCells = true
+        default:
+            break
+        }
+
         return cell
     }
 
 }
 
 extension DictionaryDaraSource: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? DictionaryCollectionViewCell else { return }
-    }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
-       
     }
 }
 
