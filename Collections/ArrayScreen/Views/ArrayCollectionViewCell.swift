@@ -15,12 +15,26 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 
     lazy var label: UILabel = {
         let label = UILabel()
+        label.frame = CGRect(
+            x: contentView.bounds.minX + 6,
+            y: contentView.bounds.minY,
+            width: contentView.bounds.width - 12,
+            height: contentView.bounds.height
+        )
         label.numberOfLines = 0
+        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return label
     }()
 
     lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
+        indicator.frame = CGRect(
+            x: contentView.bounds.minX,
+            y: contentView.bounds.minY,
+            width: contentView.bounds.width,
+            height: contentView.bounds.height
+        )
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return indicator
     }()
 
@@ -31,11 +45,12 @@ class ArrayCollectionViewCell: UICollectionViewCell {
             settingUpForOtherCells()
         }
     }
+    let testView = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        createLabel()
-        createActivityIndicator()
+        contentView.addSubview(label)
+        contentView.addSubview(activityIndicator)
         generalSettings()
     }
     
@@ -43,47 +58,28 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func settingDataCell(data: ArrayCollectionViewData) {
+    func settingDataCell(data: ArrayCollectionModel) {
         label.text = data.title
     }
 
-    func cellStart() {
+    func workStart() {
         label.text!.removeAll()
         activityIndicator.startAnimating()
+        backgroundColor = .systemFill
     }
 
-    func cellFinish(title: String) {
+    func workFinish(title: String) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         label.text = title
         label.textColor = .black
+        label.textAlignment = .center
         backgroundColor = .white
     }
-
 }
 
 // MARK: - Private extension for ArrayCollectionCell
 private extension ArrayCollectionViewCell {
-
-    func createLabel() {
-        label.frame = CGRect(
-            x: bounds.minX + 6,
-            y: bounds.minY,
-            width: bounds.width - 6,
-            height: bounds.height
-        )
-        addSubview(label)
-    }
-
-    func createActivityIndicator() {
-        activityIndicator.frame = CGRect(
-            x: bounds.minX,
-            y: bounds.minY,
-            width: bounds.width,
-            height: bounds.height
-        )
-        addSubview(activityIndicator)
-    }
 
     func generalSettings() {
         backgroundColor = .systemGray4

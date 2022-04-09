@@ -9,21 +9,22 @@ import UIKit
 
 class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
-    var object = [ArrayCollectionViewData]()
-    let bigArrayModel = BigArrayModel()
-    let arrayModel = ArrayModel()
-//    let workingCell = WorkingCell()
+    var objects = [ArrayCollectionModel]()
+    private let viewModel = ArrayViewModel()
+    private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
+    private let heightSpacingBetweenCells: CGFloat = 0
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return bigArrayModel.bigArray.isEmpty ? 1 : 2
+        return viewModel.bigArrayData.isEmpty ? 1 : 2
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var numberOfItemsInSection: [Any] = objects
         if section == 0 {
             return 1
         } else {
-            object.remove(at: 0)
-            return object.count
+            viewModel.removeFirstIndex(sequence: &numberOfItemsInSection)
+            return numberOfItemsInSection.count
         }
     }
 
@@ -32,15 +33,93 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
             withReuseIdentifier: ArrayCollectionViewCell.identifier,
             for: indexPath) as? ArrayCollectionViewCell else { fatalError() }
 
-        let object = object[indexPath.row]
+        var objects: [Any] = objects
+
+        if indexPath.section != 0 {
+            viewModel.removeFirstIndex(sequence: &objects)
+        }
+
+        let object = objects[indexPath.row]
 
         if indexPath.section == 0 {
-            cell.settingDataCell(data: object)            // Set title big array
+            cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title big array
             cell.settingTheStyleForDifferentCells = true
         } else {
-            cell.settingDataCell(data: object)           // Set title other cell
+            cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title other cell
             cell.settingTheStyleForDifferentCells = false
         }
         return cell
+    }
+}
+
+// MARK: - Delegate for ArrayViewController
+extension ArrayDataSource: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(
+            at: indexPath) as? ArrayCollectionViewCell else { fatalError() }
+
+        if viewModel.bigArrayData.isEmpty {
+            viewModel.setQueuesForCreateBigArrayData(
+                collection: collectionView,
+                indexPath: indexPath,
+                cell: cell
+            )
+        }
+        
+        viewModel.setQueuesForOperationsWithBigArrayData(indexPath: indexPath, cell: cell)
+    }
+}
+
+// MARK: - Flow layout for ArrayCollectionView
+extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
+
+    /// here you can set the size for the cells of different sections
+    /// - Parameters:
+    ///   - collectionView: ArrayCollectionView
+    ///   - indexPath: For cell zero section and other cells
+    /// - Returns: Size width and height cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        var numberOfItemsPerRow: CGFloat = 0
+        var numberOfRows: CGFloat = 0
+
+        if objects.count % 2 != 0 {    // determine the number of rows
+            numberOfRows = CGFloat((objects.count  / 2) + 1)
+        } else {
+            numberOfRows = CGFloat(objects.count  / 2)
+        }
+
+        if indexPath.section == 0 {  // Setting the number of items in rows
+            numberOfItemsPerRow = 1
+        } else {
+            numberOfItemsPerRow = 2
+        }
+            // Determining the dynamic size collectionView. Width and Height
+        let width = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
+        let height = collectionView.safeAreaLayoutGuide.layoutFrame.size.height
+
+            // Setting the dynamic width of the element at specified intervals
+        let spacingWidth: CGFloat = sectionInsert.left
+        let availableWidth = width - spacingWidth * (numberOfItemsPerRow + 1)
+        let widthItem = floor(availableWidth / numberOfItemsPerRow)
+
+            // Setting the dynamic height of the element at specified intervals
+        let heightSpacingBetweenSections: CGFloat = sectionInsert.top
+        let heightSpacingBetweenCell = heightSpacingBetweenCells * numberOfRows
+        let availableHeight = height - heightSpacingBetweenSections - heightSpacingBetweenCell
+        let heightItem = availableHeight / numberOfRows
+
+        return CGSize(width: widthItem, height: heightItem)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsert
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return heightSpacingBetweenCells
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

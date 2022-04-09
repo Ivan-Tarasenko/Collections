@@ -19,7 +19,7 @@ class ArrayViewController: UIViewController {
         registerCell()
         bind()
     }
-
+    
     func registerCell() {
         collectionView.register(
             ArrayCollectionViewCell.self,
@@ -30,6 +30,6 @@ class ArrayViewController: UIViewController {
     func bind() {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
-        dataSource.object = viewModel.cellData
+        dataSource.objects = viewModel.cellData
     }
 }
