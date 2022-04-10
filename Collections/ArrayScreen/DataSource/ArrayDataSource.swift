@@ -19,11 +19,11 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var numberOfItemsInSection = objects
+        var numberOfItemsInSection: [Any] = objects
         if section == 0 {
             return 1
         } else {
-            numberOfItemsInSection.remove(at: 0)
+            viewModel.removeFirstIndex(sequence: &numberOfItemsInSection)
             return numberOfItemsInSection.count
         }
     }
@@ -33,19 +33,19 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
             withReuseIdentifier: ArrayCollectionViewCell.identifier,
             for: indexPath) as? ArrayCollectionViewCell else { fatalError() }
 
-        var objects = objects
+        var objects: [Any] = objects
 
         if indexPath.section != 0 {
-            objects.remove(at: 0)
+            viewModel.removeFirstIndex(sequence: &objects)
         }
 
         let object = objects[indexPath.row]
 
         if indexPath.section == 0 {
-            cell.settingDataCell(data: object)            // Set title big array
+            cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title big array
             cell.settingTheStyleForDifferentCells = true
         } else {
-            cell.settingDataCell(data: object)           // Set title other cell
+            cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title other cell
             cell.settingTheStyleForDifferentCells = false
         }
         return cell
@@ -83,25 +83,27 @@ extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
         var numberOfItemsPerRow: CGFloat = 0
         var numberOfRows: CGFloat = 0
 
-        if objects.count % 2 != 0 {
+        if objects.count % 2 != 0 {    // determine the number of rows
             numberOfRows = CGFloat((objects.count  / 2) + 1)
         } else {
             numberOfRows = CGFloat(objects.count  / 2)
         }
 
-        if indexPath.section == 0 {
+        if indexPath.section == 0 {  // Setting the number of items in rows
             numberOfItemsPerRow = 1
         } else {
             numberOfItemsPerRow = 2
         }
-
+            // Determining the dynamic size collectionView. Width and Height
+        let width = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
         let height = collectionView.safeAreaLayoutGuide.layoutFrame.size.height
-        let width = UIScreen.main.bounds.width
 
+            // Setting the dynamic width of the element at specified intervals
         let spacingWidth: CGFloat = sectionInsert.left
         let availableWidth = width - spacingWidth * (numberOfItemsPerRow + 1)
         let widthItem = floor(availableWidth / numberOfItemsPerRow)
 
+            // Setting the dynamic height of the element at specified intervals
         let heightSpacingBetweenSections: CGFloat = sectionInsert.top
         let heightSpacingBetweenCell = heightSpacingBetweenCells * numberOfRows
         let availableHeight = height - heightSpacingBetweenSections - heightSpacingBetweenCell
