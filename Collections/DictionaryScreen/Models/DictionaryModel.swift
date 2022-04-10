@@ -10,3 +10,8 @@ import Foundation
 struct DictionaryCollectionModel {
     let title: String
 }
+
+struct Contact {
+    let name: String
+    let numberPhone: String
+}

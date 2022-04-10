@@ -37,9 +37,9 @@ class DictionaryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        viewModel.arrayContacts = Array(0...9)
+        viewModel.createContactArray()
 
-        if !viewModel.arrayContacts.isEmpty {
+        if !viewModel.contactArray.isEmpty {
             hiddenLoadingView()
             reloadView()
         }

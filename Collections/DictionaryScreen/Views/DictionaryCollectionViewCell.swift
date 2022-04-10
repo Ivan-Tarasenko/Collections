@@ -29,6 +29,7 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
 
     lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return indicator
     }()
 
@@ -43,6 +44,7 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(label)
+        contentView.addSubview(activityIndicator)
         generalSettingCell()
     }
     
@@ -52,6 +54,21 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
 
     func settingDataCell(data: DictionaryCollectionModel) {
         label.text = data.title
+    }
+
+    func workStart() {
+        label.text!.removeAll()
+        activityIndicator.startAnimating()
+        backgroundColor = .systemFill
+    }
+
+    func workFinish(title: String) {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        label.text = title
+        label.textColor = .black
+        label.textAlignment = .center
+        backgroundColor = .white
     }
 }
 
