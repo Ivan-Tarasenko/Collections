@@ -11,8 +11,8 @@ class DictionaryViewModel {
     var contactArray = [Contact]()
     var contactDictionary = [String: Int]()
 
-   private let queueMain = DispatchQueue.main
-   private let concurrentQueue = DispatchQueue(label: "QueueForStartCell", attributes: .concurrent)
+    let queueMain = DispatchQueue.main
+    let concurrentQueue = DispatchQueue(label: "QueueForStartCell", attributes: .concurrent)
 
     private(set) var cellData: [DictionaryCollectionModel] = []
     private var dataManager = DictionaryDataManager.dicShared
@@ -23,16 +23,26 @@ class DictionaryViewModel {
 
     func doublesArray(sequence: inout[Any]) {
         for element in 0...4
-            where element % 2 == 0 {
+        where element % 2 == 0 {
             sequence.insert(sequence[element], at: element + 1)
-            }
+        }
+    }
+
+    // Method for determining the algorithm execution speed.
+    func taskCompletionTime (string: String, execute: () -> Void ) -> String {
+        let startTime = CFAbsoluteTimeGetCurrent()
+        execute()
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        let timeElapsedDouble = Double(timeElapsed)
+        let answer = (round(1000 * timeElapsedDouble) / 1000)
+        return "\(string): \(answer) ms."
     }
 
     // MARK: - Create sequens
     func createContactArray() {
         var array = [Contact]()
         for number in 0...9_999_999 {
-           array.append(Contact(name: "name \(number)", numberPhone: "number phone \(number)"))
+            array.append(Contact(name: "name \(number)", numberPhone: "number phone \(number)"))
         }
         contactArray = array
     }
@@ -50,7 +60,15 @@ class DictionaryViewModel {
     // MARK: - Operations with array
     func findFirstValueArray() -> String {
         let array = contactArray
-        return array.first?.name ?? "nill"
+        print(contactArray.count)
+        var answer = String()
+        let title = NSLocalizedString("findFirstAnswer", comment: "")
+        let result = NSLocalizedString("result", comment: "")
+
+        let insetTitle = taskCompletionTime(string: title) {
+            answer = array.first?.name ?? "nill"
+        }
+        return "\(insetTitle) \(result)\(answer)"
     }
 
     func findLastValueArray() -> String {
@@ -82,5 +100,58 @@ class DictionaryViewModel {
     }
     // MARK: - Worning with treads
 
-    
+    func setQueueForStartCell(cell: DictionaryCollectionViewCell) {
+        concurrentQueue.sync {
+            cell.workStart()
+        }
+    }
+
+    func setQueueFinishCell(cell: DictionaryCollectionViewCell, titleCell: String) {
+        queueMain.sync {
+            cell.workFinish(title: titleCell)
+        }
+    }
+
+    func setQueueForCreateSequens(update: @escaping() -> Void) {
+        concurrentQueue.async { [weak self] in
+            guard let self = self else { return }
+            self.createContactArray()
+        }
+        concurrentQueue.async { [weak self] in
+            guard let self = self else { return }
+            self.createContactDictionary()
+            self.queueMain.sync {
+                update()
+            }
+        }
+    }
+
+    func setQueueForOperations(indexPath: IndexPath, cell: DictionaryCollectionViewCell) {
+        guard contactArray.isEmpty, contactDictionary.isEmpty else { return }
+
+        var timeOperation = String()
+
+        setQueueForStartCell(cell: cell)
+
+        concurrentQueue.async { [weak self] in
+            guard let self = self else { return }
+            switch indexPath.row {
+            case 0:
+                timeOperation = self.findFirstValueArray()
+            case 1:
+                timeOperation = ""
+            case 2:
+                timeOperation = ""
+            case 3:
+                timeOperation = ""
+            case 4:
+                timeOperation = ""
+            case 5:
+                timeOperation = ""
+            default:
+                break
+            }
+            self.setQueueFinishCell(cell: cell, titleCell: timeOperation)
+        }
+    }
 }

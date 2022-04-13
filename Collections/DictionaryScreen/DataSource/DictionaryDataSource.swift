@@ -11,7 +11,7 @@ import UIKit
 class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 
     var objects = [DictionaryCollectionModel]()
-    let viewModel = DictionaryViewModel()
+     private let viewModel = DictionaryViewModel()
 
     private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
 
@@ -48,11 +48,14 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 }
 
 extension DictionaryDaraSource: UICollectionViewDelegate {
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
-        
+        print(viewModel.contactArray.count)
+        viewModel.setQueueForOperations(indexPath: indexPath, cell: cell)
+        cell.backgroundColor = .systemGreen
+
     }
 }
 

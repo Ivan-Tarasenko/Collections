@@ -13,7 +13,7 @@
         <!--Dictionary View Controller-->
         <scene sceneID="Do0-zp-iWG">
             <objects>
-                <viewController storyboardIdentifier="vc1" id="I2G-Ll-Slb" customClass="DictionaryViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dictionaryVC" id="I2G-Ll-Slb" customClass="DictionaryViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sUo-ec-dHV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
