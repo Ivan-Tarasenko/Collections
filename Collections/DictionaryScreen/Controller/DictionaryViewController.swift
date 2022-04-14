@@ -37,9 +37,17 @@ class DictionaryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        viewModel.setQueueForCreateSequens {
-            self.hiddenLoadingView()
+//        viewModel.createContactArray()
+        viewModel.closure()
+
+        if !viewModel.contactArray.isEmpty {
+            hiddenLoadingView()
+            print("viewDidAppear \(viewModel.contactArray.count)")
         }
+
+//        viewModel.setQueueForCreateSequens {
+//            self.hiddenLoadingView()
+//        }
     }
 
     override func viewDidLoad() {
@@ -49,10 +57,11 @@ class DictionaryViewController: UIViewController {
         activityIndicator.startAnimating()
         registerCell()
         bind()
+        print("viewDidLoad \(viewModel.contactArray.count)")
     }
 
-    @IBAction func buttonPress(_ sender: UIButton) {
-        print(viewModel.contactArray.count)
+    @IBAction func buttonPress(_ sender: Any) {
+        print("Button Press \(viewModel.contactArray.count)")
     }
 
     func registerCell() {

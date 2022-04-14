@@ -16,6 +16,7 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
     private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("Create cell \(viewModel.contactArray.count)")
         return objects.count * 2
     }
 
@@ -52,7 +53,8 @@ extension DictionaryDaraSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
-        print(viewModel.contactArray.count)
+
+        print("PressCell \(viewModel.contactArray.count)")
         viewModel.setQueueForOperations(indexPath: indexPath, cell: cell)
         cell.backgroundColor = .systemGreen
 

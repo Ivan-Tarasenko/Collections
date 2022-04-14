@@ -41,10 +41,14 @@ class DictionaryViewModel {
     // MARK: - Create sequens
     func createContactArray() {
         var array = [Contact]()
-        for number in 0...9_999_999 {
+        for number in 0...9_999_99 {
             array.append(Contact(name: "name \(number)", numberPhone: "number phone \(number)"))
         }
         contactArray = array
+    }
+
+    var closure: () -> () {
+      createContactArray
     }
 
     func createContactDictionary() {
@@ -60,7 +64,7 @@ class DictionaryViewModel {
     // MARK: - Operations with array
     func findFirstValueArray() -> String {
         let array = contactArray
-        print(contactArray.count)
+        print( "Methot \(contactArray.count)")
         var answer = String()
         let title = NSLocalizedString("findFirstAnswer", comment: "")
         let result = NSLocalizedString("result", comment: "")
