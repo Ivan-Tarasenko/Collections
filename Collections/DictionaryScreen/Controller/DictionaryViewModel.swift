@@ -21,13 +21,6 @@ class DictionaryViewModel {
         cellData = dataManager.fetchDictionaryData()
     }
 
-    func doublesArray(sequence: inout[Any]) {
-        for element in 0...4
-        where element % 2 == 0 {
-            sequence.insert(sequence[element], at: element + 1)
-        }
-    }
-
     // Method for determining the algorithm execution speed.
     func taskCompletionTime (string: String, execute: () -> Void ) -> String {
         let startTime = CFAbsoluteTimeGetCurrent()
@@ -39,29 +32,48 @@ class DictionaryViewModel {
     }
 
     // MARK: - Create sequens
-    func createContactArray() {
+    func createCollections(completion: @escaping () -> Void) {
         var array = [Contact]()
+        var dictionary = [String: Int]()
+
         for number in 0...9_999_99 {
             array.append(Contact(name: "name \(number)", numberPhone: "number phone \(number)"))
+            dictionary["name \(number)"] = number
         }
-        contactArray = array
-    }
-
-    var closure: () -> () {
-      createContactArray
-    }
-
-    func createContactDictionary() {
-        var dictionaryContact: [String: Int] = [:]
-        let arrayValue = Array(0...9_999_999)
-
-        for (key, value) in arrayValue.enumerated() {
-            dictionaryContact["name \(key)"] = arrayValue[value]
+        queueMain.async {
+            self.contactArray = array
+            self.contactDictionary = dictionary
+            completion()
         }
-        contactDictionary = dictionaryContact
     }
 
+    func test() {
+        if !contactArray.isEmpty {
+            print("test \(contactArray.count)")
+        }
+        print("finish test \(contactArray.count)")
+    }
     // MARK: - Operations with array
+
+//    func perfomOperation(indexPath: IndexPath, completion: @escaping () -> Void) {
+//        switch indexPath.row {
+//        case 0:
+//            findFirstValueArray()
+//        case 1:
+//            findFirstValueDictionary()
+//        case 2:
+//            findLastValueArray()
+//        case 3:
+//            findLastValueDictionary()
+//        case 4:
+//            arraySearchNonExistentValue(string: <#T##String#>)
+//        case 5:
+//        default:
+//            break
+//        }
+
+//    }
+
     func findFirstValueArray() -> String {
         let array = contactArray
         print( "Methot \(contactArray.count)")
@@ -86,7 +98,6 @@ class DictionaryViewModel {
     }
 
     // MARK: - Operations with dictionary
-
     func findFirstValueDictionary() -> String {
         let dictionary = contactDictionary
         return dictionary.first?.key ?? "nill"
@@ -102,6 +113,7 @@ class DictionaryViewModel {
         let dictionary = contactDictionary
         return (dictionary.first(where: {$0.key == string}) != nil)
     }
+    
     // MARK: - Worning with treads
 
     func setQueueForStartCell(cell: DictionaryCollectionViewCell) {
@@ -113,20 +125,6 @@ class DictionaryViewModel {
     func setQueueFinishCell(cell: DictionaryCollectionViewCell, titleCell: String) {
         queueMain.sync {
             cell.workFinish(title: titleCell)
-        }
-    }
-
-    func setQueueForCreateSequens(update: @escaping() -> Void) {
-        concurrentQueue.async { [weak self] in
-            guard let self = self else { return }
-            self.createContactArray()
-        }
-        concurrentQueue.async { [weak self] in
-            guard let self = self else { return }
-            self.createContactDictionary()
-            self.queueMain.sync {
-                update()
-            }
         }
     }
 

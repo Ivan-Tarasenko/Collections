@@ -10,14 +10,12 @@ import UIKit
 
 class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 
-    var objects = [DictionaryCollectionModel]()
      private let viewModel = DictionaryViewModel()
 
     private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Create cell \(viewModel.contactArray.count)")
-        return objects.count * 2
+        return viewModel.cellData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -25,24 +23,20 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
             withReuseIdentifier: DictionaryCollectionViewCell.identifier,
             for: indexPath) as? DictionaryCollectionViewCell else { fatalError() }
 
-        var objects: [Any] = objects
-        viewModel.doublesArray(sequence: &objects)
-
-        let object = objects[indexPath.row]
+        let object = viewModel.cellData[indexPath.row]
         switch indexPath.row {
         case 0...1 :
-            cell.settingDataCell(data: (object as? DictionaryCollectionModel)!)
+            cell.settingDataCell(data: object)
             cell.settingTheStyleForDifferentCells = true
         case 2...3 :
-            cell.settingDataCell(data: (object as? DictionaryCollectionModel)!)
+            cell.settingDataCell(data: object)
             cell.settingTheStyleForDifferentCells = true
         case 4...5 :
-            cell.settingDataCell(data: (object as? DictionaryCollectionModel)!)
+            cell.settingDataCell(data: object)
             cell.settingTheStyleForDifferentCells = true
         default:
             break
         }
-
         return cell
     }
 
@@ -54,9 +48,15 @@ extension DictionaryDaraSource: UICollectionViewDelegate {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
 
-        print("PressCell \(viewModel.contactArray.count)")
-        viewModel.setQueueForOperations(indexPath: indexPath, cell: cell)
-        cell.backgroundColor = .systemGreen
+        let object = viewModel.cellData[indexPath.row]
+
+        if !object.isDone {
+            cell.backgroundColor = .red
+            print("PressCell \(viewModel.contactArray.count)")
+        }
+        viewModel.test()
+//        viewModel.setQueueForOperations(indexPath: indexPath, cell: cell)
+//        cell.backgroundColor = .systemGreen
 
     }
 }

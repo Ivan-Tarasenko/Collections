@@ -17,7 +17,10 @@ class DictionaryDataManager {
     func fetchDictionaryData() -> [DictionaryCollectionModel] {
         var data = [DictionaryCollectionModel]()
         data.append(DictionaryCollectionModel(title: NSLocalizedString("findFirst", comment: "")) )
+        data.append(DictionaryCollectionModel(title: NSLocalizedString("findFirst", comment: "")) )
         data.append(DictionaryCollectionModel(title: NSLocalizedString("findLast", comment: "")) )
+        data.append(DictionaryCollectionModel(title: NSLocalizedString("findLast", comment: "")) )
+        data.append(DictionaryCollectionModel(title: NSLocalizedString("searchForNonExisting", comment: "")) )
         data.append(DictionaryCollectionModel(title: NSLocalizedString("searchForNonExisting", comment: "")) )
 return data
     }
