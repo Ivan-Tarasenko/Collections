@@ -21,7 +21,7 @@ class DictionaryViewController: UIViewController {
         viewModel.createCollections(completion: { [weak self] in
             guard let self = self else { return }
             self.loadingView.isHidden = true
-            print("viewDidAppear \(self.viewModel.contactArray.count)")
+            self.dataSource.viewModel = self.viewModel
         })
     }
 
@@ -31,11 +31,6 @@ class DictionaryViewController: UIViewController {
         loadingView.frame = view.frame
         registerCell()
         bind()
-        print("viewDidLoad \(viewModel.contactArray.count)")
-    }
-
-    @IBAction func buttonPress(_ sender: Any) {
-        print("Button Press \(viewModel.contactArray.count)")
     }
 
     func registerCell() {

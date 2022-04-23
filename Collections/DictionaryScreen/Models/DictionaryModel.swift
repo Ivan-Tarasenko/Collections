@@ -8,14 +8,7 @@
 import Foundation
 
 struct DictionaryCollectionModel {
-    var title: String {
-        didSet {
-            isPerfoming = false
-            isDone = true
-        }
-    }
-    var isDone = false
-    var isPerfoming = false
+    var title: String
 }
 
 struct Contact {

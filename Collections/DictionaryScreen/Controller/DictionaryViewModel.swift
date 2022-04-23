@@ -36,7 +36,7 @@ class DictionaryViewModel {
         var array = [Contact]()
         var dictionary = [String: Int]()
 
-        for number in 0...9_999_99 {
+        for number in 0...9_999_999 {
             array.append(Contact(name: "name \(number)", numberPhone: "number phone \(number)"))
             dictionary["name \(number)"] = number
         }
@@ -47,36 +47,9 @@ class DictionaryViewModel {
         }
     }
 
-    func test() {
-        if !contactArray.isEmpty {
-            print("test \(contactArray.count)")
-        }
-        print("finish test \(contactArray.count)")
-    }
     // MARK: - Operations with array
-
-//    func perfomOperation(indexPath: IndexPath, completion: @escaping () -> Void) {
-//        switch indexPath.row {
-//        case 0:
-//            findFirstValueArray()
-//        case 1:
-//            findFirstValueDictionary()
-//        case 2:
-//            findLastValueArray()
-//        case 3:
-//            findLastValueDictionary()
-//        case 4:
-//            arraySearchNonExistentValue(string: <#T##String#>)
-//        case 5:
-//        default:
-//            break
-//        }
-
-//    }
-
     func findFirstValueArray() -> String {
         let array = contactArray
-        print( "Methot \(contactArray.count)")
         var answer = String()
         let title = NSLocalizedString("findFirstAnswer", comment: "")
         let result = NSLocalizedString("result", comment: "")
@@ -89,33 +62,70 @@ class DictionaryViewModel {
 
     func findLastValueArray() -> String {
         let array = contactArray
-        return array.last?.name ?? "nill"
+        var answer = String()
+        let title = NSLocalizedString("findLastAnswer", comment: "")
+        let result = NSLocalizedString("result", comment: "")
+
+        let insetTitle = taskCompletionTime(string: title) {
+            answer = array.last?.name ?? "nill"
+        }
+        return "\(insetTitle) \(result)\(answer)"
     }
 
-    func arraySearchNonExistentValue(string: String) -> Bool {
+    func arraySearchNonExistentValue() -> String {
         let array = contactArray
-        return (array.first(where: {$0.name == string}) != nil)
+        var answer = Bool()
+        let nonExistentElement = "10_000_000"
+        let title = NSLocalizedString("searchForNonExistingAnswer", comment: "")
+        let result = NSLocalizedString("result", comment: "")
+
+        let insetTitle = taskCompletionTime(string: title) {
+            answer = array.first(where: {$0.name == nonExistentElement}) != nil
+        }
+        return "\(insetTitle) \(result)\(answer)"
     }
 
     // MARK: - Operations with dictionary
     func findFirstValueDictionary() -> String {
         let dictionary = contactDictionary
-        return dictionary.first?.key ?? "nill"
+        var answer = String()
+        let title = NSLocalizedString("findFirstAnswer", comment: "")
+        let result = NSLocalizedString("result", comment: "")
+
+        let insetTitle = taskCompletionTime(string: title) {
+            answer = dictionary.first?.key ?? "nill"
+        }
+        return "\(insetTitle) \(result)\(answer)"
+
     }
 
     func findLastValueDictionary() -> String {
         let dictionary = contactDictionary
-        let sortedDictionary = dictionary.keys.sorted()
-        return sortedDictionary.last ?? "nill"
+        var answer = String()
+        let title = NSLocalizedString("findFirstAnswer", comment: "")
+        let result = NSLocalizedString("result", comment: "")
+
+        let insetTitle = taskCompletionTime(string: title) {
+            let sortedDictionary = dictionary.keys.sorted()
+            answer = sortedDictionary.last ?? "nill"
+        }
+        return "\(insetTitle) \(result)\(answer)"
     }
 
-    func dictionarysSearcNonExistentValue(string: String) -> Bool {
+    func dictionarysSearcNonExistentValue() -> String {
         let dictionary = contactDictionary
-        return (dictionary.first(where: {$0.key == string}) != nil)
+        var answer = Bool()
+        let nonExistentElement = "10_000_000"
+        let title = NSLocalizedString("searchForNonExistingAnswer", comment: "")
+        let result = NSLocalizedString("result", comment: "")
+
+        let insetTitle = taskCompletionTime(string: title) {
+            answer = dictionary.first(where: {$0.key == nonExistentElement}) != nil
+        }
+        return "\(insetTitle) \(result)\(answer)"
     }
     
     // MARK: - Worning with treads
-
     func setQueueForStartCell(cell: DictionaryCollectionViewCell) {
         concurrentQueue.sync {
             cell.workStart()
@@ -129,7 +139,7 @@ class DictionaryViewModel {
     }
 
     func setQueueForOperations(indexPath: IndexPath, cell: DictionaryCollectionViewCell) {
-        guard contactArray.isEmpty, contactDictionary.isEmpty else { return }
+        guard !contactArray.isEmpty, !contactDictionary.isEmpty else { return }
 
         var timeOperation = String()
 
@@ -141,15 +151,15 @@ class DictionaryViewModel {
             case 0:
                 timeOperation = self.findFirstValueArray()
             case 1:
-                timeOperation = ""
+                timeOperation = self.findFirstValueDictionary()
             case 2:
-                timeOperation = ""
+                timeOperation = self.findLastValueArray()
             case 3:
-                timeOperation = ""
+                timeOperation = self.findLastValueDictionary()
             case 4:
-                timeOperation = ""
+                timeOperation = self.arraySearchNonExistentValue()
             case 5:
-                timeOperation = ""
+                timeOperation = self.dictionarysSearcNonExistentValue()
             default:
                 break
             }

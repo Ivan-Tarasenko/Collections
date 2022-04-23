@@ -76,27 +76,13 @@
                                     <outlet property="delegate" destination="I2G-Ll-Slb" id="GvL-PP-T0y"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9va-Xa-nlM">
-                                <rect key="frame" x="173.5" y="668" width="67" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="67" id="kql-IE-F7K"/>
-                                    <constraint firstAttribute="height" constant="31" id="wXP-5z-0Ep"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="buttonPress:" destination="I2G-Ll-Slb" eventType="touchUpInside" id="6uO-g3-sjY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vc3-ud-JFk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="deB-fJ-h8h" firstAttribute="leading" secondItem="Vc3-ud-JFk" secondAttribute="leading" id="9YZ-nT-GCx"/>
-                            <constraint firstItem="9va-Xa-nlM" firstAttribute="centerX" secondItem="sUo-ec-dHV" secondAttribute="centerX" id="jTw-5r-BHe"/>
                             <constraint firstItem="deB-fJ-h8h" firstAttribute="top" secondItem="Vc3-ud-JFk" secondAttribute="top" id="qYf-Tr-odh"/>
                             <constraint firstItem="Vc3-ud-JFk" firstAttribute="trailing" secondItem="deB-fJ-h8h" secondAttribute="trailing" id="tua-Rv-zLG"/>
-                            <constraint firstItem="9va-Xa-nlM" firstAttribute="top" secondItem="Vc3-ud-JFk" secondAttribute="top" constant="624" id="woF-TR-DZk"/>
                             <constraint firstItem="Vc3-ud-JFk" firstAttribute="bottom" secondItem="deB-fJ-h8h" secondAttribute="bottom" id="zpy-4b-aUv"/>
                         </constraints>
                     </view>

@@ -29,6 +29,12 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
 
     lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
+        indicator.frame = CGRect(
+            x: bounds.midX - 20,
+            y: bounds.midY - 20,
+            width: 40,
+            height: 40
+        )
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return indicator
     }()
