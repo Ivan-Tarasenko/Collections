@@ -124,7 +124,7 @@ class DictionaryViewModel {
         }
         return "\(insetTitle) \(result)\(answer)"
     }
-    
+
     // MARK: - Worning with treads
     func setQueueForStartCell(cell: DictionaryCollectionViewCell) {
         concurrentQueue.sync {

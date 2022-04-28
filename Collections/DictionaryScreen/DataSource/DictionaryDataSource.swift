@@ -24,19 +24,7 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
             for: indexPath) as? DictionaryCollectionViewCell else { fatalError() }
 
         let object = viewModel.cellData[indexPath.row]
-        switch indexPath.row {
-        case 0...1 :
             cell.settingDataCell(data: object)
-            cell.settingTheStyleForDifferentCells = true
-        case 2...3 :
-            cell.settingDataCell(data: object)
-            cell.settingTheStyleForDifferentCells = true
-        case 4...5 :
-            cell.settingDataCell(data: object)
-            cell.settingTheStyleForDifferentCells = true
-        default:
-            break
-        }
         return cell
     }
 
@@ -47,7 +35,6 @@ extension DictionaryDaraSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
-        
         viewModel.setQueueForOperations(indexPath: indexPath, cell: cell)
     }
 }
@@ -61,11 +48,7 @@ extension DictionaryDaraSource: UICollectionViewDelegateFlowLayout {
         var heightDivider: CGFloat = 0
         let numberOfItemsPerRow: CGFloat = 2
 
-        if UIDevice.current.orientation.isLandscape {
-            heightDivider = 4
-        } else {
-            heightDivider = 2
-        }
+        heightDivider = UIDevice.current.orientation.isLandscape ? 4 : 2
 
         let spacingWidth: CGFloat = sectionInsert.left
         let availableWidth = width - spacingWidth * (numberOfItemsPerRow + 1)

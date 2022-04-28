@@ -39,19 +39,11 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
         return indicator
     }()
 
-    var settingTheStyleForDifferentCells: Bool = false {
-        didSet {
-            settingTheStyleForDifferentCells ?
-            settingCellForBigArray() :
-            settingUpForOtherCells()
-        }
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(label)
         contentView.addSubview(activityIndicator)
-        generalSettingCell()
+        setDefaultCellStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -76,21 +68,10 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         backgroundColor = .white
     }
-}
 
-private extension DictionaryCollectionViewCell {
-
-    func generalSettingCell() {
+    private func setDefaultCellStyle() {
         backgroundColor = .systemGray5
         layer.borderWidth = 0.5
-    }
-
-    func settingCellForBigArray() {
-        label.textColor = .systemBlue
-        label.textAlignment = .center
-    }
-
-    func settingUpForOtherCells() {
         label.textColor = .systemBlue
     }
 }
