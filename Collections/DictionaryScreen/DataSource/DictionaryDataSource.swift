@@ -35,7 +35,13 @@ extension DictionaryDaraSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as?
                 DictionaryCollectionViewCell else { fatalError() }
-        viewModel.setQueueForOperations(indexPath: indexPath, cell: cell)
+        
+        viewModel.setQueueForStartCell {
+            cell.workStart()
+        }
+        viewModel.setQueueForOperations(indexPath: indexPath) { string in
+            cell.workFinish(title: string)
+        }
     }
 }
 

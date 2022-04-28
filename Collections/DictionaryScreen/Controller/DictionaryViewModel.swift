@@ -126,24 +126,16 @@ class DictionaryViewModel {
     }
 
     // MARK: - Worning with treads
-    func setQueueForStartCell(cell: DictionaryCollectionViewCell) {
+    func setQueueForStartCell(startWorkingCell: () -> Void) {
         concurrentQueue.sync {
-            cell.workStart()
+            startWorkingCell()
         }
     }
 
-    func setQueueFinishCell(cell: DictionaryCollectionViewCell, titleCell: String) {
-        queueMain.sync {
-            cell.workFinish(title: titleCell)
-        }
-    }
-
-    func setQueueForOperations(indexPath: IndexPath, cell: DictionaryCollectionViewCell) {
+    func setQueueForOperations(indexPath: IndexPath, setNewTitle: @escaping (_ string: String) -> Void) {
         guard !contactArray.isEmpty, !contactDictionary.isEmpty else { return }
 
         var timeOperation = String()
-
-        setQueueForStartCell(cell: cell)
 
         concurrentQueue.async { [weak self] in
             guard let self = self else { return }
@@ -163,7 +155,9 @@ class DictionaryViewModel {
             default:
                 break
             }
-            self.setQueueFinishCell(cell: cell, titleCell: timeOperation)
+            self.queueMain.sync {
+                setNewTitle(timeOperation)
+            }
         }
     }
 }
