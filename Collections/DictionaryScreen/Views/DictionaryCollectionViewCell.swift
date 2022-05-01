@@ -52,21 +52,12 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
 
     func settingDataCell(data: DictionaryCollectionModel) {
         label.text = data.title
-    }
-
-    func workStart() {
-        label.text!.removeAll()
-        activityIndicator.startAnimating()
-        backgroundColor = .systemFill
-    }
-
-    func workFinish(title: String) {
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
-        label.text = title
-        label.textColor = .black
-        label.textAlignment = .center
-        backgroundColor = .white
+        data.isPerfoming ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+        label.isHidden = data.isPerfoming
+        if data.isDone {
+            backgroundColor = .white
+            label.textColor = .black
+        }
     }
 
     private func setDefaultCellStyle() {

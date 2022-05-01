@@ -8,19 +8,26 @@
 import Foundation
 
 class DictionaryViewModel {
+
+    var onUpdateCellData: (([DictionaryCollectionModel]) -> Void)?
+
     var contactArray = [Contact]()
     var contactDictionary = [String: Int]()
 
     let queueMain = DispatchQueue.main
     let concurrentQueue = DispatchQueue(label: "QueueForStartCell", attributes: .concurrent)
 
-    private(set) var cellData: [DictionaryCollectionModel] = []
+    private(set) var cellData: [DictionaryCollectionModel] = [] {
+        didSet {
+            onUpdateCellData?(cellData)
+        }
+    }
     private var dataManager = DictionaryDataManager.dicShared
 
-    init() {
+    func fetchData() {
         cellData = dataManager.fetchDictionaryData()
     }
-
+    
     // Method for determining the algorithm execution speed.
     func taskCompletionTime (string: String, execute: () -> Void ) -> String {
         let startTime = CFAbsoluteTimeGetCurrent()
@@ -132,10 +139,12 @@ class DictionaryViewModel {
         }
     }
 
-    func setQueueForOperations(indexPath: IndexPath, setNewTitle: @escaping (_ string: String) -> Void) {
+    func setQueueForOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
         guard !contactArray.isEmpty, !contactDictionary.isEmpty else { return }
 
         var timeOperation = String()
+
+        cellData[indexPath.row].isPerfoming = true
 
         concurrentQueue.async { [weak self] in
             guard let self = self else { return }
@@ -156,7 +165,8 @@ class DictionaryViewModel {
                 break
             }
             self.queueMain.sync {
-                setNewTitle(timeOperation)
+                self.cellData[indexPath.row].title = timeOperation
+                completion()
             }
         }
     }

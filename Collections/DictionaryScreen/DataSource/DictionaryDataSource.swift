@@ -10,12 +10,17 @@ import UIKit
 
 class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 
-     var viewModel = DictionaryViewModel()
+    var viewModel = DictionaryViewModel()
+    var objects: [DictionaryCollectionModel] = [] {
+        didSet {
+        }
+    }
 
     private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.cellData.count
+        //        print(objects.count)
+        return objects.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -23,8 +28,8 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
             withReuseIdentifier: DictionaryCollectionViewCell.identifier,
             for: indexPath) as? DictionaryCollectionViewCell else { fatalError() }
 
-        let object = viewModel.cellData[indexPath.row]
-            cell.settingDataCell(data: object)
+        let object = objects[indexPath.row]
+        cell.settingDataCell(data: object)
         return cell
     }
 
@@ -33,15 +38,11 @@ class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 extension DictionaryDaraSource: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as?
-                DictionaryCollectionViewCell else { fatalError() }
-        
-        viewModel.setQueueForStartCell {
-            cell.workStart()
+
+        viewModel.setQueueForOperations(indexPath: indexPath) {
+            collectionView.reloadItems(at: [indexPath])
         }
-        viewModel.setQueueForOperations(indexPath: indexPath) { string in
-            cell.workFinish(title: string)
-        }
+        collectionView.reloadItems(at: [indexPath])
     }
 }
 
@@ -75,7 +76,7 @@ extension DictionaryDaraSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
-
+    
     // Regester header collectionView
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {

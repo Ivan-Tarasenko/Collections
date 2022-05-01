@@ -15,6 +15,12 @@ class DictionaryViewController: UIViewController {
     private let viewModel = DictionaryViewModel()
     private let loadingView = LoadingView()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        viewModel.fetchData()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -43,6 +49,9 @@ class DictionaryViewController: UIViewController {
     func bind() {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
+        viewModel.onUpdateCellData = { [weak self] data in
+            self?.dataSource.objects = data
+        }
     }
 
 }
