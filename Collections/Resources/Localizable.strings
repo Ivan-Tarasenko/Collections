@@ -44,7 +44,15 @@
 "titleAllCharacterDoNotMatch" = "All characters that don't match";
 "titleUniqueSymbols" = "All unique characters from the first text field that don't match in text fields";
 
-
+// Localization Dictionary.
+"findFirst" = "Find the first content";
+"findLast" = "Find the last content";
+"searchForNonExisting" = "Search for a non-existing element";
+    // Answer
+"findFirstAnswer" = "First element search time";
+"findLastAnswer" = "Last element search time";
+"searchForNonExistingAnswer" = "Time to search for a nonexistent value";
+"result" = "Result: ";
 
 
 

@@ -19,7 +19,7 @@ class ArrayViewController: UIViewController {
         registerCell()
         bind()
     }
-    
+
     func registerCell() {
         collectionView.register(
             ArrayCollectionViewCell.self,

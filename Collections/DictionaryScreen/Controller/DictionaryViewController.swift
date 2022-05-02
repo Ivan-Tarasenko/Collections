@@ -10,25 +10,48 @@ import UIKit
 class DictionaryViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
+    private let dataSource = DictionaryDaraSource()
+    private let viewModel = DictionaryViewModel()
+    private let loadingView = LoadingView()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        viewModel.fetchData()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        viewModel.createCollections(completion: { [weak self] in
+            guard let self = self else { return }
+            self.loadingView.isHidden = true
+            self.dataSource.viewModel = self.viewModel
+        })
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(DictionaryCollectionViewCell.self, forCellWithReuseIdentifier: DictionaryCollectionViewCell.identifier)
-    }
-}
-
-extension DictionaryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        view.addSubview(loadingView)
+        loadingView.frame = view.frame
+        registerCell()
+        bind()
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: DictionaryCollectionViewCell.identifier,
-            for: indexPath) as? DictionaryCollectionViewCell else { fatalError() }
-
-        cell.backgroundColor = .systemBlue
-        return cell
+    func registerCell() {
+        collectionView.register(
+            DictionaryCollectionViewCell.self,
+            forCellWithReuseIdentifier: DictionaryCollectionViewCell.identifier
+        )
     }
+
+    func bind() {
+        collectionView.dataSource = dataSource
+        collectionView.delegate = dataSource
+        viewModel.onUpdateCellData = { [weak self] data in
+            self?.dataSource.objects = data
+        }
+    }
+
 }
