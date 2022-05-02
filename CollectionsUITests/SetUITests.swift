@@ -1,5 +1,5 @@
 //
-//  CollectionsUITests.swift
+//  SetUITests.swift
 //  CollectionsUITests
 //
 //  Created by Иван Тарасенко on 26.02.2022.
@@ -7,11 +7,14 @@
 
 import XCTest
 
-class CollectionsUITests: XCTestCase {
+class SetUITests: XCTestCase {
 
+    let identifierCell = MainVCIdentifier()
     let accessibility = SetVCAccessibilityIdentifier()
 
     var app: XCUIApplication!
+
+    var setCell: XCUIElement!
 
     var firstView: XCUIElement!
     var firstViewTitle: XCUIElement!
@@ -36,6 +39,8 @@ class CollectionsUITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
+
+        setCell = app.staticTexts[identifierCell.setCell]
 
         firstView = app.otherElements[accessibility.firstView]
         firstViewTitle = app.staticTexts[accessibility.firstViewTitle]
@@ -62,7 +67,7 @@ class CollectionsUITests: XCTestCase {
     }
 
     func testForPresenceOfElements() throws {
-        app.staticTexts["Set"].tap()
+        setCell.tap()
 
         XCTAssertTrue(firstView.exists)
         XCTAssertTrue(firstViewTitle.exists)
@@ -89,7 +94,7 @@ class CollectionsUITests: XCTestCase {
         let answer = "Abcd"
         let answerSecond = "Yefg"
         let answerThird = "efg"
-        app.staticTexts["Set"].tap()
+        setCell.tap()
         firstViewTextField.tap()
         firstViewTextField.typeText(firstString)
         secondViewTextField.tap()

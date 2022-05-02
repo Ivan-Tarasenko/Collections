@@ -51,6 +51,12 @@
                <Test
                   Identifier = "CollectionsUITests/testLaunchPerformance()">
                </Test>
+               <Test
+                  Identifier = "CollectionsUITestsLaunchTests">
+               </Test>
+               <Test
+                  Identifier = "SetUITests/testLaunchPerformance()">
+               </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>
