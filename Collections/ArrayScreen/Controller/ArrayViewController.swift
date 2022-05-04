@@ -31,5 +31,10 @@ class ArrayViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
         dataSource.objects = viewModel.cellData
+        dataSource.viewModel = viewModel
+        viewModel.onUpdateCellData = { [weak self] data in
+            self?.dataSource.objects = data
+
+        }
     }
 }

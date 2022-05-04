@@ -54,14 +54,20 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
         label.text = data.title
         data.isPerfoming ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
         label.isHidden = data.isPerfoming
+
         if data.isDone {
             backgroundColor = .white
             label.textColor = .black
         }
+
+        if activityIndicator.isAnimating {
+            backgroundColor = .systemFill
+
+        }
     }
 
     private func setDefaultCellStyle() {
-        backgroundColor = .systemGray5
+        backgroundColor = .systemGray4
         layer.borderWidth = 0.5
         label.textColor = .systemBlue
     }

@@ -38,17 +38,9 @@ class ArrayCollectionViewCell: UICollectionViewCell {
         return indicator
     }()
 
-    var settingTheStyleForDifferentCells: Bool = false {
-        didSet {
-            settingTheStyleForDifferentCells ?
-            settingCellForBigArray() :
-            settingUpForOtherCells()
-        }
-    }
-    let testView = UIView()
-
     override init(frame: CGRect) {
         super.init(frame: frame)
+        label.textColor = .systemBlue
         contentView.addSubview(label)
         contentView.addSubview(activityIndicator)
         generalSettings()
@@ -60,38 +52,26 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 
     func settingDataCell(data: ArrayCollectionModel) {
         label.text = data.title
+        data.isPerfoming ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+        label.isHidden = data.isPerfoming
+
+        if data.isDone {
+            backgroundColor = .white
+            label.textColor = .black
+        }
+
+        if activityIndicator.isAnimating {
+            backgroundColor = .systemFill
+
+        }
     }
 
-    func workStart() {
-        label.text!.removeAll()
-        activityIndicator.startAnimating()
-        backgroundColor = .systemFill
-    }
-
-    func workFinish(title: String) {
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
-        label.text = title
-        label.textColor = .black
+    func settingLabelForBigArray() {
         label.textAlignment = .center
-        backgroundColor = .white
     }
-}
 
-// MARK: - Private extension for ArrayCollectionCell
-private extension ArrayCollectionViewCell {
-
-    func generalSettings() {
+    private func generalSettings() {
         backgroundColor = .systemGray4
         layer.borderWidth = 0.5
-    }
-
-    func settingCellForBigArray() {
-        label.textColor = .systemBlue
-        label.textAlignment = .center
-    }
-
-    func settingUpForOtherCells() {
-        label.textColor = .systemBlue
     }
 }

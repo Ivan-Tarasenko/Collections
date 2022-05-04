@@ -10,13 +10,20 @@ import UIKit
 
 class ArrayViewModel {
 
+    var onUpdateCellData: (([ArrayCollectionModel]) -> Void)?
+
     var bigArrayData = [Int]()
     let arrayOfThousandInt = Array(0...999)
 
     let queueMain = DispatchQueue.main
     let concurrentQueue = DispatchQueue(label: "CreateBigArrayQueue", attributes: .concurrent)
     
-    private(set) var cellData: [ArrayCollectionModel] = []
+    private(set) var cellData: [ArrayCollectionModel] = [] {
+        didSet {
+            onUpdateCellData?(cellData)
+        }
+    }
+
     private var dataManager = ArrayDataManager.shared
 
     init() {
@@ -28,13 +35,13 @@ class ArrayViewModel {
     }
 
     // Method for determining the algorithm execution speed.
-    func taskCompletionTime (string: String, execute: () -> Void ) -> String {
+    func taskCompletionTime (execute: () -> Void ) -> Double {
         let startTime = CFAbsoluteTimeGetCurrent()
         execute()
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         let timeElapsedDouble = Double(timeElapsed)
         let answer = (round(1000 * timeElapsedDouble) / 1000)
-        return "\(string): \(answer) ms."
+        return answer
     }
 
     func updateCell(indexPathCell: IndexPath) -> String {
@@ -57,13 +64,14 @@ class ArrayViewModel {
     // MARK: - Create big array
     func createBigArray(indexPath: IndexPath) -> String {
         var array = [Int]()
-        let crateArray = taskCompletionTime(string: updateCell(indexPathCell: indexPath)) {
+        let title = updateCell(indexPathCell: indexPath)
+        let crateArray = taskCompletionTime {
             for int in 0...9_999_999 {
                 array.append(int)
             }
         }
         bigArrayData = array
-        return crateArray
+        return "\(title) \(crateArray) ms."
     }
     
     // MARK: - Functions adding and removing elements in big array
@@ -72,96 +80,96 @@ class ArrayViewModel {
     func insertBeginOnce(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let insetTitle = taskCompletionTime(string: title, execute: {
+        let insetTitle = taskCompletionTime {
             array.insert(contentsOf: arrayOfThousandInt, at: 0)
-        })
+        }
         bigArrayData = array
-        return insetTitle
+        return "\(title) \(insetTitle) ms."
     }
 
     // Inserting 1000 elements at the beginning of the array one at a time
     func insertBeginOneTime(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let insetTitle = taskCompletionTime(string: title, execute: {
+        let insetTitle = taskCompletionTime {
             for int in arrayOfThousandInt {
                 array.insert(int, at: array.startIndex)
             }
-        })
+        }
         bigArrayData = array
-        return insetTitle
+        return "\(title) \(insetTitle) ms."
     }
 
     // Inserting 1000 elements into the middle of the array at once
     func insertMiddleOnce(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let insetTitle = taskCompletionTime(string: title, execute: {
+        let insetTitle = taskCompletionTime {
             array.insert(contentsOf: arrayOfThousandInt, at: array.count / 2)
-        })
+        }
         bigArrayData = array
-        return insetTitle
+        return "\(title) \(insetTitle) ms."
     }
 
     // Inserting 1000 elements into the middle of the array one at a time
     func insertMiddleOneTime(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let insetTitle = taskCompletionTime(string: title, execute: {
+        let insetTitle = taskCompletionTime {
             for element in arrayOfThousandInt {
                 array.insert(element, at: array.count / 2 )
             }
-        })
+        }
         bigArrayData = array
-        return insetTitle
+        return "\(title) \(insetTitle) ms."
     }
 
     // Inserting 1000 elements at the end of the array at once
     func insertTheEndOnce(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let insetTitle = taskCompletionTime(string: title, execute: {
+        let insetTitle = taskCompletionTime {
             array += arrayOfThousandInt
-        })
+        }
         bigArrayData = array
-        return insetTitle
+        return "\(title) \(insetTitle) ms"
     }
 
     // Inserting 1000 elements at the end of the array one at a time
     func insertTheEndOneTime(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let insetTitle = taskCompletionTime(string: title, execute: {
+        let insetTitle = taskCompletionTime {
             for element in arrayOfThousandInt {
                 array.insert(element, at: array.endIndex)
             }
-        })
+        }
         bigArrayData = array
-        return insetTitle
+        return "\(title) \(insetTitle) ms."
     }
 
     // Removing 1000 elements from the beginning of the array at once
     func removeBeginOnce(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let removeTitle = taskCompletionTime(string: title, execute: {
+        let removeTitle = taskCompletionTime {
             array.removeFirst(arrayOfThousandInt.count)
-        })
+        }
         bigArrayData = array
-        return removeTitle
+        return "\(title) \(removeTitle) ms."
     }
 
     // Removing 1000 elements from the beginning of the array one at a time
     func removeBeginOneTime(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let removeTitle = taskCompletionTime(string: title, execute: {
+        let removeTitle = taskCompletionTime {
             for element in arrayOfThousandInt {
                 array.remove(at: element)
             }
-        })
+        }
         bigArrayData = array
-        return removeTitle
+        return "\(title) \(removeTitle) ms."
     }
 
     // Removing 1000 elements from the middle of the array at once
@@ -169,87 +177,76 @@ class ArrayViewModel {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
         let range = (array.count / 2)...((array.count / 2) + (arrayOfThousandInt.count - 1))
-        let removeTitle = taskCompletionTime(string: title, execute: {
+        let removeTitle = taskCompletionTime {
             array.removeSubrange(range)
-        })
+        }
         bigArrayData = array
-        return removeTitle
+        return "\(title) \(removeTitle) ms."
     }
-    
+
     // Removing 1000 elements from the middle of the array one at a time
     func removeMiddleOneTime(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let removeTitle = taskCompletionTime(string: title, execute: {
+        let removeTitle = taskCompletionTime {
             for element in arrayOfThousandInt {
                 array.remove(at: (array.count / 2) + element)
             }
-        })
+        }
         bigArrayData = array
-        return removeTitle
+        return "\(title) \(removeTitle) ms."
     }
-    
+
     // Removing 1000 elements from the end of the array at once"
     func removeTheEndOnce(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let removeTitle = taskCompletionTime(string: title, execute: {
+        let removeTitle = taskCompletionTime {
             array.removeLast(arrayOfThousandInt.count)
-        })
+        }
         bigArrayData = array
-        return removeTitle
+        return "\(title) \(removeTitle) ms."
     }
     
     // Removing 1000 elements from the end of the array one at a time
     func removeTheEndOneTime(indexPath: IndexPath) -> String {
         var array = bigArrayData
         let title = updateCell(indexPathCell: indexPath)
-        let removeTitle = taskCompletionTime(string: title, execute: {
+        let removeTitle = taskCompletionTime {
             for _ in arrayOfThousandInt {
                 array.removeLast()
             }
-        })
+        }
         bigArrayData = array
-        return removeTitle
+        return "\(title) \(removeTitle) ms."
     }
 
     // MARK: - Working with threads
-    func setQueueForStartCell(cell: ArrayCollectionViewCell) {
-        concurrentQueue.sync {
-            cell.workStart()
-        }
-    }
 
-    func setQueueFinishCell(cell: ArrayCollectionViewCell, titleCell: String) {
-        queueMain.sync {
-            cell.workFinish(title: titleCell)
-        }
-    }
+    func fillBigArray(indexPath: IndexPath, completion: @escaping () -> Void) {
 
-    func setQueuesForCreateBigArrayData(
-        collection: UICollectionView,
-        indexPath: IndexPath,
-        cell: ArrayCollectionViewCell
-    ) {
-        setQueueForStartCell(cell: cell)
+        cellData[indexPath.row].isPerfoming = true
 
         concurrentQueue.async { [weak self] in
             guard let self = self else { return }
             let timeOperation = self.createBigArray(indexPath: indexPath)
+
             self.queueMain.sync {
-                if indexPath.section == 0 {
-                    collection.reloadData()
-                }
+                self.cellData[indexPath.row].title = timeOperation
+                completion()
             }
-            self.setQueueFinishCell(cell: cell, titleCell: timeOperation)
         }
     }
 
-    func setQueueForOperations(indexPath: IndexPath, cell: ArrayCollectionViewCell) {
+    func performOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
+        print("in func is perform \(cellData[indexPath.row].isPerfoming)")
+        print("in func is done \(cellData[indexPath.row].isDone)")
+        cellData[indexPath.row].isPerfoming = true
+
         var timeOperation = String()
         concurrentQueue.async { [weak self] in
             guard let self = self else { return }
-            if indexPath.section == 1 {
+
                 switch indexPath.row {
                 case 0:
                     timeOperation = self.insertBeginOnce(indexPath: indexPath)
@@ -278,27 +275,10 @@ class ArrayViewModel {
                 default:
                     break
                 }
-            }
-            self.setQueueFinishCell(cell: cell, titleCell: timeOperation)
-        }
 
-    }
-
-    func setQueuesForOperationsWithBigArrayData(
-        indexPath: IndexPath,
-        cell: ArrayCollectionViewCell
-    ) {
-        var timeOperation = String()
-        if !bigArrayData.isEmpty && indexPath.section != 0 {
-            setQueueForStartCell(cell: cell)
-            setQueueForOperations(indexPath: indexPath, cell: cell)
-        } else {
-            setQueueForStartCell(cell: cell)
-
-            concurrentQueue.async { [weak self] in
-                guard let self = self else { return }
-                timeOperation = self.createBigArray(indexPath: indexPath)
-                self.setQueueFinishCell(cell: cell, titleCell: timeOperation)
+            self.queueMain.sync {
+                self.cellData[indexPath.row].title = timeOperation
+                completion()
             }
         }
     }

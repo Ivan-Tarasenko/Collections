@@ -9,8 +9,9 @@ import UIKit
 
 class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
-    var objects = [ArrayCollectionModel]()
-    private let viewModel = ArrayViewModel()
+    var objects: [ArrayCollectionModel] = []
+    var viewModel = ArrayViewModel()
+
     private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
     private let heightSpacingBetweenCells: CGFloat = 0
 
@@ -32,7 +33,6 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ArrayCollectionViewCell.identifier,
             for: indexPath) as? ArrayCollectionViewCell else { fatalError() }
-
         var objects: [Any] = objects
 
         if indexPath.section != 0 {
@@ -41,12 +41,12 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
         let object = objects[indexPath.row]
 
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && indexPath.row == 0 {
             cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title big array
-            cell.settingTheStyleForDifferentCells = true
+            cell.settingLabelForBigArray()
         } else {
+//            print("if section != 0 section: \(indexPath.section) item: \(indexPath.row)")
             cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title other cell
-            cell.settingTheStyleForDifferentCells = false
         }
         return cell
     }
@@ -55,18 +55,40 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 // MARK: - Delegate for ArrayViewController
 extension ArrayDataSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(
-            at: indexPath) as? ArrayCollectionViewCell else { fatalError() }
 
         if viewModel.bigArrayData.isEmpty {
-            viewModel.setQueuesForCreateBigArrayData(
-                collection: collectionView,
-                indexPath: indexPath,
-                cell: cell
-            )
+            print(viewModel.cellData[indexPath.row].isPerfoming)
+            print(viewModel.cellData[indexPath.row].isDone)
+            viewModel.fillBigArray(indexPath: indexPath) {
+                collectionView.reloadData()
+                print(self.viewModel.cellData[indexPath.row].isPerfoming)
+                print(self.viewModel.cellData[indexPath.row].isDone)
+            }
+        } else {
+            print("big data data sours is perform \(viewModel.cellData[indexPath.row].isPerfoming)")
+            print("big data data sours is done \(viewModel.cellData[indexPath.row].isDone)")
+            viewModel.fillBigArray(indexPath: indexPath) {
+                collectionView.reloadItems(at: [indexPath])
+            }
+
+            viewModel.performOperations(indexPath: indexPath) {
+                collectionView.reloadItems(at: [indexPath])
+            }
         }
-        
-        viewModel.setQueuesForOperationsWithBigArrayData(indexPath: indexPath, cell: cell)
+
+        print("в не  sours is perform \(viewModel.cellData[indexPath.row].isPerfoming)")
+        print("в не sours is done \(viewModel.cellData[indexPath.row].isDone)")
+
+//        if indexPath.section != 0 {
+//            print("in data sours is perform \(viewModel.cellData[indexPath.row].isPerfoming)")
+//            print("in data sours is done \(viewModel.cellData[indexPath.row].isDone)")
+//            viewModel.performOperations(indexPath: indexPath) {
+//                collectionView.reloadItems(at: [indexPath])
+//            }
+//        }
+
+        collectionView.reloadItems(at: [indexPath])
+
     }
 }
 
@@ -94,16 +116,16 @@ extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
         } else {
             numberOfItemsPerRow = 2
         }
-            // Determining the dynamic size collectionView. Width and Height
+        // Determining the dynamic size collectionView. Width and Height
         let width = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
         let height = collectionView.safeAreaLayoutGuide.layoutFrame.size.height
 
-            // Setting the dynamic width of the element at specified intervals
+        // Setting the dynamic width of the element at specified intervals
         let spacingWidth: CGFloat = sectionInsert.left
         let availableWidth = width - spacingWidth * (numberOfItemsPerRow + 1)
         let widthItem = floor(availableWidth / numberOfItemsPerRow)
 
-            // Setting the dynamic height of the element at specified intervals
+        // Setting the dynamic height of the element at specified intervals
         let heightSpacingBetweenSections: CGFloat = sectionInsert.top
         let heightSpacingBetweenCell = heightSpacingBetweenCells * numberOfRows
         let availableHeight = height - heightSpacingBetweenSections - heightSpacingBetweenCell
