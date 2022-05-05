@@ -24,7 +24,7 @@ class ArrayUnitTests: XCTestCase {
 
     func testRemoveFirstIndex() {
         var testArray: [Any] = ["a", "b", "c", "d"]
-        sut.removeFirstIndex(sequence: &testArray)
+//        sut.removeFirstIndex(sequence: &testArray)
         XCTAssertNotNil(testArray)
         XCTAssertEqual(testArray.count, 3)
     }

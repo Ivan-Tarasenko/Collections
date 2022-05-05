@@ -231,7 +231,7 @@ class ArrayViewModel {
             guard let self = self else { return }
             let timeOperation = self.createBigArray(indexPath: indexPath)
 
-            self.queueMain.sync {
+            self.queueMain.async {
                 self.cellData[indexPath.row].title = timeOperation
                 completion()
             }
@@ -239,14 +239,14 @@ class ArrayViewModel {
     }
 
     func performOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
-        print("in func is perform \(cellData[indexPath.row].isPerfoming)")
-        print("in func is done \(cellData[indexPath.row].isDone)")
+
         cellData[indexPath.row].isPerfoming = true
 
         var timeOperation = String()
+
         concurrentQueue.async { [weak self] in
             guard let self = self else { return }
-
+            if indexPath.section != 0 {
                 switch indexPath.row {
                 case 0:
                     timeOperation = self.insertBeginOnce(indexPath: indexPath)
@@ -275,7 +275,7 @@ class ArrayViewModel {
                 default:
                     break
                 }
-
+            }
             self.queueMain.sync {
                 self.cellData[indexPath.row].title = timeOperation
                 completion()

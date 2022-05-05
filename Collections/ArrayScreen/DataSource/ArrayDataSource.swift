@@ -17,6 +17,7 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.bigArrayData.isEmpty ? 1 : 2
+
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -33,19 +34,23 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ArrayCollectionViewCell.identifier,
             for: indexPath) as? ArrayCollectionViewCell else { fatalError() }
+
         var objects: [Any] = objects
 
         if indexPath.section != 0 {
-            viewModel.removeFirstIndex(sequence: &objects)
+//            viewModel.removeFirstIndex(sequence: &objects)
+            viewModel.test {
+                objects.remove(at: 0)
+            }
         }
 
         let object = objects[indexPath.row]
 
-        if indexPath.section == 0 && indexPath.row == 0 {
+        if  indexPath.section == 0 {
             cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title big array
             cell.settingLabelForBigArray()
         } else {
-//            print("if section != 0 section: \(indexPath.section) item: \(indexPath.row)")
+
             cell.settingDataCell(data: (object as? ArrayCollectionModel)!)   // Set title other cell
         }
         return cell
@@ -56,37 +61,21 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 extension ArrayDataSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        if viewModel.bigArrayData.isEmpty {
-            print(viewModel.cellData[indexPath.row].isPerfoming)
-            print(viewModel.cellData[indexPath.row].isDone)
+        if viewModel.bigArrayData.isEmpty && indexPath.section == 0 {
             viewModel.fillBigArray(indexPath: indexPath) {
                 collectionView.reloadData()
-                print(self.viewModel.cellData[indexPath.row].isPerfoming)
-                print(self.viewModel.cellData[indexPath.row].isDone)
             }
-        } else {
-            print("big data data sours is perform \(viewModel.cellData[indexPath.row].isPerfoming)")
-            print("big data data sours is done \(viewModel.cellData[indexPath.row].isDone)")
+        } else if !viewModel.bigArrayData.isEmpty && indexPath.section == 0 {
             viewModel.fillBigArray(indexPath: indexPath) {
-                collectionView.reloadItems(at: [indexPath])
-            }
-
-            viewModel.performOperations(indexPath: indexPath) {
                 collectionView.reloadItems(at: [indexPath])
             }
         }
 
-        print("в не  sours is perform \(viewModel.cellData[indexPath.row].isPerfoming)")
-        print("в не sours is done \(viewModel.cellData[indexPath.row].isDone)")
-
-//        if indexPath.section != 0 {
-//            print("in data sours is perform \(viewModel.cellData[indexPath.row].isPerfoming)")
-//            print("in data sours is done \(viewModel.cellData[indexPath.row].isDone)")
-//            viewModel.performOperations(indexPath: indexPath) {
-//                collectionView.reloadItems(at: [indexPath])
-//            }
-//        }
-
+        if !viewModel.bigArrayData.isEmpty && indexPath.section != 0 {
+            viewModel.performOperations(indexPath: indexPath) {
+                collectionView.reloadItems(at: [indexPath])
+            }
+        }
         collectionView.reloadItems(at: [indexPath])
 
     }
