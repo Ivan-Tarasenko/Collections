@@ -1,5 +1,5 @@
 //
-//  CollectionsUnitTests.swift
+//  SetUnitTests.swift
 //  CollectionsUnitTests
 //
 //  Created by Иван Тарасенко on 26.02.2022.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Collections
 
-class CollectionsUnitTests: XCTestCase {
+class SetUnitTests: XCTestCase {
 
         var sut: SetViewModel!
 

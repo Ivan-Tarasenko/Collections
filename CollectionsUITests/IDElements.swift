@@ -1,11 +1,17 @@
 //
 //  IDElements.swift
-//  CollectionsUITests
+//  SetUITests
 //
 //  Created by Иван Тарасенко on 26.02.2022.
 //
 
 import Foundation
+
+struct MainVCIdentifier {
+    let arrayCell = "Array"
+    let setCell = "Set"
+    let dictionaryCell = "Dictionary"
+}
 
 struct SetVCAccessibilityIdentifier {
 
