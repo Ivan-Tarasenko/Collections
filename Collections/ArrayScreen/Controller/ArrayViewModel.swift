@@ -16,10 +16,17 @@ class ArrayViewModel {
     let arrayOfThousandInt = Array(0...999)
 
     let queueMain = DispatchQueue.main
-    let concurrentQueue = DispatchQueue(label: "CreateBigArrayQueue", attributes: .concurrent)
+    let concurrentQueue = DispatchQueue(label: "com.background.Collections", attributes: .concurrent)
+    let backgroundQueue = DispatchQueue(label: "com.background.Collections", qos: .background, attributes: .concurrent)
     
     private(set) var cellData: [ArrayCollectionModel] = [] {
         didSet {
+            backgroundQueue.sync {
+                if cellData[0].isDone, cellData.count == 1 {
+                    let data = dataManager.fetchArrayData()
+                    cellData.append(contentsOf: data)
+                }
+            }
             onUpdateCellData?(cellData)
         }
     }
@@ -27,13 +34,8 @@ class ArrayViewModel {
     private var dataManager = ArrayDataManager.shared
 
     init() {
-        cellData = dataManager.fetchArrayData()
+        cellData = [ArrayCollectionModel(title: NSLocalizedString("titleBigArray", comment: ""))]
     }
-
-    func removeFirstIndex(sequence: inout [Any]) {
-        sequence.remove(at: 0)
-    }
-
     // Method for determining the algorithm execution speed.
     func taskCompletionTime (execute: () -> Void ) -> Double {
         let startTime = CFAbsoluteTimeGetCurrent()
@@ -223,21 +225,6 @@ class ArrayViewModel {
 
     // MARK: - Working with threads
 
-    func fillBigArray(indexPath: IndexPath, completion: @escaping () -> Void) {
-
-        cellData[indexPath.row].isPerfoming = true
-
-        concurrentQueue.async { [weak self] in
-            guard let self = self else { return }
-            let timeOperation = self.createBigArray(indexPath: indexPath)
-
-            self.queueMain.async {
-                self.cellData[indexPath.row].title = timeOperation
-                completion()
-            }
-        }
-    }
-
     func performOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
 
         cellData[indexPath.row].isPerfoming = true
@@ -246,36 +233,37 @@ class ArrayViewModel {
 
         concurrentQueue.async { [weak self] in
             guard let self = self else { return }
-            if indexPath.section != 0 {
                 switch indexPath.row {
                 case 0:
-                    timeOperation = self.insertBeginOnce(indexPath: indexPath)
+                    timeOperation = self.createBigArray(indexPath: indexPath)
                 case 1:
-                    timeOperation = self.insertBeginOneTime(indexPath: indexPath)
+                    timeOperation = self.insertBeginOnce(indexPath: indexPath)
                 case 2:
-                    timeOperation = self.insertMiddleOnce(indexPath: indexPath)
+                    timeOperation = self.insertBeginOneTime(indexPath: indexPath)
                 case 3:
-                    timeOperation = self.insertMiddleOneTime(indexPath: indexPath)
+                    timeOperation = self.insertMiddleOnce(indexPath: indexPath)
                 case 4:
-                    timeOperation = self.insertTheEndOnce(indexPath: indexPath)
+                    timeOperation = self.insertMiddleOneTime(indexPath: indexPath)
                 case 5:
-                    timeOperation = self.insertTheEndOneTime(indexPath: indexPath)
+                    timeOperation = self.insertTheEndOnce(indexPath: indexPath)
                 case 6:
-                    timeOperation = self.removeBeginOnce(indexPath: indexPath)
+                    timeOperation = self.insertTheEndOneTime(indexPath: indexPath)
                 case 7:
-                    timeOperation = self.removeBeginOneTime(indexPath: indexPath)
+                    timeOperation = self.removeBeginOnce(indexPath: indexPath)
                 case 8:
-                    timeOperation = self.removeMiddleOnce(indexPath: indexPath)
+                    timeOperation = self.removeBeginOneTime(indexPath: indexPath)
                 case 9:
-                    timeOperation = self.removeMiddleOneTime(indexPath: indexPath)
+                    timeOperation = self.removeMiddleOnce(indexPath: indexPath)
                 case 10:
-                    timeOperation = self.removeTheEndOnce(indexPath: indexPath)
+                    timeOperation = self.removeMiddleOneTime(indexPath: indexPath)
                 case 11:
+                    timeOperation = self.removeTheEndOnce(indexPath: indexPath)
+                case 12:
                     timeOperation = self.removeTheEndOneTime(indexPath: indexPath)
                 default:
                     break
                 }
-            }
+
             self.queueMain.sync {
                 self.cellData[indexPath.row].title = timeOperation
                 completion()

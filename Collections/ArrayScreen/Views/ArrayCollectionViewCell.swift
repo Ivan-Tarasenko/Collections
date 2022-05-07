@@ -40,6 +40,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        label.textAlignment = .center
         label.textColor = .systemBlue
         contentView.addSubview(label)
         contentView.addSubview(activityIndicator)
