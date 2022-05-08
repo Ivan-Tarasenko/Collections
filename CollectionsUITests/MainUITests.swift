@@ -9,22 +9,21 @@ import XCTest
 
 class MainUITests: XCTestCase {
 
-    let identifier = MainVCIdentifier()
-
     var app: XCUIApplication!
-    var array: XCUIElement!
-    var set: XCUIElement!
-    var dictionary: XCUIElement!
+    var arrayView: XCUIElement!
+    var setView: XCUIElement!
+    var dictionaryView: XCUIElement!
+    var backButtomNavBar: XCUIElement!
 
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
 
-        array = app.staticTexts[identifier.arrayCell]
-        set = app.staticTexts[identifier.setCell]
-        dictionary = app.staticTexts[identifier.dictionaryCell]
-
+        arrayView = app.cells.element(boundBy: 0)
+        setView = app.cells.element(boundBy: 1)
+        dictionaryView = app.cells.element(boundBy: 2)
+        backButtomNavBar = app.navigationBars.buttons.element(boundBy: 0)
     }
 
     override func tearDownWithError() throws {
@@ -32,20 +31,18 @@ class MainUITests: XCTestCase {
     }
 
     func testForPresenceOfElements() throws {
-        XCTAssertTrue(array.exists)
-        XCTAssertTrue(set.exists)
-        XCTAssertTrue(dictionary.exists)
+        XCTAssertTrue(arrayView.exists)
+        XCTAssertTrue(setView.exists)
+        XCTAssertTrue(dictionaryView.exists)
     }
 
-    func testCellArray() throws {
-        array.tap()
-    }
+    func testOfSwitchingToOtherScreensAndAbout() throws {
+        arrayView.tap()
+        backButtomNavBar.tap()
+        setView.tap()
+        backButtomNavBar.tap()
+        dictionaryView.tap()
+        backButtomNavBar.tap()
 
-    func testCellSet() throws {
-        set.tap()
-    }
-
-    func testCellDictionary() throws {
-        dictionary.tap()
     }
 }
