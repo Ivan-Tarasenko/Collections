@@ -132,6 +132,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gzg-y0-Xfs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="SetView"/>
                         <constraints>
                             <constraint firstItem="xf7-NW-qNJ" firstAttribute="centerY" secondItem="plu-31-a5O" secondAttribute="centerY" id="1V7-hw-tqs"/>
                             <constraint firstItem="Gzg-y0-Xfs" firstAttribute="trailing" secondItem="xf7-NW-qNJ" secondAttribute="trailing" id="hK5-cl-ei6"/>

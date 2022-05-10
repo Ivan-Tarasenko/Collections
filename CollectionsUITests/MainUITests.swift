@@ -10,20 +10,20 @@ import XCTest
 class MainUITests: XCTestCase {
 
     var app: XCUIApplication!
-    var arrayView: XCUIElement!
-    var setView: XCUIElement!
-    var dictionaryView: XCUIElement!
-    var backButtomNavBar: XCUIElement!
+    var arrayCell: XCUIElement!
+    var setCell: XCUIElement!
+    var dictionaryCell: XCUIElement!
+    var backButtonNavBar: XCUIElement!
 
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
 
-        arrayView = app.cells.element(boundBy: 0)
-        setView = app.cells.element(boundBy: 1)
-        dictionaryView = app.cells.element(boundBy: 2)
-        backButtomNavBar = app.navigationBars.buttons.element(boundBy: 0)
+        arrayCell = app.cells.element(boundBy: 0)
+        setCell = app.cells.element(boundBy: 1)
+        dictionaryCell = app.cells.element(boundBy: 2)
+        backButtonNavBar = app.navigationBars.buttons.element(boundBy: 0)
     }
 
     override func tearDownWithError() throws {
@@ -31,18 +31,41 @@ class MainUITests: XCTestCase {
     }
 
     func testForPresenceOfElements() throws {
-        XCTAssertTrue(arrayView.exists)
-        XCTAssertTrue(setView.exists)
-        XCTAssertTrue(dictionaryView.exists)
+        XCTAssertTrue(arrayCell.exists)
+        XCTAssertTrue(setCell.exists)
+        XCTAssertTrue(dictionaryCell.exists)
     }
 
     func testOfSwitchingToOtherScreensAndAbout() throws {
-        arrayView.tap()
-        backButtomNavBar.tap()
-        setView.tap()
-        backButtomNavBar.tap()
-        dictionaryView.tap()
-        backButtomNavBar.tap()
+        XCTAssertTrue(isOnMainView)
+        arrayCell.tap()
+        XCTAssertTrue(inOnArrayView)
+        backButtonNavBar.tap()
+        setCell.tap()
+        XCTAssertTrue(inOnSetView)
+        backButtonNavBar.tap()
+        dictionaryCell.tap()
+        XCTAssertTrue(inOnDictionary)
+        backButtonNavBar.tap()
 
+    }
+}
+
+extension MainUITests {
+
+    var isOnMainView: Bool {
+        return app.otherElements["MainView"].exists
+    }
+
+    var inOnArrayView: Bool {
+        return app.otherElements["ArrayView"].exists
+    }
+
+    var inOnSetView: Bool {
+        return app.otherElements["SetView"].exists
+    }
+
+    var inOnDictionary: Bool {
+        return app.otherElements["DictionaryView"].exists
     }
 }
