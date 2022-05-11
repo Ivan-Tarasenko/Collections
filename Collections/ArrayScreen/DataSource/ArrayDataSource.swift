@@ -16,7 +16,7 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
     private let heightSpacingBetweenCells: CGFloat = 0
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return objects.count
+        return objects.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,8 +26,8 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 
         let object = objects[indexPath.row]
 
-            cell.settingDataCell(data: object)
-
+        cell.settingDataCell(data: object)
+    
         return cell
     }
 }
@@ -36,9 +36,9 @@ class ArrayDataSource: NSObject, UICollectionViewDataSource {
 extension ArrayDataSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-            viewModel.performOperations(indexPath: indexPath) {
-                    collectionView.reloadItems(at: [indexPath])
-            }
+        viewModel.performOperations(indexPath: indexPath) {
+            collectionView.reloadItems(at: [indexPath])
+        }
         collectionView.reloadItems(at: [indexPath])
 
     }
@@ -63,16 +63,16 @@ extension ArrayDataSource: UICollectionViewDelegateFlowLayout {
             numberOfItemsPerRow = 2
         }
 
-                // Determining the dynamic size collectionView. Width and Height
+        // Determining the dynamic size collectionView. Width and Height
         let width = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
         let height = collectionView.safeAreaLayoutGuide.layoutFrame.size.height
 
-                // Setting the dynamic width of the element at specified intervals
+        // Setting the dynamic width of the element at specified intervals
         let spacingWidth: CGFloat = sectionInsert.left
         let availableWidth = width - spacingWidth * (numberOfItemsPerRow + 1)
         let widthItem = floor(availableWidth / numberOfItemsPerRow)
 
-                // Setting the dynamic height of the element at specified intervals
+        // Setting the dynamic height of the element at specified intervals
         let heightSpacingBetweenSections: CGFloat = sectionInsert.top
         let heightSpacingBetweenCell = heightSpacingBetweenCells * numberOfRows
         let availableHeight = height - heightSpacingBetweenSections - heightSpacingBetweenCell

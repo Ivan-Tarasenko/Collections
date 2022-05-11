@@ -12,12 +12,11 @@ class ArrayDataManager {
     // Singleton
     static let shared = ArrayDataManager()
 
-    private init() {}
+     init() {}
 
     func fetchArrayData() -> [ArrayCollectionModel] {
 
         var dataArray = [ArrayCollectionModel]()
-
         dataArray.append(ArrayCollectionModel(title: NSLocalizedString("insertBeginOnce", comment: "")))
         dataArray.append(ArrayCollectionModel(title: NSLocalizedString("insertBeginOneTime", comment: "")))
         dataArray.append(ArrayCollectionModel(title: NSLocalizedString("insertMiddleOnce", comment: "")))

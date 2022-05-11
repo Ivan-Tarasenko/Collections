@@ -36,6 +36,7 @@ class ArrayViewModel {
     init() {
         cellData = [ArrayCollectionModel(title: NSLocalizedString("titleBigArray", comment: ""))]
     }
+
     // Method for determining the algorithm execution speed.
     func taskCompletionTime (execute: () -> Void ) -> Double {
         let startTime = CFAbsoluteTimeGetCurrent()
@@ -134,7 +135,7 @@ class ArrayViewModel {
             array += arrayOfThousandInt
         }
         bigArrayData = array
-        return "\(title) \(insetTitle) ms"
+        return "\(title) \(insetTitle) ms."
     }
 
     // Inserting 1000 elements at the end of the array one at a time
@@ -224,7 +225,6 @@ class ArrayViewModel {
     }
 
     // MARK: - Working with threads
-
     func performOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
 
         cellData[indexPath.row].isPerfoming = true
