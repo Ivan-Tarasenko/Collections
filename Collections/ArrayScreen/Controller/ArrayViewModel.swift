@@ -58,7 +58,7 @@ class ArrayViewModel {
             break
         }
 
-        if indexPathCell.section == 0 && indexPathCell.row == 0 {
+        if indexPathCell.row == 0 {
             title = NSLocalizedString("titleBigArray", comment: "")
         }
         return title

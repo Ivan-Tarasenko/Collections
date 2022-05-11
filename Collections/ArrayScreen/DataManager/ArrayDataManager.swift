@@ -12,7 +12,7 @@ class ArrayDataManager {
     // Singleton
     static let shared = ArrayDataManager()
 
-     init() {}
+     private init() {}
 
     func fetchArrayData() -> [ArrayCollectionModel] {
 

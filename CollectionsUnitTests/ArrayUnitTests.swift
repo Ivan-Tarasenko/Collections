@@ -12,7 +12,6 @@ class ArrayUnitTests: XCTestCase {
 
     var mut: ArrayViewModel!
     var sut: ArrayViewController!
-    var data: ArrayDataManager!
 
     let titleBigArray = NSLocalizedString("titleBigArray", comment: "")
     let indexPathBigArray = IndexPath(row: 0, section: 0)
@@ -27,13 +26,11 @@ class ArrayUnitTests: XCTestCase {
         try super.setUpWithError()
         mut = ArrayViewModel()
         sut = ArrayViewController()
-        data = ArrayDataManager()
     }
 
     override func tearDownWithError() throws {
         mut = ArrayViewModel()
         sut = ArrayViewController()
-        data = ArrayDataManager()
         try super.tearDownWithError()
     }
 
@@ -45,142 +42,120 @@ class ArrayUnitTests: XCTestCase {
     }
 
     func testupdateResultTitleCell() {
-        let titleBigArray = NSLocalizedString("titleBigArray", comment: "")
-        let insetOperations = NSLocalizedString("insetOperations", comment: "")
-        let removeOperations = NSLocalizedString("removeOperations", comment: "")
-
-        let indexPathFirst = IndexPath(row: 0, section: 0)
-        let indexPathSecond = IndexPath(row: 0, section: 1)
-        let indexPathThird = IndexPath(row: 7, section: 1)
-
-        let resultFirst = mut.updateCell(indexPathCell: indexPathFirst)
-        let resultSecond = mut.updateCell(indexPathCell: indexPathSecond)
-        let resultThird = mut.updateCell(indexPathCell: indexPathThird)
+        let resultFirst = mut.updateCell(indexPathCell: indexPathBigArray)
+        let resultSecond = mut.updateCell(indexPathCell: indexPathInset)
+        let resultThird = mut.updateCell(indexPathCell: indexPathRemove)
 
         XCTAssertNotNil(resultFirst)
         XCTAssertNotNil(resultSecond)
         XCTAssertNotNil(resultThird)
         XCTAssertEqual(resultFirst, titleBigArray)
-        XCTAssertEqual(resultSecond, insetOperations)
-        XCTAssertEqual(resultThird, removeOperations)
+        XCTAssertEqual(resultSecond, titleInset)
+        XCTAssertEqual(resultThird, titleRemove)
     }
 
     func testOperationsWithBigArray() throws {
         let createBigArray = mut.createBigArray(indexPath: indexPathBigArray)
-        let timeCreateBigArray = getOperationTime(string: createBigArray)
         XCTAssertNotNil(createBigArray)
-        XCTAssertEqual(createBigArray, "\(titleBigArray) \(timeCreateBigArray) ms.")
     }
 // MARK: - tests added elements.
     func testInsertBeginOnce() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let insertBeginOnce = mut.insertBeginOnce(indexPath: indexPathInset)
-        let timeOperation = getOperationTime(string: insertBeginOnce)
         XCTAssertNotNil(insertBeginOnce)
-        XCTAssertEqual(insertBeginOnce, "\(titleInset) \(timeOperation) ms.")
     }
 
     func testInsertBeginOneTime() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let insertBeginOneTime = mut.insertBeginOneTime(indexPath: indexPathInset)
-        let timeOperation = getOperationTime(string: insertBeginOneTime)
         XCTAssertNotNil(insertBeginOneTime)
-        XCTAssertEqual(insertBeginOneTime, "\(titleInset) \(timeOperation) ms.")
     }
 
     func testInsertMiddleOnce() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let insertMiddleOnce = mut.insertMiddleOnce(indexPath: indexPathInset)
-        let timeOperation = getOperationTime(string: insertMiddleOnce)
         XCTAssertNotNil(insertMiddleOnce)
-        XCTAssertEqual(insertMiddleOnce, "\(titleInset) \(timeOperation) ms.")
     }
 
     func testInsertMiddleOneTime() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let insertMiddleOneTime = mut.insertMiddleOneTime(indexPath: indexPathInset)
-        let timeOperation = getOperationTime(string: insertMiddleOneTime)
         XCTAssertNotNil(insertMiddleOneTime)
-        XCTAssertEqual(insertMiddleOneTime, "\(titleInset) \(timeOperation) ms.")
     }
 
     func testInsertTheEndOnce() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let insertTheEndOnce = mut.insertTheEndOnce(indexPath: indexPathInset)
-        let timeOperation = getOperationTime(string: insertTheEndOnce)
         XCTAssertNotNil(insertTheEndOnce)
-        XCTAssertEqual(insertTheEndOnce, "\(titleInset) \(timeOperation) ms.")
     }
 
     func testInsertTheEndOneTime() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let insertTheEndOneTime = mut.insertTheEndOneTime(indexPath: indexPathInset)
-        let timeOperation = getOperationTime(string: insertTheEndOneTime)
         XCTAssertNotNil(insertTheEndOneTime)
-        XCTAssertEqual(insertTheEndOneTime, "\(titleInset) \(timeOperation) ms.")
     }
 
 // MARK: - tests remove elements.
     func testRemoveBeginOnce() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let removeBeginOnce = mut.removeBeginOnce(indexPath: indexPathRemove)
-        let timeOperation = getOperationTime(string: removeBeginOnce)
         XCTAssertNotNil(removeBeginOnce)
-        XCTAssertEqual(removeBeginOnce, "\(titleRemove) \(timeOperation) ms.")
     }
 
     func testRemoveBeginOneTime() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let removeBeginOneTime = mut.removeBeginOneTime(indexPath: indexPathRemove)
-        let timeOperation = getOperationTime(string: removeBeginOneTime)
         XCTAssertNotNil(removeBeginOneTime)
-        XCTAssertEqual(removeBeginOneTime, "\(titleRemove) \(timeOperation) ms.")
     }
 
     func testRemoveMiddleOnce() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let removeMiddleOnce = mut.removeMiddleOnce(indexPath: indexPathRemove)
-        let timeOperation = getOperationTime(string: removeMiddleOnce)
         XCTAssertNotNil(removeMiddleOnce)
-        XCTAssertEqual(removeMiddleOnce, "\(titleRemove) \(timeOperation) ms.")
     }
 
     func testRemoveMiddleOneTime() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let removeMiddleOneTime = mut.removeMiddleOneTime(indexPath: indexPathRemove)
-        let timeOperation = getOperationTime(string: removeMiddleOneTime)
         XCTAssertNotNil(removeMiddleOneTime)
-        XCTAssertEqual(removeMiddleOneTime, "\(titleRemove) \(timeOperation) ms.")
     }
 
     func testRemoveTheEndOnce() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let removeTheEndOnce = mut.removeTheEndOnce(indexPath: indexPathRemove)
-        let timeOperation = getOperationTime(string: removeTheEndOnce)
         XCTAssertNotNil(removeTheEndOnce)
-        XCTAssertEqual(removeTheEndOnce, "\(titleRemove) \(timeOperation) ms.")
     }
 
     func testRemoveTheEndOneTime() throws {
         _ = mut.createBigArray(indexPath: indexPathBigArray)
         let removeTheEndOneTime = mut.removeTheEndOneTime(indexPath: indexPathRemove)
-        let timeOperation = getOperationTime(string: removeTheEndOneTime)
         XCTAssertNotNil(removeTheEndOneTime)
-        XCTAssertEqual(removeTheEndOneTime, "\(titleRemove) \(timeOperation) ms.")
     }
 
-//    func testOfPerformingOperationsWithArray() throws {
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        let items = sut.collectionView
-//
-//        mut.performOperations(indexPath: indexPath) {
-//            XCTAssertEqual("foo", "Bar")
-//        }
-//    }
+    func testOfPerformingOperationsWithArray() throws {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let expection = self.expectation(description: "completion")
 
-    func testDataManagerNotNil() throws {
-       let test = data.fetchArrayData()
-        XCTAssertNotNil(test)
+        mut.performOperations(indexPath: indexPath) { [weak self] in
+            guard let self = self else { return }
+            XCTAssertEqual(self.mut.cellData.count, 13)
+            XCTAssertNotNil(self.mut.cellData[0].title)
+
+            XCTAssertEqual(self.mut.cellData[1].title, NSLocalizedString("insertBeginOnce", comment: ""))
+            XCTAssertEqual(self.mut.cellData[2].title, NSLocalizedString("insertBeginOneTime", comment: ""))
+            XCTAssertEqual(self.mut.cellData[3].title, NSLocalizedString("insertMiddleOnce", comment: ""))
+            XCTAssertEqual(self.mut.cellData[4].title, NSLocalizedString("insertMiddleOneTime", comment: ""))
+            XCTAssertEqual(self.mut.cellData[5].title, NSLocalizedString("insertTheEndOnce", comment: ""))
+            XCTAssertEqual(self.mut.cellData[6].title, NSLocalizedString("insertTheEndOneTime", comment: ""))
+            XCTAssertEqual(self.mut.cellData[7].title, NSLocalizedString("removeBeginOnce", comment: ""))
+            XCTAssertEqual(self.mut.cellData[8].title, NSLocalizedString("removeBeginOneTime", comment: ""))
+            XCTAssertEqual(self.mut.cellData[9].title, NSLocalizedString("removeMiddleOnce", comment: ""))
+            XCTAssertEqual(self.mut.cellData[10].title, NSLocalizedString("removeMiddleOneTime", comment: ""))
+            XCTAssertEqual(self.mut.cellData[11].title, NSLocalizedString("removeTheEndOnce", comment: ""))
+            XCTAssertEqual(self.mut.cellData[12].title, NSLocalizedString("removeTheEndOneTime", comment: ""))
+            expection.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     func testPerformanceExample() throws {
@@ -189,11 +164,4 @@ class ArrayUnitTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
-    func getOperationTime(string: String) -> Double {
-        let str = string.components(separatedBy: CharacterSet.init(charactersIn: "0123456789.").inverted).joined(separator: "")
-        let result = NSString(string: str).doubleValue
-        return result
-    }
-
 }
