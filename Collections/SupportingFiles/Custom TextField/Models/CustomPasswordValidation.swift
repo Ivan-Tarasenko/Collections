@@ -110,28 +110,62 @@ class CustomPassValid {
         }
     }
 
+    func setProgressView() {
+//        progressView.snp.makeConstraints { maker in
+//            maker.left.equalToSuperview().inset(2)
+//            maker.right.equalToSuperview().inset(2)
+//            maker.bottom.equalToSuperview().inset(0)
+//        }
+    }
+
     func setLabelPasswordValidation () {
+//        let constraintX = 10
+//        let constraintY = 22
 
         let labelFont = UIFont.systemFont(ofSize: 13)
 
         minLengthChar.font = labelFont
         minLengthChar.textTitle = localizing.minChar
+//        minLengthChar.snp.makeConstraints { make in
+//            make.left.equalToSuperview().inset(constraintX)
+//            make.top.equalToSuperview().inset(85)
+//        }
 
         minOneDigit.font = labelFont
         minOneDigit.textTitle = localizing.minOneDigit
+//        minOneDigit.snp.makeConstraints { make in
+//            make.left.equalToSuperview().inset(constraintX)
+//            make.top.equalTo(minLengthChar).inset(constraintY)
+//        }
 
         minOneLowercase.font = labelFont
         minOneLowercase.textTitle = localizing.minOneLowercase
+//        minOneLowercase.snp.makeConstraints { make in
+//            make.left.equalToSuperview().inset(constraintX)
+//            make.top.equalTo(minOneDigit).inset(constraintY)
+//        }
 
         minCapitalRequired.font = labelFont
         minCapitalRequired.textTitle = localizing.minOneCapitalRequired
+//        minCapitalRequired.snp.makeConstraints { make in
+//            make.left.equalToSuperview().inset(constraintX)
+//            make.top.equalTo(minOneLowercase).inset(constraintY)
+//        }
 
         notSpecialChar.font = labelFont
         notSpecialChar.textTitle = localizing.notSpecialChar
         notSpecialChar.textColor = .systemRed
+//        notSpecialChar.snp.makeConstraints { make in
+//            make.right.equalToSuperview().inset(20)
+//            make.top.equalToSuperview().inset(103)
+//        }
 
         onlyEnglishChar.font = labelFont
         onlyEnglishChar.textTitle = localizing.onlyEnglishChar
         onlyEnglishChar.textColor = .systemRed
+//        onlyEnglishChar.snp.makeConstraints { make in
+//            make.right.equalToSuperview().inset(20)
+//            make.top.equalTo(notSpecialChar).inset(20)
+//        }
     }
 }

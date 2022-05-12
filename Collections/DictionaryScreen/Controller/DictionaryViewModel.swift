@@ -22,6 +22,7 @@ class DictionaryViewModel {
             onUpdateCellData?(cellData)
         }
     }
+    
     private var dataManager = DictionaryDataManager.dicShared
 
     func fetchData() {
@@ -133,19 +134,13 @@ class DictionaryViewModel {
     }
 
     // MARK: - Worning with treads
-    func setQueueForStartCell(startWorkingCell: () -> Void) {
-        concurrentQueue.sync {
-            startWorkingCell()
-        }
-    }
 
     func setQueueForOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
         guard !contactArray.isEmpty, !contactDictionary.isEmpty else { return }
 
-        var timeOperation = String()
-
         cellData[indexPath.row].isPerfoming = true
 
+        var timeOperation = String()
         concurrentQueue.async { [weak self] in
             guard let self = self else { return }
             switch indexPath.row {
