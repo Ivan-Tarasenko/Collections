@@ -93,7 +93,7 @@ class DictionaryViewModel {
     }
 
     // MARK: - Operations with dictionary
-    func findFirstValueDictionary() -> String {
+    func findFirstDictionaryValue() -> String {
         let dictionary = contactDictionary
         var answer = String()
         let title = NSLocalizedString("findFirstAnswer", comment: "")
@@ -106,7 +106,7 @@ class DictionaryViewModel {
 
     }
 
-    func findLastValueDictionary() -> String {
+    func findLastDictionaryValue() -> String {
         let dictionary = contactDictionary
         var answer = String()
         let title = NSLocalizedString("findFirstAnswer", comment: "")
@@ -133,13 +133,7 @@ class DictionaryViewModel {
     }
 
     // MARK: - Worning with treads
-    func setQueueForStartCell(startWorkingCell: () -> Void) {
-        concurrentQueue.sync {
-            startWorkingCell()
-        }
-    }
-
-    func setQueueForOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
+    func perfomingOperations(indexPath: IndexPath, completion: @escaping () -> Void) {
         guard !contactArray.isEmpty, !contactDictionary.isEmpty else { return }
 
         var timeOperation = String()
@@ -152,11 +146,11 @@ class DictionaryViewModel {
             case 0:
                 timeOperation = self.findFirstValueArray()
             case 1:
-                timeOperation = self.findFirstValueDictionary()
+                timeOperation = self.findFirstDictionaryValue()
             case 2:
                 timeOperation = self.findLastValueArray()
             case 3:
-                timeOperation = self.findLastValueDictionary()
+                timeOperation = self.findLastDictionaryValue()
             case 4:
                 timeOperation = self.arraySearchNonExistentValue()
             case 5:
