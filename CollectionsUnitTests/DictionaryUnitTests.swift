@@ -33,15 +33,13 @@ class DictionaryUnitTests: XCTestCase {
     func testCreateCollections() {
         let expection = expectation(description: "completion")
 
-        mut.createCollections { [weak self] in
-            guard let self = self else { return }
-            XCTAssertNotNil(self.mut.contactArray)
-            XCTAssertNotNil(self.mut.contactDictionary)
-            XCTAssertEqual(self.mut.contactArray.count, 10_000_000)
-            XCTAssertEqual(self.mut.contactDictionary.count, 10_000_000)
+        mut.createCollections {
             expection.fulfill()
         }
         waitForExpectations(timeout: 60, handler: nil)
+
+        XCTAssertEqual(mut.contactArray.count, 10_000_000)
+        XCTAssertEqual(mut.contactDictionary.count, 10_000_000)
 
     }
 
@@ -77,18 +75,21 @@ class DictionaryUnitTests: XCTestCase {
 
     func testperfomingOperations() {
         let indexPath = IndexPath(row: 0, section: 0)
-
         let expectionPerfomingOperation = XCTestExpectation(description: "completionPerfomingOperation")
+        let expectioncreateCollections = expectation(description: "completionCreateCollections")
 
-        mut.fetchData()
+        mut.createCollections {
+            expectioncreateCollections.fulfill()
+        }
+        waitForExpectations(timeout: 60, handler: nil)   // Filling collections
 
-        mut.perfomingOperations(indexPath: indexPath) { [weak self] in
-            guard let self = self else { return }
-            XCTAssertEqual(self.mut.cellData[0].title, NSLocalizedString("findLastAnswer", comment: ""))
-
+        mut.fetchData()                                  // Init cellData
+        mut.perfomingOperations(indexPath: indexPath) {
             expectionPerfomingOperation.fulfill()
         }
+        wait(for: [expectionPerfomingOperation], timeout: 60) // Performing operation on collections
 
-        wait(for: [expectionPerfomingOperation], timeout: 1000)
+        // Checking the title change
+        XCTAssertNotEqual(mut.cellData[0].title, NSLocalizedString("findFirstAnswer", comment: ""))
     }
 }
