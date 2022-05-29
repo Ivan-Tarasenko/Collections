@@ -9,7 +9,6 @@ import XCTest
 
 class SetUITests: XCTestCase {
 
-    let identifierCell = MainVCIdentifier()
     let accessibility = SetVCAccessibilityIdentifier()
 
     var app: XCUIApplication!
@@ -40,7 +39,7 @@ class SetUITests: XCTestCase {
         app = XCUIApplication()
         app.launch()
 
-        setCell = app.staticTexts[identifierCell.setCell]
+        setCell = app.cells.element(boundBy: 1)
 
         firstView = app.otherElements[accessibility.firstView]
         firstViewTitle = app.staticTexts[accessibility.firstViewTitle]

@@ -9,22 +9,21 @@ import XCTest
 
 class MainUITests: XCTestCase {
 
-    let identifier = MainVCIdentifier()
-
     var app: XCUIApplication!
-    var array: XCUIElement!
-    var set: XCUIElement!
-    var dictionary: XCUIElement!
+    var arrayCell: XCUIElement!
+    var setCell: XCUIElement!
+    var dictionaryCell: XCUIElement!
+    var backButtonNavBar: XCUIElement!
 
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
 
-        array = app.staticTexts[identifier.arrayCell]
-        set = app.staticTexts[identifier.setCell]
-        dictionary = app.staticTexts[identifier.dictionaryCell]
-
+        arrayCell = app.cells.element(boundBy: 0)
+        setCell = app.cells.element(boundBy: 1)
+        dictionaryCell = app.cells.element(boundBy: 2)
+        backButtonNavBar = app.navigationBars.buttons.element(boundBy: 0)
     }
 
     override func tearDownWithError() throws {
@@ -32,20 +31,41 @@ class MainUITests: XCTestCase {
     }
 
     func testForPresenceOfElements() throws {
-        XCTAssertTrue(array.exists)
-        XCTAssertTrue(set.exists)
-        XCTAssertTrue(dictionary.exists)
+        XCTAssertTrue(arrayCell.exists)
+        XCTAssertTrue(setCell.exists)
+        XCTAssertTrue(dictionaryCell.exists)
     }
 
-    func testCellArray() throws {
-        array.tap()
+    func testOfSwitchingToOtherScreensAndAbout() throws {
+        XCTAssertTrue(isOnMainView)
+        arrayCell.tap()
+        XCTAssertTrue(inOnArrayView)
+        backButtonNavBar.tap()
+        setCell.tap()
+        XCTAssertTrue(inOnSetView)
+        backButtonNavBar.tap()
+        dictionaryCell.tap()
+        XCTAssertTrue(inOnDictionary)
+        backButtonNavBar.tap()
+
+    }
+}
+
+extension MainUITests {
+
+    var isOnMainView: Bool {
+        return app.otherElements["MainView"].exists
     }
 
-    func testCellSet() throws {
-        set.tap()
+    var inOnArrayView: Bool {
+        return app.otherElements["ArrayView"].exists
     }
 
-    func testCellDictionary() throws {
-        dictionary.tap()
+    var inOnSetView: Bool {
+        return app.otherElements["SetView"].exists
+    }
+
+    var inOnDictionary: Bool {
+        return app.otherElements["DictionaryView"].exists
     }
 }

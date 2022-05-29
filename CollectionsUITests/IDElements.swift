@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct MainVCIdentifier {
-    let arrayCell = "Array"
-    let setCell = "Set"
-    let dictionaryCell = "Dictionary"
-}
-
 struct SetVCAccessibilityIdentifier {
 
     let firstView = "FirstView"
