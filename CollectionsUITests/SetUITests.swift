@@ -57,7 +57,7 @@ class SetUITests: XCTestCase {
         allDoNotMatchLabel = app.staticTexts[accessibility.allDoNotMatchLabel]
         uniqueCharacterLabel = app.staticTexts[accessibility.uniqueCharacterLabel]
 
-        backBarButtonMavBar = app.buttons[accessibility.backBarButtonMavBar]
+        backBarButtonMavBar = app.navigationBars.element(boundBy: 0)
         returnButton = app.buttons[accessibility.returnBotton]
     }
 

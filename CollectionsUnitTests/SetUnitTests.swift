@@ -10,7 +10,7 @@ import XCTest
 
 class SetUnitTests: XCTestCase {
 
-        var sut: SetViewModel!
+        var mut: SetViewModel!
 
         let firstString = "Abcdefg"
         let secondString = "AbcdY"
@@ -18,18 +18,18 @@ class SetUnitTests: XCTestCase {
 
         override func setUpWithError() throws {
             try super.setUpWithError()
-            sut = SetViewModel()
+            mut = SetViewModel()
 
         }
 
         override func tearDownWithError() throws {
-            sut = SetViewModel()
+            mut = SetViewModel()
             try super.tearDownWithError()
         }
 
         func testAllMatchingLetters() throws {
             let answer = "Abcd"
-            let result = sut.answerMatchingletter(first: firstString, second: secondString)
+            let result = mut.answerMatchingletter(first: firstString, second: secondString)
             XCTAssertNotNil(result)
             XCTAssertEqual(result, answer)
             XCTAssertNotEqual(result, wrongAnswer)
@@ -37,7 +37,7 @@ class SetUnitTests: XCTestCase {
 
         func testAllMatchingDoNotCharacter() throws {
             let answer = "Yefg"
-            let result = sut.answerDoNotMatchLetter(first: firstString, second: secondString)
+            let result = mut.answerDoNotMatchLetter(first: firstString, second: secondString)
             XCTAssertNotNil(result)
             XCTAssertEqual(result, answer)
             XCTAssertNotEqual(result, wrongAnswer)
@@ -45,7 +45,7 @@ class SetUnitTests: XCTestCase {
 
         func testUniqueCharactersFromFirstField() throws {
             let answer = "efg"
-            let result = sut.answerCharacterDifference(first: firstString, second: secondString)
+            let result = mut.answerCharacterDifference(first: firstString, second: secondString)
             XCTAssertNotNil(result)
             XCTAssertEqual(result, answer)
             XCTAssertNotEqual(result, wrongAnswer)

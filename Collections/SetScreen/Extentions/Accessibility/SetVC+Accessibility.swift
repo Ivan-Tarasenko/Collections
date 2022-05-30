@@ -10,20 +10,20 @@ import Foundation
 extension SetViewController {
 
     func setVCAccessibilityIdentificator() {
-        firstView.accessibilityIdentifier = "FirstView"
-        firstView.title.accessibilityIdentifier = "FirstView_Title"
-        firstView.textField.accessibilityIdentifier = "FirstView_TextField"
+        firstView.accessibilityIdentifier = "FirstView_SetScreen"
+        firstView.title.accessibilityIdentifier = "FirstViewTitle_SetScreen"
+        firstView.textField.accessibilityIdentifier = "FirstViewTextField_SetScreen"
 
-        secondView.accessibilityIdentifier = "SecondView"
-        secondView.title.accessibilityIdentifier = "SecondView_Title"
-        secondView.textField.accessibilityIdentifier = "SecondView_TextField"
+        secondView.accessibilityIdentifier = "SecondView_SetScreen"
+        secondView.title.accessibilityIdentifier = "SecondViewTitle_SetScreen"
+        secondView.textField.accessibilityIdentifier = "SecondViewTextField_SetScreen"
 
-        allMatchButton.accessibilityIdentifier = "AllMatch_Button"
-        allDoNotMatchButton.accessibilityIdentifier = "AllDoNotMatch_Button"
-        uniqueCharacterButton.accessibilityIdentifier = "UniqueSymbols_Button"
+        allMatchButton.accessibilityIdentifier = "AllMatchButton_SetScreen"
+        allDoNotMatchButton.accessibilityIdentifier = "AllDoNotMatchButton_SetScreen"
+        uniqueCharacterButton.accessibilityIdentifier = "UniqueSymbolsButton_SetScreen"
 
-        allMatchLabel.accessibilityIdentifier = "AllMatch_Label"
-        allDoNotMatchLabel.accessibilityIdentifier = "AllDoNotMatch_Label"
-        uniqueCharacterLabel.accessibilityIdentifier = "UniqueSymbols_Label"
+        allMatchLabel.accessibilityIdentifier = "AllMatchLabel_SetScreen"
+        allDoNotMatchLabel.accessibilityIdentifier = "AllDoNotMatchLabel_SetScreen"
+        uniqueCharacterLabel.accessibilityIdentifier = "UniqueSymbolsLabel_SetScreen"
     }
 }
