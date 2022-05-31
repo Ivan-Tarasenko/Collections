@@ -35,7 +35,7 @@ extension DictionaryDaraSource: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        viewModel.setQueueForOperations(indexPath: indexPath) {
+        viewModel.perfomingOperations(indexPath: indexPath) {
             collectionView.reloadItems(at: [indexPath])
         }
         collectionView.reloadItems(at: [indexPath])
