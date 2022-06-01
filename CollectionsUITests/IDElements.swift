@@ -1,6 +1,6 @@
 //
 //  IDElements.swift
-//  SetUITests
+//  CollectionsUITests
 //
 //  Created by Иван Тарасенко on 26.02.2022.
 //

@@ -11,11 +11,15 @@ import UIKit
 class DictionaryDaraSource: NSObject, UICollectionViewDataSource {
 
     var viewModel = DictionaryViewModel()
-    var objects: [DictionaryCollectionModel] = []
+    var objects: [DictionaryCollectionModel] = [] {
+        didSet {
+        }
+    }
 
     private let sectionInsert = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //        print(objects.count)
         return objects.count
     }
 

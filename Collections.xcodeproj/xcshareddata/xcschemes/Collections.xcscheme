@@ -52,12 +52,6 @@
                <Test
                   Identifier = "CollectionsUITests/testLaunchPerformance()">
                </Test>
-               <Test
-                  Identifier = "CollectionsUITestsLaunchTests">
-               </Test>
-               <Test
-                  Identifier = "SetUITests/testLaunchPerformance()">
-               </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>
@@ -82,6 +76,13 @@
             ReferencedContainer = "container:Collections.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
