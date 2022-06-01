@@ -45,6 +45,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qop-dS-2Gc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="ArrayView"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="35Y-5b-uLO" secondAttribute="bottom" id="0Mu-Yx-len"/>
                             <constraint firstItem="35Y-5b-uLO" firstAttribute="trailing" secondItem="Qop-dS-2Gc" secondAttribute="trailing" id="NGb-4h-iRl"/>

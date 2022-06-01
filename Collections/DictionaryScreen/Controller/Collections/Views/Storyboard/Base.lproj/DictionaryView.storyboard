@@ -79,6 +79,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vc3-ud-JFk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="DictionaryView"/>
                         <constraints>
                             <constraint firstItem="deB-fJ-h8h" firstAttribute="leading" secondItem="Vc3-ud-JFk" secondAttribute="leading" id="9YZ-nT-GCx"/>
                             <constraint firstItem="deB-fJ-h8h" firstAttribute="top" secondItem="Vc3-ud-JFk" secondAttribute="top" id="qYf-Tr-odh"/>

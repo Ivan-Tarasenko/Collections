@@ -75,6 +75,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a7P-OQ-mpL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="MainView"/>
                         <constraints>
                             <constraint firstItem="8Bo-r6-81k" firstAttribute="leading" secondItem="a7P-OQ-mpL" secondAttribute="leading" id="Bng-lR-uAh"/>
                             <constraint firstAttribute="bottom" secondItem="8Bo-r6-81k" secondAttribute="bottom" id="Mjh-0i-EAB"/>

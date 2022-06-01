@@ -48,8 +48,8 @@ class DictionaryViewController: UIViewController {
     func bind() {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
-        viewModel.onUpdateCellData = { [weak self] data in
-            self?.dataSource.objects = data
+        viewModel.onUpdateCellData = { [dataSource] data in
+            dataSource.objects = data
         }
     }
 
