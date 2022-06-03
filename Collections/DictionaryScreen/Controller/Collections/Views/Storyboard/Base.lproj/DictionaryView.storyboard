@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I2G-Ll-Slb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dictionary View Controller-->
+        <scene sceneID="Do0-zp-iWG">
+            <objects>
+                <viewController storyboardIdentifier="dictionaryVC" id="I2G-Ll-Slb" customClass="DictionaryViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sUo-ec-dHV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="deB-fJ-h8h">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a0Z-4C-6x4">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dicCell" id="lFW-vg-O93" customClass="DictionaryCollectionViewCell" customModule="Collections" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ny2-NT-qQi">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="G31-Mm-KYk" customClass="HeaderDictionary" customModule="Collections" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyP-7r-Bl3">
+                                            <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0J-qT-8a4">
+                                            <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pyP-7r-Bl3" firstAttribute="top" secondItem="G31-Mm-KYk" secondAttribute="top" id="4OY-9F-r7P"/>
+                                        <constraint firstItem="pyP-7r-Bl3" firstAttribute="leading" secondItem="G31-Mm-KYk" secondAttribute="leading" id="4si-81-2Mn"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="firstBaseline" secondItem="pyP-7r-Bl3" secondAttribute="firstBaseline" id="CGh-hw-dPp"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="top" secondItem="pyP-7r-Bl3" secondAttribute="top" id="FQV-Rj-B0s"/>
+                                        <constraint firstAttribute="bottom" secondItem="pyP-7r-Bl3" secondAttribute="bottom" id="JOq-Ua-pqI"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="top" secondItem="G31-Mm-KYk" secondAttribute="top" id="ONM-xm-Y44"/>
+                                        <constraint firstAttribute="trailing" secondItem="f0J-qT-8a4" secondAttribute="trailing" id="QQy-Cb-koE"/>
+                                        <constraint firstItem="f0J-qT-8a4" firstAttribute="leading" secondItem="pyP-7r-Bl3" secondAttribute="trailing" id="Sxw-nm-HxS"/>
+                                        <constraint firstItem="pyP-7r-Bl3" firstAttribute="width" secondItem="f0J-qT-8a4" secondAttribute="width" id="Wdf-nf-J5T"/>
+                                        <constraint firstAttribute="bottom" secondItem="f0J-qT-8a4" secondAttribute="bottom" id="uXh-te-Ath"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerArray" destination="pyP-7r-Bl3" id="vMn-gy-Aug"/>
+                                        <outlet property="headerDictionary" destination="f0J-qT-8a4" id="Mke-dY-Xqe"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="I2G-Ll-Slb" id="wxf-ly-NI8"/>
+                                    <outlet property="delegate" destination="I2G-Ll-Slb" id="GvL-PP-T0y"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vc3-ud-JFk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="DictionaryView"/>
+                        <constraints>
+                            <constraint firstItem="deB-fJ-h8h" firstAttribute="leading" secondItem="Vc3-ud-JFk" secondAttribute="leading" id="9YZ-nT-GCx"/>
+                            <constraint firstItem="deB-fJ-h8h" firstAttribute="top" secondItem="Vc3-ud-JFk" secondAttribute="top" id="qYf-Tr-odh"/>
+                            <constraint firstItem="Vc3-ud-JFk" firstAttribute="trailing" secondItem="deB-fJ-h8h" secondAttribute="trailing" id="tua-Rv-zLG"/>
+                            <constraint firstItem="Vc3-ud-JFk" firstAttribute="bottom" secondItem="deB-fJ-h8h" secondAttribute="bottom" id="zpy-4b-aUv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="deB-fJ-h8h" id="gF6-qB-6dd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIs-64-X3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2721.739130434783" y="423.88392857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

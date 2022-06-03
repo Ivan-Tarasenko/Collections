@@ -1,0 +1,59 @@
+// Localization title label.
+"Text_Fields_All" = "Campos de texto";
+"Text_Fields_NoDigit" = "Campo de texto sin números";
+"Text_Fields_LimitChar" = "Campo de texto restringido";
+"Text_Fields_OnlyChar" = "Campo de texto solo para caracteres";
+"Text_Fields_Link" = "Campo de texto para el enlace";
+"Text_Fields_Password" = "Campo de texto de contraseña";
+
+// No Digits.
+"NO_Digits_field" = "Sin campo de dígitos";
+"Type_here" = "Escriba aquí";
+
+//Input Limit.
+"Input_limit" = "Límite de entrada";
+
+// Only characters.
+"Only_characters" = "Solo personajes";
+"wwwww_ddddd" =  "wwwww-ddddd";
+
+// Link.
+"Link" = "Enlace";
+"www.example.com" = "www.example.es";
+
+// Validation rules.
+"Validation_rules" = "Reglas de validación";
+"Password" = "Contraseña";
+
+// Localization label password validation.
+"Min_length_characters" = "- Longitud mínima 8 caracteres.";
+"Min_1_digit" = "- Mínimo 1 dígito.";
+"Min_1_lowercase" = "- Min 1 minúscula.";
+"Min_1_capital_required" = "- Mínimo 1 capital requerido.";
+"special_characters_are_not_allowed" = "✘ No se permiten caracteres especiales";
+"only_English_characters" = "✘ Solo Caracteres en inglés";
+
+// Localization string for test "no digit"
+"NoDigitstrInput" = "hola123!@#";
+"NoDigitstrOut" = "hola!@#";
+
+// Localization string for test "Limit character"
+"limitStrInput" = "Comprobación del carácter límite";
+
+// Localization string for test "Link"
+"LinkString" = "Aquí hay un enlace";
+
+// Localization string for test "Password validation"
+"Min_length_charactersTest" = "✓ Longitud mínima 8 caracteres.";
+"Min_1_digitTest" = "✓ Mínimo 1 dígito.";
+"Min_1_lowercaseTest" = "✓ Min 1 minúscula.";
+"Min_1_capital_requiredTest" = "✓ Mínimo 1 capital requerido.";
+
+// Localization for incorrect characters.
+"NextKeyboard" = "Teclado siguiente";
+
+// test progress bar.
+"25%" = "25 %";
+"50%" = "50 %";
+"75%" = "75 %";
+"100%" = "100 %";
