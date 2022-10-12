@@ -21,7 +21,9 @@
 - Run in the simulator
 
 ## Usage
-Going through the tabs you will read information about me.
+Go to the Array screen and you will see the execution time of various operations with the array.
+If you go to the Set screen, you will try to practice the unique features of the set.
+The Dictionary tab will show the loading screen and the time of dictionary search operations.
 
 ## Author
 made by Ivan Tarasenko  
@@ -31,8 +33,11 @@ made by Ivan Tarasenko
 MVC  
 UIKit  
 Storyboard  
-CALayer  
-CAGradientLayer
+TableView
+CollictionView
+GCD
+Completion Handler
+Singleton
 
 <p align="center">
     <a href="https://github.com/realm/SwiftLint" alt="SwiftLint badge">
