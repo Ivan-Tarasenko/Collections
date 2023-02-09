@@ -15,8 +15,12 @@
   <img src="/Preview/Dictionary.gif" width="149" height="300"/>
 </p>
 
+## Description
+The application in which I worked with the main collections in Swift. Array, Set and Dictionary. And also with their main operations.
+
 ## Getting Started
 - Just download the project as a zip archive
+- To avoid downloading preview files, download the “main” branch
 - Open it in Xcode
 - Run in the simulator
 
@@ -33,11 +37,11 @@ made by Ivan Tarasenko
 MVC  
 UIKit  
 Storyboard  
-TableView
-CollictionView
-GCD
-Completion Handler
-Singleton
+TableView  
+CollectionView  
+GCD  
+Completion Handler  
+Singleton  
 
 <p align="center">
     <a href="https://github.com/realm/SwiftLint" alt="SwiftLint badge">
